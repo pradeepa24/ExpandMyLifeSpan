@@ -1,0 +1,93 @@
+.login {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../images/chopping-board-nav.jpg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-content {
+    height: 70vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    border: solid 4px rgb(88, 40, 8);
+}
+form {
+    height: 40vh;
+    width: 40vw;
+    padding: 5px;
+}
+
+.field-groups {
+    height: 40vh;
+    width: 40vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.fields {
+    text-align: left;
+    width: 30vw;
+    height: 10vh;
+}
+input {
+    width: 18vw;
+    height: 6vh;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    float: right;
+}
+input::placeholder {
+    text-align: center;
+}
+input[type=submit]{
+   border: solid 1px rgb(154, 190, 25);
+   background-color:rgb(154, 190, 25);
+   color: black;
+   font-weight: bold;
+   font-size: 20px;
+   width: 10vw;
+}
+input[type=submit]:hover, input[type=submit]:active {
+    border: solid 1px rgb(231, 45, 12);
+    background-color:rgb(231, 45, 12);
+    color: white;
+    }
+label {
+    font-size: 20px;
+    font-weight: bold;
+ 
+   
+}
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-up-content {
+    height: 10vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+}
+.sign-up-content a {
+    text-decoration: none;
+    position: relative;
+    left: 10px;
+    bottom: 2px;
+    font-weight:bold;
+    font-size: 18px;
+}

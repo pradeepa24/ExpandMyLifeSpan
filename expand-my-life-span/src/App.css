@@ -20,3 +20,38 @@
 .App-link {
   color: #09d3ac;
 }
+.content {
+ 
+  height:100vh;
+  width:100vw;
+}
+h1 {
+  font-size: 45px;
+  color: white;
+  font-weight: bold;
+}
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color:rgb(87, 43, 7);
+  z-index:4;
+}
+header img{
+  height: 8vh;
+  width: 5vw;
+}
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  width:100vw;
+  margin-top:5%;
+}
+
