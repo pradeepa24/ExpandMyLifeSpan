@@ -59,19 +59,10 @@ class App extends React.Component {
              })
     this.handleSubmit();
   }
-  handleSubmit = async () => {
-    // const response = await youtube.get('/search', {
-    //     params: {
-    //         q: "workout"
-    //     }
-    // })
-    // console.log(response);
-    // this.setState({
-    //     workoutVideos: response.data.items
-    // })
+  handleSubmit = () => {
     Axios.get('https://www.googleapis.com/youtube/v3/search',{params: {
       part: "snippet",
-      maxResults: 5,
+      maxResults: 3,
       key: KEY,
       q:"workout"
   }

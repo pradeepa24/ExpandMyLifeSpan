@@ -1,30 +1,54 @@
 import React, { Component } from 'react';
 import './workout-plan.css';
+import loadingIcon from '../../images/loading-icon.gif';
 
 export default class WorkoutPlan extends Component {
     displayWorkoutVideoList = () => {
         return this.props.workoutVideos.map((video,ind) => {
             return (
-                <div key ={ind} onClick={ () => this.props.handleVideoSelect(video)} className=' video-item item'>
-                   <img className='ui image' src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>
-                   <div className='content'>
+                <div key ={ind} onClick={ () => this.props.handleVideoSelect(video)} className="workout-video">
+                   <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>
+                   <div className='workout-video-description'>
                       <div className='header '>{video.snippet.title}</div>
                    </div>
                 </div>
             )
         })
     }
+    displayVideo = () => {
+        if(this.props.selectedWorkoutVideo) {
+            let videoSrc = `https://www.youtube.com/embed/${this.props.selectedWorkoutVideo.id.videoId}`;
+            return (
+                <div>
+                <div className='ui embed'>
+                    <iframe src={videoSrc} allowFullScreen title='Video player'/>
+                </div>
+                <div className='ui segment'>
+                    <h4 className='ui header'>{this.props.selectedWorkoutVideo.snippet.title}</h4>
+                    <p>{this.props.selectedWorkoutVideo.snippet.description}</p>
+                </div>
+            </div>
+            )
+        } else {
+            return (
+                <span>Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
+            )
+        }
+        
+    }
     render() {
         return (
-            <div>
-              <div className='ui grid'>
-                    <div className="ui row">
-                        {/* <div className="eleven wide column">
-                            <VideoDetail video={this.state.selectedVideo}/>
-                        </div> */}
-                        <div className="five wide column">
+            <div className="workout-plan-content">
+              <div className="workout-plan">
+                    <h3>WORKOUT FOR THE DAY</h3>
+                    <div className="workout-video-content">
+                        <div className="workout-video-disp">
+                            {this.displayVideo()}
+                        </div>
+                        <div className="workout-video-section">
                             {this.displayWorkoutVideoList()}
                         </div>
+                        
                     </div>
                 </div>
             </div>
