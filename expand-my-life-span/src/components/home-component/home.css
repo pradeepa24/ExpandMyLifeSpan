@@ -10,17 +10,6 @@
 h2 {
     text-align: center;
 }
-/* form {
-    /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 10vh;
-    width: 100vw;
-}
 a {
     text-decoration: none;
     color: black;
@@ -56,3 +45,17 @@ a.meal-nav {
     border-radius: 10px;
     background-color: rgba(152, 199, 76, 0.979);
 }
+.dropdown-content {
+    position: absolute;
+    background-color: rgba(152, 199, 76, 0.979);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top:87px;
+    right:11px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 15vw;
+  }

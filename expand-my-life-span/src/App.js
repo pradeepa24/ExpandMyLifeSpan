@@ -27,7 +27,8 @@ class App extends React.Component {
     searchText:"",
     authenticatedFlag: false,
     workoutVideos: [],
-    selectedWorkoutVideo: null
+    selectedWorkoutVideo: null,
+    styleSettings:{display:'none'},
     }
   }
   componentDidMount(){
@@ -64,6 +65,11 @@ class App extends React.Component {
     // .catch(err=>console.log(err))
     
   }
+  setStyleSettings = (styleObj) => {
+    this.setState({
+      styleSettings: styleObj
+    });
+  }
   handleSubmit = () => {
     Axios.get('https://www.googleapis.com/youtube/v3/search',{params: {
       part: "snippet",
@@ -99,6 +105,11 @@ handleVideoSelect = (video) => {
          authenticatedFlag:true
        })
     }
+  }
+  logOutSession = () => {
+    this.setState({
+      authenticatedFlag:false
+    })
   }
   setSearch = (str) => {
     this.setState({
@@ -142,12 +153,17 @@ handleVideoSelect = (video) => {
                                                                                   authenticateUser = {this.authenticateUser}
                                                                                   authenticatedFlag = {this.state.authenticatedFlag}
             /> } />
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/home" render = { (props) => <Home {...props} styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                              logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}       
+            /> }  />
             <Route exact path="/meal-plan" render = { (props) => <MealPlan {...props} searchText = {this.state.searchText}
                                                                                       setSearch = {this.setSearch}
                                                                                       callMeals = {this.callMeals}
                                                                                       mealPlan = {this.state.mealPlan}
                                                                                       ready = {this.state.ready}
+                                                                                      
             /> } />
             <Route exact path="/workout-plan" render = { (props) => <WorkoutPlan {...props} workoutVideos = {this.state.workoutVideos}
                                                                                             selectedWorkoutVideo = {this.state.selectedWorkoutVideo}
