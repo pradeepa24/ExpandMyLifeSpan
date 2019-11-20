@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/ExpandMyLifeSpan/static/css/main.2f33fa30.chunk.css",
-    "main.js": "/ExpandMyLifeSpan/static/js/main.e6ff7fb3.chunk.js",
-    "main.js.map": "/ExpandMyLifeSpan/static/js/main.e6ff7fb3.chunk.js.map",
+    "main.css": "/ExpandMyLifeSpan/static/css/main.537f8780.chunk.css",
+    "main.js": "/ExpandMyLifeSpan/static/js/main.d5aff2a0.chunk.js",
+    "main.js.map": "/ExpandMyLifeSpan/static/js/main.d5aff2a0.chunk.js.map",
     "runtime-main.js": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js",
     "runtime-main.js.map": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js.map",
     "static/css/2.b0bb7f2c.chunk.css": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.79679692.chunk.js": "/ExpandMyLifeSpan/static/js/2.79679692.chunk.js",
-    "static/js/2.79679692.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.79679692.chunk.js.map",
+    "static/js/2.7a214c7f.chunk.js": "/ExpandMyLifeSpan/static/js/2.7a214c7f.chunk.js",
+    "static/js/2.7a214c7f.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.7a214c7f.chunk.js.map",
     "index.html": "/ExpandMyLifeSpan/index.html",
-    "precache-manifest.d489c12de5ee05b8343d3fb346d7953a.js": "/ExpandMyLifeSpan/precache-manifest.d489c12de5ee05b8343d3fb346d7953a.js",
+    "precache-manifest.b75240159661e1bd74b709b06ddcc08d.js": "/ExpandMyLifeSpan/precache-manifest.b75240159661e1bd74b709b06ddcc08d.js",
     "service-worker.js": "/ExpandMyLifeSpan/service-worker.js",
     "static/css/2.b0bb7f2c.chunk.css.map": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css.map",
-    "static/css/main.2f33fa30.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.2f33fa30.chunk.css.map",
+    "static/css/main.537f8780.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.537f8780.chunk.css.map",
     "static/media/login.css": "/ExpandMyLifeSpan/static/media/chopping-board-nav.aa7cf8e4.jpg",
     "static/media/health-check-image.jpg": "/ExpandMyLifeSpan/static/media/health-check-image.9c2c9811.jpg",
+    "static/media/home-icon.jpg": "/ExpandMyLifeSpan/static/media/home-icon.dac126b4.jpg",
     "static/media/loading-icon.gif": "/ExpandMyLifeSpan/static/media/loading-icon.a44d5fc1.gif",
     "static/media/logo.svg": "/ExpandMyLifeSpan/static/media/logo.25bf045c.svg",
     "static/media/meal-plan-image.jpg": "/ExpandMyLifeSpan/static/media/meal-plan-image.ebcccb59.jpg",
@@ -23,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.b0457fe5.js",
     "static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.79679692.chunk.js",
-    "static/css/main.2f33fa30.chunk.css",
-    "static/js/main.e6ff7fb3.chunk.js"
+    "static/js/2.7a214c7f.chunk.js",
+    "static/css/main.537f8780.chunk.css",
+    "static/js/main.d5aff2a0.chunk.js"
   ]
 }

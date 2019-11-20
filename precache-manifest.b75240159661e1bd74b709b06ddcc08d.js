@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3935152e55a78f09b4590482c6d13ac",
+    "revision": "b9736e46f3ddf20e0da0cb530164c672",
     "url": "/ExpandMyLifeSpan/index.html"
   },
   {
-    "revision": "fa7f3b361b26d6401d60",
+    "revision": "bdb86104e9a1188596a9",
     "url": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css"
   },
   {
-    "revision": "752828f6602b4650212e",
-    "url": "/ExpandMyLifeSpan/static/css/main.2f33fa30.chunk.css"
+    "revision": "8cf696295d56f5bbc60c",
+    "url": "/ExpandMyLifeSpan/static/css/main.537f8780.chunk.css"
   },
   {
-    "revision": "fa7f3b361b26d6401d60",
-    "url": "/ExpandMyLifeSpan/static/js/2.79679692.chunk.js"
+    "revision": "bdb86104e9a1188596a9",
+    "url": "/ExpandMyLifeSpan/static/js/2.7a214c7f.chunk.js"
   },
   {
-    "revision": "752828f6602b4650212e",
-    "url": "/ExpandMyLifeSpan/static/js/main.e6ff7fb3.chunk.js"
+    "revision": "8cf696295d56f5bbc60c",
+    "url": "/ExpandMyLifeSpan/static/js/main.d5aff2a0.chunk.js"
   },
   {
     "revision": "763c2efcaa1233927501",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9c2c981192d0454f4089c9a1164dcbb2",
     "url": "/ExpandMyLifeSpan/static/media/health-check-image.9c2c9811.jpg"
+  },
+  {
+    "revision": "dac126b4664f0f4e0869d3c5e2e49548",
+    "url": "/ExpandMyLifeSpan/static/media/home-icon.dac126b4.jpg"
   },
   {
     "revision": "a44d5fc1311a154f10b84b9a2dca1b90",
