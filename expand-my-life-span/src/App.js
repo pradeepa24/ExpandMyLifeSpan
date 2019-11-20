@@ -11,6 +11,7 @@ import HealthCheck from './components/health-check-component/health-check';
 import Axios from 'axios';
 const KEY = 'AIzaSyAEjrWBTS0fzNvmx9JTdBBNYEVs460G0SU';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -58,6 +59,10 @@ class App extends React.Component {
                console.log(err);
              })
     this.handleSubmit();
+    // Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd43ede7b55290017a2b1a8",{scores:['asdfsdf']})
+    // .then(res=>console.log(res))
+    // .catch(err=>console.log(err))
+    
   }
   handleSubmit = () => {
     Axios.get('https://www.googleapis.com/youtube/v3/search',{params: {

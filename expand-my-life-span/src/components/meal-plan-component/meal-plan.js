@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './meal-plan.css';
+import {Link} from 'react-router-dom';
+import homeIcon from '../../images/home-icon.jpg';
 
 export default class MealPlan extends Component {
     updateSearch = (e) => {
@@ -35,6 +37,7 @@ export default class MealPlan extends Component {
         console.log(this.props.mealPlan);
         return (
             <div className="meal-plan-content">
+              <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" /></Link>
               <div className="search-meal-content">
                 <input type="text"
                        name="searchText"

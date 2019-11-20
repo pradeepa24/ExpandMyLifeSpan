@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './workout-plan.css';
 import loadingIcon from '../../images/loading-icon.gif';
+import homeIcon from '../../images/home-icon.jpg';
+import {Link } from 'react-router-dom';
 
 export default class WorkoutPlan extends Component {
     displayWorkoutVideoList = () => {
@@ -19,15 +21,16 @@ export default class WorkoutPlan extends Component {
         if(this.props.selectedWorkoutVideo) {
             let videoSrc = `https://www.youtube.com/embed/${this.props.selectedWorkoutVideo.id.videoId}`;
             return (
-                <div>
-                <div className='ui embed'>
+                <div className="working-video">
+                   <div className="video-play">
                     <iframe src={videoSrc} allowFullScreen title='Video player'/>
-                </div>
-                <div className='ui segment'>
-                    <h4 className='ui header'>{this.props.selectedWorkoutVideo.snippet.title}</h4>
+                   </div>
+                   <br />
+                   <div className="video-desc">
+                    <h4 className="video-title">{this.props.selectedWorkoutVideo.snippet.title}</h4>
                     <p>{this.props.selectedWorkoutVideo.snippet.description}</p>
-                </div>
-            </div>
+                   </div>
+               </div>
             )
         } else {
             return (
@@ -39,6 +42,7 @@ export default class WorkoutPlan extends Component {
     render() {
         return (
             <div className="workout-plan-content">
+              <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" /></Link>
               <div className="workout-plan">
                     <h3>WORKOUT FOR THE DAY</h3>
                     <div className="workout-video-content">
