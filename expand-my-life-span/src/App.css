@@ -59,6 +59,7 @@ header img{
 @media only screen and (max-width : 600px) {
   header{
     justify-content: center;
+    height: 5vh;
   }
   header img{
     width: 10vw;

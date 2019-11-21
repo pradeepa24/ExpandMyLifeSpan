@@ -95,21 +95,23 @@
         margin-top:10%;
     }
     .working-video {
-        width: 92vw;
-        height:50vh;
+        width: 98vw;
+        height:74vh;
     }
     .workout-video-disp {
         height: 50vh;
         width:90vw;
     }
     .video-play {
-        height:40vh;
+        height:45vh;
         width: 80vw;
        
     }
     .video-play iframe{
-        height:40vh;
+        height:38vh;
         width: 80vw;
+        position:relative;
+        top:97px;
     }
     .workout-video{
         height:20vh;
@@ -121,6 +123,7 @@
     .video-desc{
         height:20vh;
         width: 80vw; 
+        margin-top:15%;
     }
     h4{
         font-size:14px;
