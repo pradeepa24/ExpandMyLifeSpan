@@ -11,7 +11,7 @@ export default class WorkoutPlan extends Component {
                 <div key ={ind} onClick={ () => this.props.handleVideoSelect(video)} className="workout-video">
                    <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>
                    <div className='workout-video-description'>
-                      <div className='header '>{video.snippet.title}</div>
+                      <div className='header-video'>{video.snippet.title}</div>
                    </div>
                 </div>
             )
@@ -25,7 +25,7 @@ export default class WorkoutPlan extends Component {
                    <div className="video-play">
                     <iframe src={videoSrc} allowFullScreen title='Video player'/>
                    </div>
-                   <br />
+                   {/* <br /> */}
                    <div className="video-desc">
                     <h4 className="video-title">{this.props.selectedWorkoutVideo.snippet.title}</h4>
                     <p>{this.props.selectedWorkoutVideo.snippet.description}</p>
@@ -34,7 +34,7 @@ export default class WorkoutPlan extends Component {
             )
         } else {
             return (
-                <span>Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
+                <span className="loading-content">Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
             )
         }
         
@@ -44,7 +44,7 @@ export default class WorkoutPlan extends Component {
             <div className="workout-plan-content">
               <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" /></Link>
               <div className="workout-plan">
-                    <h3>WORKOUT FOR THE DAY</h3>
+                    <h3>Workout for the day</h3>
                     <div className="workout-video-content">
                         <div className="workout-video-disp">
                             {this.displayVideo()}

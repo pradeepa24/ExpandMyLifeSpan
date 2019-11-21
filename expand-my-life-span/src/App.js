@@ -9,9 +9,9 @@ import MealPlan from './components/meal-plan-component/meal-plan';
 import WorkoutPlan from './components/workout-plan-component/workout-plan';
 import HealthCheck from './components/health-check-component/health-check';
 import Axios from 'axios';
+import leafIcon from './images/leaf-icon.png';
 const KEY = 'AIzaSyAEjrWBTS0fzNvmx9JTdBBNYEVs460G0SU';
-
-
+const rapidKey = "4f90ef96b0msh246f6e054afbdd1p14c2ffjsn4e4ab27d80f1";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -24,11 +24,46 @@ class App extends React.Component {
         password:""
     },
     mealPlan:{},
+    // mealPlan:{
+    //   "nutrients":{
+    //   "protein":90.62,
+    //   "fat":56.21,
+    //   "carbohydrates":309.43,
+    //   "calories":1997.07,
+    //   },
+    //   "meals":[
+    //   {
+    //   "id":47200,
+    //   "title":"Post Grape-nuts Carb Bars",
+    //   "image":"post_grape-nuts_carb_bars-47200.jpg",
+    //   },
+    //   {
+    //   "id":223009,
+    //   "title":"Lemon-spiced chicken with chickpeas",
+    //   "image":"Lemon-spiced-chicken-with-chickpeas-223009.jpg"
+    //   },
+    //   {
+    //   "id":302815,
+    //   "title":"Grilled Peanut Butter and Banana Sandwich",
+    //   "image":"Grilled-Peanut-Butter-and-Banana-Sandwich-302815.jpg"
+    //   }
+    //   ]
+    //   },
     searchText:"",
     authenticatedFlag: false,
     workoutVideos: [],
     selectedWorkoutVideo: null,
     styleSettings:{display:'none'},
+    bmiObj:{
+          "weight":{"value":"","unit":"kg"},
+          "height":{"value":"","unit":"cm"},
+          "sex":"m",
+          "age":"",
+          "waist":"",
+          "hip":""
+    },
+    bmiResult:{},
+    bmiLoaderFlag:false
     }
   }
   componentDidMount(){
@@ -45,25 +80,64 @@ class App extends React.Component {
          .catch((err)=>{
            console.log(err);
          })
+
+         //to avoid more call to api
     Axios.get("https://webknox-recipes.p.rapidapi.com/recipes/mealplans/generate?targetCalories=2000&timeFrame=day",{headers:{
           "x-rapidapi-host": "webknox-recipes.p.rapidapi.com",
-          "x-rapidapi-key": "4f90ef96b0msh246f6e054afbdd1p14c2ffjsn4e4ab27d80f1"}
+          "x-rapidapi-key": rapidKey}
         })
-             .then((meals)=>{
-               console.log(meals.data);
-               this.setState({
-                    mealPlan:meals.data,
-                    ready:true
-               })
-             })
-             .catch((err)=>{
-               console.log(err);
-             })
+        .then((meals)=>{
+          console.log(meals.data);
+          this.setState({
+              mealPlan:meals.data,
+              ready:true
+          })
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+
     this.handleSubmit();
     // Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd43ede7b55290017a2b1a8",{scores:['asdfsdf']})
     // .then(res=>console.log(res))
     // .catch(err=>console.log(err))
     
+  }
+
+  setBmiObject = (obj) => {
+     this.setState({
+       bmiObj:obj
+     })
+  }
+  getBmi = () => {
+    this.setState({
+      bmiLoaderFlag: true
+    })
+    Axios.post("https://bmi.p.rapidapi.com/",this.state.bmiObj,{headers:{
+      "x-rapidapi-host": "bmi.p.rapidapi.com",
+	    "x-rapidapi-key": rapidKey,
+	    "content-type": "application/json",
+	    "accept": "application/json"
+      }
+    })
+    .then((res)=>{
+      console.log(res);
+      this.setState({
+        bmiResult:res.data,
+        bmiObj:{
+          "weight":{"value":"","unit":"kg"},
+          "height":{"value":"","unit":"cm"},
+          "sex":"m",
+          "age":"",
+          "waist":"",
+          "hip":""
+    },
+       bmiLoaderFlag:false
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
   setStyleSettings = (styleObj) => {
     this.setState({
@@ -108,7 +182,11 @@ handleVideoSelect = (video) => {
   }
   logOutSession = () => {
     this.setState({
-      authenticatedFlag:false
+      authenticatedFlag:false,
+      loggerInfo:{
+        userName:"",
+        password:""
+    }
     })
   }
   setSearch = (str) => {
@@ -138,7 +216,8 @@ handleVideoSelect = (video) => {
     return (
       <div className="content">
         <header>
-          <h1>AAROKYA</h1>
+           <img src={leafIcon} alt="leafIcon" />
+          <h1>Aarokya</h1>
         </header>
         <div className="main-content">
           <Switch>
@@ -169,7 +248,12 @@ handleVideoSelect = (video) => {
                                                                                             selectedWorkoutVideo = {this.state.selectedWorkoutVideo}
                                                                                             handleVideoSelect = {this.handleVideoSelect}
             /> } />
-            <Route exact path="/health-check" component={HealthCheck} />
+            <Route exact path="/health-check" render = { (props) => <HealthCheck {...props} bmiObj = {this.state.bmiObj}
+                                                                                            setBmiObject = {this.setBmiObject}
+                                                                                            getBmi = {this.getBmi}
+                                                                                            bmiResult = {this.state.bmiResult}
+                                                                                            bmiLoaderFlag = {this.state.bmiLoaderFlag}
+            /> } />
           </Switch>
         </div>
       </div>

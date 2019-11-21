@@ -26,7 +26,7 @@
   width:100vw;
 }
 h1 {
-  font-size: 45px;
+  font-size: 40px;
   color: white;
   font-weight: bold;
 }
@@ -36,11 +36,13 @@ header {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 10vh;
   background-color:rgb(87, 43, 7);
   z-index:4;
+  padding: 40px;
+  font-family: 'Lobster', cursive;
 }
 header img{
   height: 8vh;
@@ -52,6 +54,21 @@ header img{
   align-items: center;
   height:100vh;
   width:100vw;
-  margin-top:5%;
+  margin-top:3%;
 }
-
+@media only screen and (max-width : 600px) {
+  header{
+    justify-content: center;
+  }
+  header img{
+    width: 10vw;
+  }
+}
+@media only screen and (max-width : 400px) {
+  header{
+    justify-content: center;
+  }
+  header img{
+    width: 10vw;
+  }
+}

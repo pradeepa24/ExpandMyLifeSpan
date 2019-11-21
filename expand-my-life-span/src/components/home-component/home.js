@@ -38,7 +38,7 @@ export default class Home extends Component {
                 <Link to="/meal-plan">
                   <div className="meal-nav">
                    <div className="meal-nav-description">
-                      <h4>MEAL PLAN</h4>
+                      <h4>Meal Plan</h4>
                        <p></p>
                    </div>
                    <img src={mealBackground} alt="meals" />
@@ -47,7 +47,7 @@ export default class Home extends Component {
                 <Link to="/workout-plan">
                   <div className="meal-nav">
                    <div className="meal-nav-description">
-                      <h4>WORKOUT PLAN</h4>
+                      <h4>Workout Plan</h4>
                        <p></p>
                    </div>
                    <img src={workoutBackground} alt="meals" />
@@ -56,43 +56,12 @@ export default class Home extends Component {
                 <Link to="/health-check">
                   <div className="meal-nav">
                    <div className="meal-nav-description">
-                      <h4>HEALTH CHECK</h4>
+                      <h4>Health Check</h4>
                        <p></p>
                    </div>
                    <img src={healthCheckBackground} alt="meals" />
                   </div>
                 </Link>
-                {/* <div>
-                
-                <form>
-                   <div className="field-groups">
-                       <div className="fields">
-                         <label>Height(cm)</label>
-                         <input type="number"
-                                name="height"
-                                value=""
-                                onChange=""
-                          />
-                       </div>
-                       <div className="fields">
-                          <label>Weight(kg)</label>
-                          <input type="number"
-                                 name="weight"
-                                 value=""
-                                 onChange=""
-                           />      
-                       </div>
-                       <div className="submit">
-                           <input type="submit"
-                                  value="Submit"
-                                  name="submit"
-                                  onClick=""
-                            />
-                       </div>
-                   </div>
-               </form>
-               
-                </div> */}
             </div>
 
         )

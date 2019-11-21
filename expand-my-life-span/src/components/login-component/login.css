@@ -91,3 +91,63 @@ label {
     font-weight:bold;
     font-size: 18px;
 }
+@media only screen and (max-width : 600px) {
+    .login-content {
+        width: 90vw;
+    }  
+    form {
+        height: 60vh;
+        width: 85vw;
+    }
+    .field-groups {
+        width: 80vw;
+    }
+    .fields {
+        width: 80vw;
+    }
+    input {
+        width: 80vw;
+    }
+    input[type=submit]{
+        width: 50vw;
+        font-family: 'Baloo', cursive;
+    }
+    .sign-up-content {
+        width: 60vw;
+    }
+}
+@media only screen and (max-width : 400px) {
+    .login{
+        justify-content: flex-start;
+    }
+    .login-content {
+        height: 70vh;
+        width: 96vw;
+    }
+    form {
+        height: 60vh;
+        width: 90vw;
+    }
+    .field-groups {
+        width: 90vw;
+    }
+    .fields {
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    label{
+        display: none;
+    }
+    input {
+        width: 80vw;
+    }
+    input[type=submit]{
+        width: 50vw;
+    }
+    .sign-up-content {
+        width: 60vw;
+    }
+}

@@ -44,8 +44,38 @@
     width: 30vw;
     position: relative;
     left: 20px;
+    font-family: 'Lobster', cursive;
 }
 h3 {
     font-size: 30px;
     font-weight:bold;
+    font-family: 'Lobster', cursive;
 }
+h5 {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: bold;
+}
+@media only screen and (max-width : 600px) {
+    .meal-plan-content{
+        margin-top: 10%;
+      }
+      .meals{
+        width: 90vw;
+      }
+      .meal-content{
+          width:85vw;
+      }
+      .meal-content img{
+          width:30vw;
+      }
+      .meal-description {
+        width: 50vw;  
+      }
+}
+@media only screen and (max-width : 400px) {
+    .meal-content img{
+        height:15vh;
+        width:30vw;
+    }
+
+  }

@@ -66,3 +66,68 @@
     height:20vh;
     width: 56vw; 
 }
+.header-video{
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: bold; 
+}
+.loading-content {
+    font-size: 25px;
+    font-family: 'Baloo', cursive;
+}
+
+@media only screen and (max-width : 600px) {
+    .home-icon{
+        width:10vw;
+    }
+    .workout-plan-content{
+        margin-top:30%;
+    }
+    .workout-video-content{
+        flex-direction: column;
+    }
+    .workout-video-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 80vh;
+        width:63vw;
+        margin-top:10%;
+    }
+    .working-video {
+        width: 92vw;
+        height:50vh;
+    }
+    .workout-video-disp {
+        height: 50vh;
+        width:90vw;
+    }
+    .video-play {
+        height:40vh;
+        width: 80vw;
+       
+    }
+    .video-play iframe{
+        height:40vh;
+        width: 80vw;
+    }
+    .workout-video{
+        height:20vh;
+    }
+    .workout-video img{
+        height:15vh;
+        width:60vw;
+    }
+    .video-desc{
+        height:20vh;
+        width: 80vw; 
+    }
+    h4{
+        font-size:14px;
+    }
+    p{
+        font-size:11px;
+    }
+}
+@media only screen and (max-width : 400px) {
+}

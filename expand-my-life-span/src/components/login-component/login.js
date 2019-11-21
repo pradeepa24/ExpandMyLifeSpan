@@ -27,6 +27,7 @@ export default class Login extends Component {
                        <div className="fields">
                          <label>Username</label>
                          <input type="text"
+                                placeholder="User name"
                                 name="userName"
                                 value={this.props.loggerInfo.userName}
                                 onChange={this.updateCredential}
@@ -35,6 +36,7 @@ export default class Login extends Component {
                        <div className="fields">
                           <label>Password</label>
                           <input type="password"
+                                 placeholder="Password"
                                  name="password"
                                  value={this.props.loggerInfo.password}
                                  onChange={this.updateCredential}
