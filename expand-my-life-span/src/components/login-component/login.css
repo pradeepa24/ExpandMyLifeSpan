@@ -138,9 +138,7 @@ label {
         justify-content: flex-start;
         align-items: flex-start;
     }
-    label{
-        display: none;
-    }
+   
     input {
         width: 80vw;
     }
@@ -149,5 +147,8 @@ label {
     }
     .sign-up-content {
         width: 60vw;
+    }
+    .submit {
+        font-size:12px;
     }
 }

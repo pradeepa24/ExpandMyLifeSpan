@@ -97,6 +97,9 @@ select {
     height:5vh;
     position: relative;
     left: 85px; 
+    border: solid 1px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background-color:white;
 }
 .submit {
     display: flex;
@@ -151,4 +154,10 @@ select {
     .bmi-result-part3{
         width: 21vw;
     }
+}
+@media only screen and (max-width : 600px) {
+
+.bmi-fields input, select{
+    left:129px;
+}
 }

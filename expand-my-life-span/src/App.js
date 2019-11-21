@@ -12,16 +12,20 @@ import Axios from 'axios';
 import leafIcon from './images/leaf-icon.png';
 const KEY = 'AIzaSyAEjrWBTS0fzNvmx9JTdBBNYEVs460G0SU';
 const rapidKey = "4f90ef96b0msh246f6e054afbdd1p14c2ffjsn4e4ab27d80f1";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       ready:false,
-      credential:{},
+      // credential:{},
       loginCredentials:[],
       loggerInfo:{
-        userName:"",
-        password:""
+        "userName":"",
+        "password":"",
+        "startWeight": "",
+        "currentWeight": "",
+        "goalWeight": ""
     },
     mealPlan:{},
     // mealPlan:{
@@ -70,10 +74,9 @@ class App extends React.Component {
     Axios.get("https://ironrest.herokuapp.com/pradeepa")
          .then((data) => {
            console.log(data);
-           let credentials = data.data.filter(cred => cred._id === '5dd440ae7b55290017a2b1bc');
+           let credentials = data.data.filter(cred => cred._id === '5dd713560dce380017fe821d');
            this.setState({
                ready:true,
-               credential: data.data,
                loginCredentials: credentials[0].loggers 
            })
          })
@@ -98,9 +101,7 @@ class App extends React.Component {
         })
 
     this.handleSubmit();
-    // Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd43ede7b55290017a2b1a8",{scores:['asdfsdf']})
-    // .then(res=>console.log(res))
-    // .catch(err=>console.log(err))
+   
     
   }
 
@@ -200,17 +201,18 @@ handleVideoSelect = (video) => {
    
   }
   createAccount = () => {
-    let loggersTemp = {...this.state.credential}
-    
-    loggersTemp[4].loggers.push(this.state.loggerInfo);
-    console.log(loggersTemp);
-    Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd440ae7b55290017a2b1bc",{data:loggersTemp})
-         .then((res) => {
-           console.log(res)
-         })
-         .catch((err)=>{
-           console.log(err);
-         })
+    console.log(this.state.loginCredentials);
+    let futureLoggers = [...this.state.loginCredentials];
+    futureLoggers.push(this.state.loggerInfo)
+    console.log(futureLoggers);
+     Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd713560dce380017fe821d",{loggers:futureLoggers})
+    .then(res=>{
+      console.log(res)
+      this.setState({
+        authenticatedFlag:true
+      })
+    })
+    .catch(err=>console.log(err))
   }
   render() {
     return (

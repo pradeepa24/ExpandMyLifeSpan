@@ -11,6 +11,12 @@ export default class SignUp extends Component {
    create = (e) => {
       e.preventDefault();
       this.props.createAccount();
+      setTimeout(() => {
+          console.log(this.props.authenticatedFlag);
+        if(this.props.authenticatedFlag) {
+            this.props.history.push("/home");
+          }
+    }, 250)
    }
     render() {
         return (

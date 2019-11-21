@@ -135,7 +135,7 @@ export default class HealthCheck extends Component {
                            <div className="bmi-fields submit">
                               <input type="submit"
                                      name="calculate"
-                                     value="CALCULATE"
+                                     value="Calculate"
                                      onClick={this.submitBmi} />
                            </div>
                        </div>
