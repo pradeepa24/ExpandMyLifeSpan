@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/ExpandMyLifeSpan/static/css/main.0a242e6e.chunk.css",
-    "main.js": "/ExpandMyLifeSpan/static/js/main.e48c1d0a.chunk.js",
-    "main.js.map": "/ExpandMyLifeSpan/static/js/main.e48c1d0a.chunk.js.map",
+    "main.css": "/ExpandMyLifeSpan/static/css/main.1aa806ad.chunk.css",
+    "main.js": "/ExpandMyLifeSpan/static/js/main.57260269.chunk.js",
+    "main.js.map": "/ExpandMyLifeSpan/static/js/main.57260269.chunk.js.map",
     "runtime-main.js": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js",
     "runtime-main.js.map": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js.map",
     "static/css/2.b0bb7f2c.chunk.css": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.5b5f1913.chunk.js": "/ExpandMyLifeSpan/static/js/2.5b5f1913.chunk.js",
-    "static/js/2.5b5f1913.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.5b5f1913.chunk.js.map",
+    "static/js/2.d2765d8d.chunk.js": "/ExpandMyLifeSpan/static/js/2.d2765d8d.chunk.js",
+    "static/js/2.d2765d8d.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.d2765d8d.chunk.js.map",
     "index.html": "/ExpandMyLifeSpan/index.html",
-    "precache-manifest.ca5b2a5582b5c4923e18f5824c2619c6.js": "/ExpandMyLifeSpan/precache-manifest.ca5b2a5582b5c4923e18f5824c2619c6.js",
+    "precache-manifest.40d365f2dfbc4601eefd991db49868be.js": "/ExpandMyLifeSpan/precache-manifest.40d365f2dfbc4601eefd991db49868be.js",
     "service-worker.js": "/ExpandMyLifeSpan/service-worker.js",
     "static/css/2.b0bb7f2c.chunk.css.map": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css.map",
-    "static/css/main.0a242e6e.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.0a242e6e.chunk.css.map",
+    "static/css/main.1aa806ad.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.1aa806ad.chunk.css.map",
+    "static/media/account-icon-check.png": "/ExpandMyLifeSpan/static/media/account-icon-check.ef20e411.png",
     "static/media/login.css": "/ExpandMyLifeSpan/static/media/chopping-board-nav.aa7cf8e4.jpg",
     "static/media/health-check-image.jpg": "/ExpandMyLifeSpan/static/media/health-check-image.9c2c9811.jpg",
     "static/media/home-icon.jpg": "/ExpandMyLifeSpan/static/media/home-icon.dac126b4.jpg",
@@ -20,14 +21,13 @@
     "static/media/loading-icon.gif": "/ExpandMyLifeSpan/static/media/loading-icon.a44d5fc1.gif",
     "static/media/logo.svg": "/ExpandMyLifeSpan/static/media/logo.25bf045c.svg",
     "static/media/meal-plan-image.jpg": "/ExpandMyLifeSpan/static/media/meal-plan-image.ebcccb59.jpg",
-    "static/media/settings-icon.png": "/ExpandMyLifeSpan/static/media/settings-icon.20bd6ca3.png",
     "static/media/workout-plan-image.jpg": "/ExpandMyLifeSpan/static/media/workout-plan-image.857a392a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.b0457fe5.js",
     "static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.5b5f1913.chunk.js",
-    "static/css/main.0a242e6e.chunk.css",
-    "static/js/main.e48c1d0a.chunk.js"
+    "static/js/2.d2765d8d.chunk.js",
+    "static/css/main.1aa806ad.chunk.css",
+    "static/js/main.57260269.chunk.js"
   ]
 }

@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72452bd13fd0eacb24bae59d29fe5abc",
+    "revision": "8dc070e570058aee6a6e5f4a17a76301",
     "url": "/ExpandMyLifeSpan/index.html"
   },
   {
-    "revision": "d0196e93e9dad4ddae16",
+    "revision": "2b67cd0d65d205ceb7ad",
     "url": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css"
   },
   {
-    "revision": "ce81e97d504c717712b9",
-    "url": "/ExpandMyLifeSpan/static/css/main.0a242e6e.chunk.css"
+    "revision": "aa2a8a4b633181413d0f",
+    "url": "/ExpandMyLifeSpan/static/css/main.1aa806ad.chunk.css"
   },
   {
-    "revision": "d0196e93e9dad4ddae16",
-    "url": "/ExpandMyLifeSpan/static/js/2.5b5f1913.chunk.js"
+    "revision": "2b67cd0d65d205ceb7ad",
+    "url": "/ExpandMyLifeSpan/static/js/2.d2765d8d.chunk.js"
   },
   {
-    "revision": "ce81e97d504c717712b9",
-    "url": "/ExpandMyLifeSpan/static/js/main.e48c1d0a.chunk.js"
+    "revision": "aa2a8a4b633181413d0f",
+    "url": "/ExpandMyLifeSpan/static/js/main.57260269.chunk.js"
   },
   {
     "revision": "763c2efcaa1233927501",
     "url": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js"
+  },
+  {
+    "revision": "ef20e4111ab10ef9c79ecfe7e1633899",
+    "url": "/ExpandMyLifeSpan/static/media/account-icon-check.ef20e411.png"
   },
   {
     "revision": "aa7cf8e4af5adf97934c87e1cc970240",
@@ -50,10 +54,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ebcccb5923d3d644d3a1582bec1ad294",
     "url": "/ExpandMyLifeSpan/static/media/meal-plan-image.ebcccb59.jpg"
-  },
-  {
-    "revision": "20bd6ca3b18bbbd3cd13725352ae1f2c",
-    "url": "/ExpandMyLifeSpan/static/media/settings-icon.20bd6ca3.png"
   },
   {
     "revision": "857a392ae2c4a9316ab202e9e01c4835",
