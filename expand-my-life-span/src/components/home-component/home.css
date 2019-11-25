@@ -30,23 +30,27 @@ h4 {
 }
 .meal-nav img {
     height: 50vh;
-    width: 70vw;
+    width: 50vw;
     box-shadow: 10px 10px 5px grey;
 }
 .meal-nav-description {
-    height: 20vh;
-    width: 30vw;
+    height: 30vh;
+    width: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border: solid 2px white;
     position: relative;
-    top: 50px;
+    top: 300px;
     left: 1%;
     border-radius: 10px;
-    background-color: rgba(152, 199, 76, 0.979);
+    /* background-color: rgba(152, 199, 76, 0.979); */
+    background-color: white;
+    padding:10px;
+    
 }
+
 .dropdown-content {
     position: fixed;
     background-color: rgba(152, 199, 76, 0.979);
@@ -61,6 +65,41 @@ h4 {
     height: 20vh;
     width: 15vw;
   }
+  .account-icon {
+    height: 7vh;
+    width: 4vw;
+    position: fixed;
+    top: 10px;
+    z-index: 5;
+    right: 50px;
+    background-color:white;
+    border-radius:50%;
+  }
+  .account-icon img {
+    height: 7vh;
+    width: 4vw; 
+    position: relative;
+    top: -2px;
+    left:-8px;
+  }
+  @media only screen and (max-width : 1100px) {
+    .home-content{
+        margin-top: 55%;
+    }
+}
+  @media only screen and (max-width : 900px) {
+    .home-content{
+        margin-top: 60%;
+    }
+    .meal-nav {
+        height: 50vh;
+        width: 90vw;
+    }
+    .meal-nav img {
+        height: 45vh;
+        width: 90vw;
+    }
+  }
   @media only screen and (max-width : 600px) {
     .home-content{
         margin-top: 80%;
@@ -74,7 +113,7 @@ h4 {
         width: 90vw;
     }
     .meal-nav-description {
-        top: 55px;
+        top: 250px;
         left: 0;
         width: 60vw;
     }

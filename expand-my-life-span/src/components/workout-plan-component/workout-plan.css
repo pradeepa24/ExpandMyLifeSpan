@@ -1,7 +1,7 @@
 .workout-plan-content{
     height:100vh;
     width:100vw;
-    margin-top: 3%;
+    margin-top: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@
     position: fixed;
     top: 10px;
     z-index: 5;
-    right: 50px;
+    right: 110px;
     
 }
 .workout-plan{
@@ -20,7 +20,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 98vh;
+    height: 85vh;
     width:90vw;
     /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
 }
@@ -34,19 +34,22 @@
     justify-content: space-between;
     align-items: center;
     width:88vw;
-    height: 95vh;
+    height: 85vh;
+    
 }
 .workout-video-section{
     width: 20vw;
+    padding:20px;
 }
 .workout-video-disp {
     width: 60vw;
-    height: 90vh;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 80vh;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    padding: 20px;
 }
 .working-video {
     width: 60vw;
@@ -67,40 +70,56 @@
     width: 56vw; 
 }
 .header-video{
-    font-family: 'PT Sans Narrow', sans-serif;
     font-weight: bold; 
 }
 .loading-content {
     font-size: 25px;
-    font-family: 'Baloo', cursive;
+    /* font-family: 'Baloo', cursive; */
+    font-family: 'Lobster', cursive;
 }
+.working-video img{
+    width:20vw;
+}
+.user-options{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+}
+/* .work-fields{
+display: flex;
+flex-direction: row;
+/* justify-content: center;
+align-items: center; */
 
-@media only screen and (max-width : 600px) {
+
+@media only screen and (max-width : 900px) {
     .home-icon{
-        width:10vw;
+        width:7vw;
     }
     .workout-plan-content{
-        margin-top:30%;
+        margin-top:10%;
     }
     .workout-video-content{
         flex-direction: column;
     }
     .workout-video-section{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-around;
         align-items: center;
         height: 80vh;
-        width:63vw;
-        margin-top:10%;
+        width:60vw;
+        /* margin-top:5%; */
     }
     .working-video {
-        width: 98vw;
+        width: 90vw;
         height:74vh;
     }
     .workout-video-disp {
         height: 50vh;
-        width:90vw;
+        /* width:100vw; */
     }
     .video-play {
         height:45vh;
@@ -109,21 +128,27 @@
     }
     .video-play iframe{
         height:38vh;
-        width: 80vw;
+        width: 90vw;
         position:relative;
         top:97px;
+        right: 35px;
     }
     .workout-video{
-        height:20vh;
+        height:10vh;
+        width:30vw;
+        padding:5px;
     }
     .workout-video img{
         height:15vh;
-        width:60vw;
+        width:30vw;
     }
     .video-desc{
         height:20vh;
-        width: 80vw; 
-        margin-top:15%;
+        width: 90vw; 
+        margin-top:6%;
+        position:relative;
+        right: 30px;
+        padding:2px;
     }
     h4{
         font-size:14px;
@@ -131,6 +156,86 @@
     p{
         font-size:11px;
     }
+
+}
+@media only screen and (max-width : 600px) {
+  
+    .workout-plan-content{
+        margin-top:10%;
+        overflow:hidden;
+    }
+    /* .workout-video-content{
+        flex-direction: column;
+    } */
+    .workout-video-section{
+        /* display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 80vh;
+        width:60vw; */
+        margin-top:1%;
+    }
+    /* .working-video {
+        width: 98vw;
+        height:74vh;
+    }
+    .workout-video-disp {
+        height: 50vh;
+        width:100vw;
+    }
+    .video-play {
+        height:45vh;
+        width: 80vw;
+       
+    } */
+    /* .video-play iframe{
+        height:38vh;
+        width: 90vw;
+        position:relative;
+        top:97px;
+        right: 35px;
+    } */
+    /* .workout-video{
+        height:20vh;
+        width:35vw;
+        padding:2px;
+    } */
+    /* .workout-video img{
+        height:15vh;
+        width:30vw;
+    } */
+    .video-desc{
+       
+        margin-top:10%;
+       
+    }
+    h4{
+        font-size:14px;
+    }
+    p{
+        font-size:11px;
+    }
+    .home-icon{
+       width:10vw;
+        right: 60px;
+        
+    }
 }
 @media only screen and (max-width : 400px) {
+    .workout-plan-content{
+        margin-top:18%;
+        overflow:hidden;
+    }
+    .workout-video-section{
+        margin-top:-5%;
+    }
+    .video-desc{
+        margin-top:15%;
+        width:85vw;
+        padding:5px;
+    }
+    .video-play iframe{
+    right: 25px;
+    }
 }

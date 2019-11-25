@@ -1,0 +1,32 @@
+.customize-meal-content{
+    margin-top:10%;
+    height:100vh;
+   width: 100vw;
+}
+.similar-rec{
+   display:flex;
+   flex-direction: column;
+   flex-wrap:wrap;
+   height:380vh; 
+   font-family: Helvetica;
+   padding:20px;
+   padding-left: 100px;
+   padding-right: 100px;
+   padding-top:20px;
+   padding-bottom:20px;
+}
+.similar-meal-content{
+  height: 40vh;
+  width: 20vw;
+}
+/* .similar-meal-content img{
+    height: 20vh;
+  width: 18vw;
+  padding:20px;
+  box-shadow: 10px 10px 10px 10px #aaaaaa;
+} */
+.similar-meal-description{
+    height:10vh;
+    line-height:0.5;
+    padding:20px;
+}

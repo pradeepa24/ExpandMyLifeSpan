@@ -19,71 +19,119 @@ export default class HealthCheck extends Component {
         e.preventDefault();
         this.props.getBmi();
     }
+    displayWhr = () => {
+      if(this.props.bmiResult.whr){
+        return (
+          <div className="bmi-result-part2">
+          <div className="heading-prep">
+            <h4>Waist to Hip ratio(whr)</h4>
+          </div>
+          <div className="res-content">
+            <div className="res-fields">
+              <label>Value</label>
+              <p>{this.props.bmiResult.whr.value}</p>
+            </div>
+             <div className="res-fields">
+               <label>Status</label>
+               <p>{this.props.bmiResult.whr.status}</p>
+             </div>
+           </div>
+          </div>
+        )
+      }
+    
+    }
+    displayWthr = () => {
+      if(this.props.bmiResult.whtr){
+        return (
+          <div className="bmi-result-part3">
+          <div className="heading-prep">
+            <h4>Waist to Height ratio(whtr)</h4>
+          </div>
+          <div className="res-content">
+             <div className="res-fields">
+               <label>Value</label>
+               <p>{this.props.bmiResult.whtr.value}</p>
+             </div>
+             <div className="res-fields">
+                <label>Status</label>
+                <p>{this.props.bmiResult.whtr.status}</p>
+            </div>
+          </div>
+          </div>
+        )
+      }
+      
+    }
     displayBmiResult = () => {
-        console.log('entering')
-        console.log(this.props.bmiResult.bmi)
         if(this.props.bmiResult.bmi){
-            console.log('entered if');
-            console.log(this.props.bmiResult.bmi)
             return (
                 <div className="bmi-result-section">
                         <h3>BMI Result</h3>
                     <div className="bmi-result-parts">
                         <div className="bmi-result-part1">
+                        <div className="heading-prep">
+
                            <h4>BMI</h4>
-                           <label>Value</label>
-                           <p>{this.props.bmiResult.bmi.value}</p>
-                           <label>Status</label>
-                           <p>{this.props.bmiResult.bmi.status}</p>
-                           <label>Risk Level</label>
-                           <p>{this.props.bmiResult.bmi.risk}</p>
-                           <label>Prime</label>
-                           <p>{this.props.bmiResult.bmi.prime}</p>
                         </div>
-                        <vr />
-                        <div className="bmi-result-part2">
-                          <h4>Waist to Hip ratio(whr)</h4>
-                          <label>Value</label>
-                           <p>{this.props.bmiResult.whr.value}</p>
-                           <label>Status</label>
-                           <p>{this.props.bmiResult.whr.status}</p>
+                        <div className="res-content">
+                            <div className="res-fields">
+                               <label>Value</label>
+                               <p>{this.props.bmiResult.bmi.value}</p>
+                            </div>
+                           
+                            <div className="res-fields">
+                               <label>Status</label>
+                               <p>{this.props.bmiResult.bmi.status}</p>
+                            </div>
+                           
+                            <div className="res-fields">
+                               <label>Risk Level</label>
+                               <p>{this.props.bmiResult.bmi.risk}</p>
+                            </div>
+
+                            <div className="res-fields">
+                               <label>Prime</label>
+                               <p>{this.props.bmiResult.bmi.prime}</p>
+                            </div> 
+                          </div>
                         </div>
-                        <vr />
-                        <div className="bmi-result-part3">
-                          <h4>Waist to Height ratio(whtr)</h4>
-                          <label>Value</label>
-                           <p>{this.props.bmiResult.whtr.value}</p>
-                           <label>Status</label>
-                           <p>{this.props.bmiResult.whtr.status}</p>
-                        </div>
+                      {this.displayWhr()}
+                      {this.displayWthr()}
                     </div>
                     <div>
                         <h3>Ideal Weight</h3>
                         <h3>{this.props.bmiResult.ideal_weight}</h3>
                     </div>
+                    <div className="res-fields">
+                        <h3>Calorie In take/ day</h3>
+                        <h3>{this.props.calorieInTakePerDay} calories</h3>
+                    </div>
                 </div>
             )
         } else {
-            if(this.props.bmiLoaderFlag){
-              return (
-                <div className="loader-section">
-                   <h3>Loading</h3><img className="loading" src={loadingIcon} alt="loadingIcon"/>
-                </div>
-              )
-            } else {
-                return (
-                    <div>
-                        <h3>Please fill the BMI form and hit Calculate to get your result</h3>
-                    </div>
-                )
-            }
             
+              if(this.props.bmiLoaderFlag){
+                return (
+                  <div className="loader-section">
+                     <h3>Loading</h3><img className="loading" src={loadingIcon} alt="loadingIcon"/>
+                  </div>
+                )
+              } else {
+                  return (
+                      <div>
+                          <h3>Please fill the BMI form and hit Calculate to get your result</h3>
+                      </div>
+                  )
+              }
+             
         }
     }
+ 
     render() {
         return (
             <div className="health-check-section">
-               <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" /></Link> 
+               <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link> 
                <h3>Health Check</h3>
                <div className="health-check-content">
                   <div className="bmi-form">
@@ -95,6 +143,7 @@ export default class HealthCheck extends Component {
                               <input type="number"
                                      name="height"
                                      value={this.props.bmiObj.height.value}
+                                     placeholder="Enter height(cm)"
                                      onChange={this.updateBmiObj} />
                            </div>
                            <div className="bmi-fields">
@@ -102,6 +151,7 @@ export default class HealthCheck extends Component {
                              <input type="number"
                                     name="weight"
                                     value={this.props.bmiObj.weight.value}
+                                    placeholder="Enter weight(kg)"
                                     onChange={this.updateBmiObj} />
                            </div>
                            <div className="bmi-fields">
@@ -116,6 +166,7 @@ export default class HealthCheck extends Component {
                              <input type="number"
                                     name="age"
                                     value={this.props.bmiObj.age}
+                                    placeholder="Enter age"
                                     onChange={this.updateBmiObj} />
                            </div>
                            <div className="bmi-fields">
@@ -123,6 +174,7 @@ export default class HealthCheck extends Component {
                              <input type="number"
                                     name="waist"
                                     value={this.props.bmiObj.waist}
+                                    placeholder="Enter waist size(inch)"
                                     onChange={this.updateBmiObj} />
                            </div>
                            <div className="bmi-fields">
@@ -130,6 +182,7 @@ export default class HealthCheck extends Component {
                              <input type="number"
                                     name="hip"
                                     value={this.props.bmiObj.hip}
+                                    placeholder="Enter hip size(inch)"
                                     onChange={this.updateBmiObj}/>
                            </div>
                            <div className="bmi-fields submit">

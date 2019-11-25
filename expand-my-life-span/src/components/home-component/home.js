@@ -4,7 +4,7 @@ import {Link } from 'react-router-dom';
 import mealBackground from '../../images/meal-plan-image.jpg';
 import workoutBackground from '../../images/workout-plan-image.jpg';
 import healthCheckBackground from '../../images/health-check-image.jpg';
-import accountIcon from '../../images/settings-icon.png';
+import accountIcon from '../../images/account-icon-check.png';
 
 export default class Home extends Component {
     displayDropdown = () => {
@@ -29,7 +29,7 @@ export default class Home extends Component {
        
         return (
             <div className="home-content">
-             <button><img className="home-icon" src={accountIcon} alt="homeIcon" onClick={this.displayDropdown}/></button>
+             <button className="account-icon"><img  src={accountIcon} alt="homeIcon" onClick={this.displayDropdown}/></button>
              <div style={this.props.styleSettings} class="dropdown-content">
                   <a href="#">Link 1</a>
                   <a href="#">Link 2</a>
@@ -39,7 +39,8 @@ export default class Home extends Component {
                   <div className="meal-nav">
                    <div className="meal-nav-description">
                       <h4>Meal Plan</h4>
-                       <p></p>
+                       <p>Customized recipes according to your calorie intake per day along with ingredients, directions and nutrition facts.
+                     So you can enjoy all there is to love about cooking, eating and staying healthy.</p>
                    </div>
                    <img src={mealBackground} alt="meals" />
                   </div>
@@ -48,7 +49,7 @@ export default class Home extends Component {
                   <div className="meal-nav">
                    <div className="meal-nav-description">
                       <h4>Workout Plan</h4>
-                       <p></p>
+                      <p>Workout videos picked from youtube and options offered to select the type of workout you can go for. Be Active, stay healthy.</p>
                    </div>
                    <img src={workoutBackground} alt="meals" />
                   </div>
@@ -57,7 +58,7 @@ export default class Home extends Component {
                   <div className="meal-nav">
                    <div className="meal-nav-description">
                       <h4>Health Check</h4>
-                       <p></p>
+                      <p>Get your BMI checked, know your ideal weight and calorie in take per day, get your meal plan customized according to it.</p>
                    </div>
                    <img src={healthCheckBackground} alt="meals" />
                   </div>
