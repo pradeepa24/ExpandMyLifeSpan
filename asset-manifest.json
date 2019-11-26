@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ExpandMyLifeSpan/static/css/main.37dd23ce.chunk.css",
+    "main.css": "/ExpandMyLifeSpan/static/css/main.23bd23fb.chunk.css",
     "main.js": "/ExpandMyLifeSpan/static/js/main.5d96f756.chunk.js",
     "main.js.map": "/ExpandMyLifeSpan/static/js/main.5d96f756.chunk.js.map",
     "runtime-main.js": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js",
@@ -9,10 +9,10 @@
     "static/js/2.64c1d70f.chunk.js": "/ExpandMyLifeSpan/static/js/2.64c1d70f.chunk.js",
     "static/js/2.64c1d70f.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.64c1d70f.chunk.js.map",
     "index.html": "/ExpandMyLifeSpan/index.html",
-    "precache-manifest.800f65eb85e65d1374b65c0a729f6964.js": "/ExpandMyLifeSpan/precache-manifest.800f65eb85e65d1374b65c0a729f6964.js",
+    "precache-manifest.70625476d7c1e75eb2e11557bd30b70d.js": "/ExpandMyLifeSpan/precache-manifest.70625476d7c1e75eb2e11557bd30b70d.js",
     "service-worker.js": "/ExpandMyLifeSpan/service-worker.js",
     "static/css/2.b0bb7f2c.chunk.css.map": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css.map",
-    "static/css/main.37dd23ce.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.37dd23ce.chunk.css.map",
+    "static/css/main.23bd23fb.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.23bd23fb.chunk.css.map",
     "static/media/account-icon-check.png": "/ExpandMyLifeSpan/static/media/account-icon-check.ef20e411.png",
     "static/media/add-icon.webp": "/ExpandMyLifeSpan/static/media/add-icon.1607dc1e.webp",
     "static/media/back-button-icon.png": "/ExpandMyLifeSpan/static/media/back-button-icon.26249120.png",
@@ -33,7 +33,7 @@
     "static/js/runtime-main.b0457fe5.js",
     "static/css/2.b0bb7f2c.chunk.css",
     "static/js/2.64c1d70f.chunk.js",
-    "static/css/main.37dd23ce.chunk.css",
+    "static/css/main.23bd23fb.chunk.css",
     "static/js/main.5d96f756.chunk.js"
   ]
 }
