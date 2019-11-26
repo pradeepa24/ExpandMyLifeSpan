@@ -94,10 +94,11 @@ export default class MealPlan extends Component {
                    </div>
 
                    <div className="meal-plan-section-2">
-                     <div className="meals">
-                       <div className="meals-heading">
-                          <h3>Meal Plan for the day</h3>
+                   <div className="meals-heading">
+                          {/* <h3>Meal Plan for the day</h3> */}
                        </div>
+                     <div className="meals">
+                       
                        {this.displayMeals()}
                     </div>
                    </div>

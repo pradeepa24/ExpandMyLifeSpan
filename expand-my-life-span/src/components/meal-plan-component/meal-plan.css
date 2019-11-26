@@ -108,22 +108,20 @@ h5 {
     .meal-content{
         width:50vw;
     }
-    .meal-content img{
+    /* .meal-content img{
         width:20vw;
-    }
+    } */
 }
 @media only screen and (max-width : 900px) {
     .meal-plan-content{
-        margin-top: 10%;
+        margin-top: 222%;
       }
-      .meals{
-        width: 90vw;
-      }
+      
       .meal-content{
           width:60vw;
       }
-      .meal-content img{
-          width:20vw;
+      .meal-img{
+          width:30vw;
       }
       .meal-description {
         width: 50vw;  
@@ -131,21 +129,54 @@ h5 {
       .meal-description p{ 
           font-size: 16px;
       }
+      .remove img{
+          height:2vh;
+          width:3vw;
+      }
+      .meal-plan-sections{
+          flex-direction: column;
+      }
+      .meals{
+          flex-direction: row;
+          width:30vw;
+          box-shadow: none;
+      }
+      .meals-dis-list{
+          flex-direction: column;
+      }
+      .meal-description {
+          display:none;
+      }
+      .search-results{
+          height:178vh;
+          width:98vw;
+      }
+      .meal-plan-section-2{
+          /* height:25vh; */
+          
+          /* border-top:solid 1px rgba(99, 97, 97, 0.5); */
+          margin-top:15%;
+      }
 }
 @media only screen and (max-width : 600px) {
   
       .meal-content{
-          width:85vw;
+          width:40vw;
+          height:12vh;
       }
-      .meal-content img{
-          width:30vw;
-      }
+      
     
 }
 @media only screen and (max-width : 400px) {
-    .meal-content img{
-        height:15vh;
+    .meal-image{
         width:30vw;
     }
-
+  
+     .search-results{
+         height:165vh;
+         padding:0;
+     }
+     .meal-plan-content{
+         margin-top: 263%;
+     }
   }

@@ -9,8 +9,10 @@ import clockIcon from '../../images/clock-icon.png';
 import heartIcon from '../../images/heart-icon.png';
 import {Link } from 'react-router-dom';
 import {
-   
-    WhatsappShareButton, WhatsappIcon
+    WhatsappShareButton, 
+    WhatsappIcon,
+    FacebookIcon,
+    FacebookShareButton,
     
   } from 'react-share';
 
@@ -55,17 +57,30 @@ export default class RecipeDetails extends Component {
                          </div>
                              {this.displayPairs(this.props.recipeDescription.winePairing)}
                             
-                  <WhatsappShareButton
-                   url={`https://pradeepa24.github.io/ExpandMyLifeSpan/#/meal-plan/${this.props.match.params.id}`}
-                     title={this.props.recipeDescription.title}
-                     separator="::"
-                     className="share-button"
-                     >
-                     <WhatsappIcon size={32} round />  
-                    </WhatsappShareButton>
+              
                    </div>
                    <div className="meal-image">
                        <img src={this.props.recipeDescription.image} />
+                       <p>Like to share this recipe with your friends?</p>
+                       <div className="share">
+                       <WhatsappShareButton
+                           url={`https://pradeepa24.github.io/ExpandMyLifeSpan/#/meal-plan/${this.props.match.params.id}`}
+                           title={this.props.recipeDescription.title}
+                           separator="::"
+                           className="share-button"
+                         >
+                           <WhatsappIcon size={32} round />
+                        </WhatsappShareButton>
+                        <FacebookShareButton
+                           url={`https://pradeepa24.github.io/ExpandMyLifeSpan/#/meal-plan/${this.props.match.params.id}`}
+                           quote={`Check out this recipe${this.props.recipeDescription.title}`}
+                           hashtag={`#recipe${this.props.recipeDescription.title}`}
+                           className="share-button"
+                         >
+                           <FacebookIcon size={32} round />
+                        </FacebookShareButton>
+                       </div>
+                       
                    </div>
                  </div>
                
@@ -75,9 +90,12 @@ export default class RecipeDetails extends Component {
                      <h5 >Ingredients</h5>
                     
                  </div>
-                     <div className="ingredient-list">
+              
+                   <div className="ingredient-list">
                        {this.displayIngredients(this.props.recipeDescription.extendedIngredients)}
                     </div>
+               
+                     
                    </div>
                  </div>
                  
@@ -89,9 +107,12 @@ export default class RecipeDetails extends Component {
                      <span>Ready In</span>
                      <div>{this.props.recipeDescription.readyInMinutes} m</div>
                      </div>
-                     <ol className="meal-det-desc">
+                    
+                        <ol className="meal-det-desc">
                            {this.displaySteps(this.props.recipeDescription.analyzedInstructions[0].steps)}
-                    </ol>
+                        </ol>
+                    
+                    
                    </div>
                    </div>
  

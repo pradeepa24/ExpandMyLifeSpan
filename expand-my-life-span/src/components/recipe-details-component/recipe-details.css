@@ -4,7 +4,7 @@
     align-items: center;
    height:200vh;
     width:100vw; 
-   margin-top:47%;
+   margin-top:53%;
 }
 .meal-sections{
     display: flex;
@@ -24,7 +24,18 @@
 }
 .meal-image{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+ 
+}
+.share{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+    padding: 10px;
+    width: 10vw;
 }
 .meal-image img{
     height: 25vh;
@@ -35,7 +46,7 @@
 .meal-section-1{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center; 
     padding-left: 100px;
     padding-right: 100px;
@@ -54,6 +65,7 @@
     flex-direction: column; 
     width: 100vw;
 }
+
 .nutri-container{
     display:flex;
     justify-content: center;
@@ -64,6 +76,8 @@
     display:flex;
     flex-direction: column;
     flex-wrap:wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
     height:50vh; 
     font-family: Helvetica;
     padding:20px;
@@ -71,11 +85,11 @@
     padding-right: 100px;
 }
 .meal-det-nutri{
-    width:80vw;
+    width:88vw;
     padding:8px; 
     /* height: 30vh;  */
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; 
 }
 .meal-det-nutri table{
     width:20vw;
@@ -97,17 +111,20 @@
 .meal-det-nutri table tbody tr td{
   padding:2px;
 }
+
 .meal-det-desc{
     padding: 10px;
-    height:40vh;
+    /* height:40vh; */
     padding-left: 100px;
     padding-right: 100px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+   
 }
 .meal-det-desc li{
-    width:20vw;
+    width:30vw;
+    margin-left:20px;
 }
 .ingredient-list span{
     padding:10px;
@@ -152,7 +169,8 @@
     width:100%;
     height:8vh;
     display: flex;
-    align-items: center;
+    /* justify-content: center; */
+    align-items: center; 
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -177,4 +195,68 @@
     top:15px;
     left: 1150px;
    
+ }
+ @media only screen and (max-width : 600px) {
+    .meal-details-content{
+       margin-top:130%;
+    }
+    .meal-section-1{
+        flex-direction: column;
+        height:34vh;
+    }
+    .meal-image,.meal-title{
+        padding:none;
+    }
+    .meal-image p{
+        font-size:15px;
+    }
+    .meal-image img{
+        height:10vh;
+        width: 30vw;
+    } 
+    h3{
+        font-size:25px;
+    } 
+    .share{
+        width:17vw;
+    }
+    .ingredient-list,.meal-det-desc,.meal-section-1 {
+        padding-right:0;
+        padding:2px;
+        padding-left:46px;
+        height:50%;
+        align-items: none;
+        flex-wrap: nowrap;
+    }
+    .ingredient-list span{
+        padding:2px;
+        font-size:15px;
+        line-height: 1.5;
+    }
+    .ingredient-list span img{
+        width:3vw;
+        height:2vh;
+    }
+    .meal-det-desc li{
+        width: 80vw;
+        font-size:15px;
+        line-height: 1.5;
+    }
+    .meal-det-nutri table{
+        width:45vw;
+    }
+    .meal-det-nutri table thead tr{
+        height:6vh;
+    }
+    .meal-det-nutri table thead tr th{
+        font-size: 12px;
+    }
+    .meal-det-nutri table tbody tr td{
+        font-size: 12px;
+    }
+ }
+ @media only screen and (max-width : 400px){
+    .meal-details-content{
+        margin-top:339%;
+     }
  }
