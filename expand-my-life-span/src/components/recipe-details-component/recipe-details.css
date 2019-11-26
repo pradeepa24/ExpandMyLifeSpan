@@ -199,20 +199,33 @@
  @media only screen and (max-width : 600px) {
     .meal-details-content{
        margin-top:130%;
+       overflow-x: hidden;
     }
     .meal-section-1{
         flex-direction: column;
-        height:34vh;
+        /* height:40vh; */
+        
     }
     .meal-image,.meal-title{
         padding:none;
+        width:90vw;
+        
+    }
+    .meal-section-2,.meal-section-3,.meal-section-4{
+        margin-top:5%;
+    }
+    /* .meal-title{
+        height:22vh;
+    } */
+    .meal-image{
+        height:28vh;
     }
     .meal-image p{
         font-size:15px;
     }
     .meal-image img{
-        height:10vh;
-        width: 30vw;
+        height:18vh;
+        width: 50vw;
     } 
     h3{
         font-size:25px;
@@ -220,11 +233,14 @@
     .share{
         width:17vw;
     }
+    /* .meal-section-1{
+        margin-top:35%;
+    } */
     .ingredient-list,.meal-det-desc,.meal-section-1 {
         padding-right:0;
         padding:2px;
         padding-left:46px;
-        height:50%;
+        /* height:50%; */
         align-items: none;
         flex-wrap: nowrap;
     }
@@ -242,6 +258,9 @@
         font-size:15px;
         line-height: 1.5;
     }
+    .meal-det-nutri{
+        width:80vw;
+    }
     .meal-det-nutri table{
         width:45vw;
     }
@@ -254,9 +273,13 @@
     .meal-det-nutri table tbody tr td{
         font-size: 12px;
     }
+    .heading-prep{
+        height:1%;
+    }
  }
  @media only screen and (max-width : 400px){
     .meal-details-content{
-        margin-top:339%;
+        margin-top:224%;
      }
+    
  }
