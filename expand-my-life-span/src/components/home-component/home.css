@@ -180,9 +180,24 @@ h4 {
         left: 0;
         width: 60vw;
     }
+    .account-icon{
+        right:19px;
+        height:5vh;
+        width:7vw;
+    }
+    .account-icon img{
+        height:5vh;
+        width:7vw;
+    }
+    .account-icon span{
+        font-size: 12px;
+        top:-47px;
+        left:-80px;
+    }
   }
   @media only screen and (max-width : 400px) {
     .home-content{
         margin-top: 323%;
     }
+
   }

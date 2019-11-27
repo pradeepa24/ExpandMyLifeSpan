@@ -68,3 +68,22 @@
 .health-disp-video-desc{
     width: 60vw;
 }
+@media only screen and (max-width : 600px) {
+    .health-tip-content{
+        width:90vw;
+        margin-top:81%;
+    }
+    .health-video-section{
+        width:90vw;
+    }
+    .health-video img{
+   height: 14vh;
+   width: 28vw;
+    }
+    .health-disp-video-play{
+        width:85vw;
+    }
+    .health-disp-video-play iframe{
+        width: 86vw;
+    }
+}

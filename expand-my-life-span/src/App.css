@@ -71,6 +71,10 @@ header h1{
   }
   header img{
     width: 10vw;
+    left: 8px;
+  }
+  header h1{
+    left:47px;
   }
 }
 @media only screen and (max-width : 400px) {

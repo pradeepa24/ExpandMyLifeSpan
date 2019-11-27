@@ -134,6 +134,33 @@ h5 {
     
 }
 @media only screen and (max-width : 900px) {
+    .meal-plan-purpose{
+        margin-top: 107%;
+        width:92vw;
+    }
+    .meal-plan-section-2{
+        height:30vh;
+    }
+    .meals{
+        width:90vw;
+    }
+    .meal-img{
+        height:16vh;
+        width:20vw;
+        padding:5px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    h3{
+font-size: 20px;
+    }
+    h6{
+        font-size: 12px;
+    }
+    .meal-description p{
+        display:none;
+    }
     /* .meal-plan-content{
         margin-top: 222%;
       }
@@ -187,22 +214,48 @@ h5 {
           height:12vh;
       } */
       .meal-plan-purpose{
-        margin-top: 157%;
+        margin-top: 910%;
         width:92vw;
+        height:913vh;
+    }
+    .meal-content{
+        width:62vw;
+    }
+    .meal-plan-sections{
+        margin-top:127%;
     }
     .meal-plan-section-2{
-        height:30vh;
+        height:70vh;
+        margin-top:31%;
     }
     .meals{
         width:100vw;
+        flex-direction: column;
     }
     .meal-img{
         height:16vh;
-        width:27vw;
-        padding:0;
+        width:20vw;
+        padding:5px;
+    }
+    .remove img{
+        height:2vh;
+        width:3.5vw;
+    }
+    .meal-dis-list{
+        flex-direction: column ;
+    }
+    .search-meal-content{
+        margin-top:57%;
+    }
+    .meal-plan-content{
+        height:930vh;
     }
 }
 @media only screen and (max-width : 400px) {
+    .meal-plan-purpose{
+        margin-top: 237%;
+        width:92vw;
+    }
     /* .meal-image{
         width:30vw;
     }

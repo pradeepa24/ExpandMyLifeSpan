@@ -58,3 +58,28 @@
     line-height:1;
     padding:20px;
 }
+@media only screen and (max-width : 600px) {
+  .customize-wrapper{
+    width:90vw;
+    height:1205vh;
+margin-top:2400%;
+  }
+  .similar-rec{
+    width:58vw;
+  }
+  .similar-meal-content{
+    width:90vw;
+  }
+.meal-img{
+  height:25vh;
+  width:50vw;
+  padding:5px;
+}
+.remove img{
+  height:5vh;
+  width:7vw;
+}
+/* .meal-dis-list{
+  flex-direction: column ;
+} */
+}

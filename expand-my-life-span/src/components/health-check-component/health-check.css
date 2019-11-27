@@ -148,15 +148,19 @@ select {
 @media only screen and (max-width : 600px) {
     .health-check-section{
         margin-top: 30%;
+        height:220vh;
     }
     .health-check-content{
         flex-direction: column;
+        width:90vw;
+        height: 150vh;
+        margin-top:119%;
     }
     .bmi-form{
         width:80vw;
         margin-top: 4%;
         height:55vh;
-    
+        box-shadow:none;
     }
     form {
         width:80vw;
@@ -186,6 +190,10 @@ select {
     }
     .bmi-result-part3{
         width: 21vw;
+    }
+    .health-check-wrapper{
+        margin-top:-181%;
+        
     }
 }
 @media only screen and (max-width : 600px) {

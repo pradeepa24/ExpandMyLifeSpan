@@ -52,7 +52,7 @@ export default class MealPlan extends Component {
                   <Link to={`/meal-plan/${meal.id}`} key={ind} ><img className="meal-img" src={`https://spoonacular.com/recipeImages/${meal.image}`} alt={meal.title}/></Link>
                   <div  className="meals-dis-list">
                     <div className="meal-description">
-                       <h7><strong>{meal.title.toUpperCase()}</strong></h7>
+                       <h6><strong>{meal.title.toUpperCase()}</strong></h6>
                        <p>Preparation Time: {meal.readyInMinutes}</p>
                        <p>Servings: {meal.servings}</p>
                     </div>

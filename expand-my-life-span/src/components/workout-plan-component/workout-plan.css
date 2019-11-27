@@ -145,7 +145,15 @@ width:30vw;
         top:97px;
         right: 35px;
     }
-    .workout-video{
+    .working-video {
+        width: 50vw;
+        
+    }
+    .working-video img{
+        width: 50vw;
+        
+    }
+    /* .workout-video{
         height:10vh;
         width:30vw;
         padding:5px;
@@ -153,7 +161,7 @@ width:30vw;
     .workout-video img{
         height:15vh;
         width:30vw;
-    }
+    } */
     .video-desc{
         height:20vh;
         width: 90vw; 
@@ -180,10 +188,17 @@ width:30vw;
     .workout-plan-content{
         margin-top:15%;
         overflow:hidden;
+        height: 300vh;
+        margin-top:228%;
     }
     /* .workout-video-content{
         flex-direction: column;
     } */
+    .workout-plan{
+        width:90vw;
+        margin-top:237%;
+        height:200vh;
+    }
     .workout-video-section{
         /* display: flex;
         flex-direction: row;
@@ -192,20 +207,33 @@ width:30vw;
         height: 80vh;
         width:60vw; */
         margin-top:1%;
+        flex-direction:column;
+        height:115vh;
+    }
+    .working-video {
+        width: 90vw;
+        
+    }
+    .working-video img{
+        width: 60vw;
+        
+    }
+    .workout-video-content{
+        margin-top:224%;
     }
     /* .working-video {
         width: 98vw;
         height:74vh;
     }
-    .workout-video-disp {
+    /* .workout-video-disp {
         height: 50vh;
         width:100vw;
-    }
-    .video-play {
+    } */
+    /* .video-play {
         height:45vh;
         width: 80vw;
        
-    } */
+    } */ 
     /* .video-play iframe{
         height:38vh;
         width: 90vw;
@@ -222,6 +250,12 @@ width:30vw;
         height:15vh;
         width:30vw;
     } */
+    .workout-video-disp {
+        margin-top:-200%;
+    }
+    .video-play iframe{
+        width:88vw;
+    }
     .video-desc{
        
         margin-top:10%;
@@ -237,6 +271,9 @@ width:30vw;
        width:10vw;
         right: 60px;
         
+    }
+    .workout-video-description{
+        width:60vw;
     }
 }
 @media only screen and (max-width : 400px) {
