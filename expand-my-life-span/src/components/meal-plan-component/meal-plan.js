@@ -5,6 +5,7 @@ import homeIcon from '../../images/home-icon.jpg';
 import loadingIcon from '../../images/loading-icon.gif';
 import removeIcon from '../../images/remove-icon.png';
 import addIcon from '../../images/add-icon.webp';
+import backButton from '../../images/back-button-icon.png';
 export default class MealPlan extends Component {
     updateSearch = (e) => {
        this.props.setSearch(e.target.value);
@@ -25,10 +26,11 @@ export default class MealPlan extends Component {
            
                 return (
                   <div key={ind} className="meal-content" >
+                 
                      <Link to={`/meal-plan/${meal.id}`}  ><img className="meal-img" src={`https://spoonacular.com/recipeImages/${meal.image}`} alt={meal.title}/></Link>
                     <div  className="meals-dis-list">
                         <div className="meal-description">
-                          <h5>{meal.title.toUpperCase()}</h5>
+                          <h6><strong>{meal.title.toUpperCase()}</strong></h6>
                           <p>Preparation Time: {meal.readyInMinutes}</p>
                           <p>Servings: {meal.servings}</p>
                          </div>
@@ -50,7 +52,7 @@ export default class MealPlan extends Component {
                   <Link to={`/meal-plan/${meal.id}`} key={ind} ><img className="meal-img" src={`https://spoonacular.com/recipeImages/${meal.image}`} alt={meal.title}/></Link>
                   <div  className="meals-dis-list">
                     <div className="meal-description">
-                       <h5>{meal.title.toUpperCase()}</h5>
+                       <h7><strong>{meal.title.toUpperCase()}</strong></h7>
                        <p>Preparation Time: {meal.readyInMinutes}</p>
                        <p>Servings: {meal.servings}</p>
                     </div>
@@ -70,13 +72,52 @@ export default class MealPlan extends Component {
         }
        
     }
+    displayDropdown = () => {
+      let styleSettings;
+      if(this.props.styleSettings.display === 'none') {
+          styleSettings = {display:'flex'};
+      } else {
+          styleSettings = {display:'none'};
+      }
+     this.props.setStyleSettings(styleSettings);
+  }
+  logOut = () =>{
+    this.props.logOutSession();
+    setTimeout(()=>{
+       if(!this.props.authenticatedFlag) {
+           this.displayDropdown();
+        this.props.history.push("/");
+       }
+    },250)
+}
+reloadMealPlan = () =>{
+  this.props.history.goBack();
+  this.props.reloadPlans();
+}
     render() {
        
         return (
             <div className="meal-plan-content">
-              <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
-              <div>
+             
+              <button className="account-icon" onClick={this.displayDropdown}>
+                <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
+             </button>
+             <div style={this.props.styleSettings} className="dropdown-content">
+                  <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
+                  <img className="home-icon" src={backButton} alt="backButton" onClick={this.reloadMealPlan}/>
+                  <button onClick={this.logOut}>Log out</button>
+                </div>
+              <div className="meal-plan-purpose">
                 <div className="meal-plan-sections">
+                <div className="meals-heading">
+                          <h2>Meal Plan for the day</h2>
+                  </div>
+                <div className="meal-plan-section-2">
+                   
+                     <div className="meals">
+                       {this.displayMeals()}
+                    </div>
+                   </div>
                   <div className="search-meal-content">
                       <Link to="/customize-meal-plan"><h3>Need a different Meal Plan? View Me</h3></Link>
                       <span>Or</span><h3> Search your meal</h3><div className="search-meal">
@@ -93,15 +134,7 @@ export default class MealPlan extends Component {
                       </div>
                    </div>
 
-                   <div className="meal-plan-section-2">
-                   <div className="meals-heading">
-                          {/* <h3>Meal Plan for the day</h3> */}
-                       </div>
-                     <div className="meals">
-                       
-                       {this.displayMeals()}
-                    </div>
-                   </div>
+                   
                    
                 </div>
               </div>

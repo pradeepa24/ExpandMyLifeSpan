@@ -3,9 +3,25 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    height: 300vh;
     width: 100vw;
-    margin-top:20%;
+    /* margin-top:45%; */
+    /* margin-top:25%; */
+    background-color:rgba(238, 180, 73, 0.19);
+}
+.meal-plan-purpose{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 4px rgba(133, 49, 7, 0.466);
+    margin-top: 55%;
+    background-color:white;
+    height: 190vh;
+    width:80vw;
+}
+.meals-heading h2{
+    font-weight:bold;
+    color:rgba(156, 71, 15, 0.795);
 }
 .search-meal-content {
     display:flex;
@@ -13,22 +29,25 @@
     justify-content: space-around;
     align-items: center;
     /* height: 10vh; */
-    width: 60vw;
+    width: 90vw;
+    margin-top: 5%;;
 }
 .meal-plan-section-2{
     display:flex;
-    justify-content: flex-start;
-    align-items: center; 
-    width: 30vw; 
-    margin-top:5%;
-}
-.meals{
-    width: 30vw;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center; 
+    width: 60vw; 
+    margin-top:5%;
+    height:18vh;
+}
+.meals{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    box-shadow: 10px 10px 10px 10px #aaaaaa;
+    /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
     padding: 10px;
 }
 .meals-heading {
@@ -46,7 +65,7 @@
 }
 .meal-img {
     height: 20vh;
-    width: 18vw;
+    width: 15vw;
     padding:20px;
     box-shadow: 10px 10px 10px 10px #aaaaaa;
 }
@@ -56,7 +75,7 @@
     width: 20vw;
     /* position: relative;
     left: 20px; */
-   line-height:0.5;
+   line-height:1;
    margin-top:5%;
 }
 h3 {
@@ -70,7 +89,7 @@ h5 {
 }
 .meal-plan-sections{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
@@ -79,7 +98,7 @@ h5 {
     flex-direction: row;
 }
 .search-results{
-    width: 60vw;
+    width: 90vw;
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
@@ -93,6 +112,7 @@ h5 {
     width: 3vw;
     border:transparent;
     background-color: transparent;
+  
 }
 .remove img{
     height: 5vh;
@@ -105,15 +125,16 @@ h5 {
     align-items: center;
 }
 @media only screen and (max-width : 1200px) {
-    .meal-content{
+    /* .meal-content{
         width:50vw;
-    }
+    } */
     /* .meal-content img{
         width:20vw;
     } */
+    
 }
 @media only screen and (max-width : 900px) {
-    .meal-plan-content{
+    /* .meal-plan-content{
         margin-top: 222%;
       }
       
@@ -124,7 +145,8 @@ h5 {
           width:30vw;
       }
       .meal-description {
-        width: 50vw;  
+        width: 50vw;
+          
       }  
       .meal-description p{ 
           font-size: 16px;
@@ -144,7 +166,7 @@ h5 {
       .meals-dis-list{
           flex-direction: column;
       }
-      .meal-description {
+      .meal-description p{
           display:none;
       }
       .search-results{
@@ -155,20 +177,33 @@ h5 {
           /* height:25vh; */
           
           /* border-top:solid 1px rgba(99, 97, 97, 0.5); */
-          margin-top:15%;
-      }
+          /* margin-top:15%;
+      } */ 
 }
 @media only screen and (max-width : 600px) {
   
-      .meal-content{
+      /* .meal-content{
           width:40vw;
           height:12vh;
-      }
-      
-    
+      } */
+      .meal-plan-purpose{
+        margin-top: 157%;
+        width:92vw;
+    }
+    .meal-plan-section-2{
+        height:30vh;
+    }
+    .meals{
+        width:100vw;
+    }
+    .meal-img{
+        height:16vh;
+        width:27vw;
+        padding:0;
+    }
 }
 @media only screen and (max-width : 400px) {
-    .meal-image{
+    /* .meal-image{
         width:30vw;
     }
   
@@ -178,5 +213,5 @@ h5 {
      }
      .meal-plan-content{
          margin-top: 263%;
-     }
+     } */
   }

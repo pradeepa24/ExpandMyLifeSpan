@@ -3,6 +3,7 @@ import './health-check.css';
 import {Link} from 'react-router-dom';
 import homeIcon from '../../images/home-icon.jpg';
 import loadingIcon from '../../images/loading-icon.gif';
+import backButton from '../../images/back-button-icon.png';
 
 export default class HealthCheck extends Component {
     updateBmiObj = (e) => {
@@ -15,6 +16,20 @@ export default class HealthCheck extends Component {
         
         this.props.setBmiObject(obj)
     }
+    reload = () =>{
+      this.props.reloadPlans();
+      this.props.history.goBack();
+     
+  }
+    displayDropdown = () => {
+      let styleSettings;
+      if(this.props.styleSettings.display === 'none') {
+          styleSettings = {display:'flex'};
+      } else {
+          styleSettings = {display:'none'};
+      }
+     this.props.setStyleSettings(styleSettings);
+  }
     submitBmi = (e) => {
         e.preventDefault();
         this.props.getBmi();
@@ -127,13 +142,31 @@ export default class HealthCheck extends Component {
              
         }
     }
- 
+    logOut = () =>{
+      this.props.logOutSession();
+      setTimeout(()=>{
+         if(!this.props.authenticatedFlag) {
+             this.displayDropdown();
+          this.props.history.push("/");
+         }
+      },250)
+  }
     render() {
         return (
             <div className="health-check-section">
-               <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link> 
-               <h3>Health Check</h3>
+               
                <div className="health-check-content">
+               <div className="health-check-wrapper">
+               
+               <button className="account-icon" onClick={this.displayDropdown}>
+                <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
+             </button>
+             <div style={this.props.styleSettings} className="dropdown-content">
+             <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
+                  <img className="home-icon" src={backButton} alt="backButton" onClick={this.reload}/>
+                  <button onClick={this.logOut}>Log out</button>
+                </div>
+               <h3>Health Check</h3>
                   <div className="bmi-form">
                        <h3>BMI Form</h3>
                     <form>
@@ -196,6 +229,7 @@ export default class HealthCheck extends Component {
                   </div>
                   <div className="bmi-result">
                      {this.displayBmiResult()}
+                  </div>
                   </div>
                </div>
             </div>

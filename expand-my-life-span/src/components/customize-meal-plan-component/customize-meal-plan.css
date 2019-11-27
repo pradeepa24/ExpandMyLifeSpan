@@ -1,19 +1,47 @@
 .customize-meal-content{
-    margin-top:10%;
-    height:100vh;
+    /* margin-top:10%; */
+    height:600vh;
    width: 100vw;
+   background-color:rgba(238, 180, 73, 0.19);
+   display:flex;
+   justify-content: center;
+   align-items: center;
 }
 .similar-rec{
    display:flex;
-   flex-direction: column;
+   flex-direction: row;
    flex-wrap:wrap;
-   height:380vh; 
+   /* height:380vh;  */
    font-family: Helvetica;
-   padding:20px;
+   /* padding:20px;
    padding-left: 100px;
    padding-right: 100px;
    padding-top:20px;
-   padding-bottom:20px;
+   padding-bottom:20px; */
+   /* height:500vh; */
+   width:80vw;
+ 
+}
+.header-custom-meal-detail h2{
+  font-weight:bold;
+  color:rgba(156, 71, 15, 0.795);
+}
+.similar-rec-wrapper{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:80vw;
+}
+.customize-wrapper{
+  display:flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   width: 80vw;
+   border: solid 4px rgba(133, 49, 7, 0.466);
+   margin-top:130%;
+   height:330vh;
+   background-color:white;
 }
 .similar-meal-content{
   height: 40vh;
@@ -27,6 +55,6 @@
 } */
 .similar-meal-description{
     height:10vh;
-    line-height:0.5;
+    line-height:1;
     padding:20px;
 }

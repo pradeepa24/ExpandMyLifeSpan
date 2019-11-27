@@ -1,28 +1,32 @@
 .workout-plan-content{
-    height:100vh;
+    height:150vh;
     width:100vw;
     margin-top: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color:rgba(238, 180, 73, 0.19);
 }
 .home-icon{
     height: 7vh;
     width: 4vw;
-    position: fixed;
+    /* position: fixed;
     top: 10px;
     z-index: 5;
-    right: 110px;
-    
+    right: 300px;
+     */
 }
 .workout-plan{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 85vh;
-    width:90vw;
+    height: 100vh;
+    width:80vw;
     /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
+    border: solid 4px rgba(133, 49, 7, 0.466);
+   background-color:white;
+   margin-top: 10%;
 }
 .loading{
     height: 10vh;
@@ -38,36 +42,40 @@
     
 }
 .workout-video-section{
-    width: 20vw;
-    padding:20px;
+    width: 30vw;
+    padding:2px;
+}
+.workout-video-description{
+    width:20vw;
 }
 .workout-video-disp {
-    width: 60vw;
-    height: 80vh;
+    width: 50vw;
+    height: 87vh;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    padding: 20px;
+    padding: 2px;
 }
 .working-video {
-    width: 60vw;
-    height: 80vh;
+    width: 40vw;
+    height: 87vh;
     padding: 5px 30px;
 }
 .video-play {
     height:65vh;
-    width: 56vw;
+    width: 48vw;
    
 }
 .video-play iframe{
     height:65vh;
-    width: 56vw;
+    width: 48vw;
 }
 .video-desc{
     height:20vh;
-    width: 56vw; 
+    width: 48vw; 
+    padding:5px;
 }
 .header-video{
     font-weight: bold; 
@@ -85,21 +93,25 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 80vw;
+    width: 48vw;
 }
-/* .work-fields{
+.work-fields{
 display: flex;
 flex-direction: row;
-/* justify-content: center;
-align-items: center; */
-
+justify-content: center;
+align-items: center;
+width:30vw;
+}
+.work-fields input{
+    width:2vw;  
+}
 
 @media only screen and (max-width : 900px) {
     .home-icon{
         width:7vw;
     }
     .workout-plan-content{
-        margin-top:10%;
+        margin-top:15%;
     }
     .workout-video-content{
         flex-direction: column;
@@ -156,12 +168,17 @@ align-items: center; */
     p{
         font-size:11px;
     }
+    .user-options{
+        width:80vw;
+    }
+  
+
 
 }
 @media only screen and (max-width : 600px) {
   
     .workout-plan-content{
-        margin-top:10%;
+        margin-top:15%;
         overflow:hidden;
     }
     /* .workout-video-content{

@@ -5,7 +5,11 @@ import mealBackground from '../../images/meal-plan-image.jpg';
 import workoutBackground from '../../images/workout-plan-image.jpg';
 import healthCheckBackground from '../../images/health-check-image.jpg';
 import accountIcon from '../../images/account-icon-check.png';
+import vegImg from '../../images/veg-car-img.jpg';
+import exImg from '../../images/exercise-car-img.jpeg';
+import healthImg from '../../images/bmi-car-img.jpg';
 
+import healthTips from '../../images/health_tips-background.jpg';
 export default class Home extends Component {
     displayDropdown = () => {
         let styleSettings;
@@ -29,12 +33,26 @@ export default class Home extends Component {
        
         return (
             <div className="home-content">
-             <button className="account-icon"><img  src={accountIcon} alt="homeIcon" onClick={this.displayDropdown}/></button>
-             <div style={this.props.styleSettings} class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
+             <button className="account-icon" onClick={this.displayDropdown}>
+                <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
+             </button>
+             <div style={this.props.styleSettings} className="dropdown-content">
                   <button onClick={this.logOut}>Log out</button>
                 </div>
+                <div className="car-self">
+                <img src ={exImg} alt="exersize" />
+                <img src={vegImg} alt="healthyFoods" />
+                <img src={healthImg} alt="trachBmi" />
+                </div>
+                <div className="purpose">
+                
+                    <h4>Eat Better.
+                        Stay Fit.
+                        Stay Healthy.</h4>
+                    <p>Aarokya empowers you to achieve your diet, health and fitness goals.</p>
+                </div>
+                <div className="navigations">
+                <div className="navigation-sections">
                 <Link to="/meal-plan">
                   <div className="meal-nav">
                    <div className="meal-nav-description">
@@ -63,6 +81,19 @@ export default class Home extends Component {
                    <img src={healthCheckBackground} alt="meals" />
                   </div>
                 </Link>
+                <Link to="/health-tip">
+                  <div className="meal-nav">
+                   <div className="meal-nav-description">
+                      <h4>Health Tips</h4>
+                      <p>Get a health tip, a video to live a healthy living.</p>
+                   </div>
+                   <img src={healthTips} alt="meals" />
+                  </div>
+                </Link>
+                </div>
+                
+                </div>
+              
             </div>
 
         )

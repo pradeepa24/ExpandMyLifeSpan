@@ -49,6 +49,12 @@ header {
 header img{
   height: 8vh;
   width: 5vw;
+  position:fixed;
+  left:150px;
+}
+header h1{
+  position:fixed;
+  left:225px;
 }
 .main-content {
   display: flex;

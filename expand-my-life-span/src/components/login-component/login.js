@@ -7,18 +7,41 @@ export default class Login extends Component {
        let cred = {...this.props.loggerInfo} 
        cred[e.target.name] = e.target.value;
       this.props.setLogin(cred);
+      if(e.target.name === "userName"){
+          this.props.checkUserNm(this.props.loggerInfo.userName);
+          setTimeout(()=>{
+            this.props.checkPswd(this.props.loggerInfo.password);
+        },500)
+      } else{
+              if(this.props.loggerInfo.userName === ''){
+                this.props.checkUserNm(this.props.loggerInfo.userName);
+              }
+              this.props.checkPswd(this.props.loggerInfo.password);
+      }
     }
     submitLogin = (e) => {
         e.preventDefault();
         this.props.authenticateUser();
         setTimeout(() => {
+            console.log(this.props.authenticatedFlag)
             if(this.props.authenticatedFlag) {
                 this.props.history.push("/home");
               }
-        }, 500)
+        }, 250)
     }
- 
+ displayValidMsgPswd = () =>{
+   return (
+       <span>{this.props.passwordErrMsg}</span>
+   )
+ }
+ displayValidMsgUser =() =>{
+    return (
+        <span>{this.props.userNmErrMsg}</span>
+    )
+ }
     render() {
+
+
         return (
             <div className="login">
               <div className="login-content">
@@ -32,7 +55,9 @@ export default class Login extends Component {
                                 value={this.props.loggerInfo.userName}
                                 onChange={this.updateCredential}
                           />
+                          
                        </div>
+                       <span>{this.displayValidMsgUser()}</span>
                        <div className="fields">
                           <label>Password</label>
                           <input type="password"
@@ -40,20 +65,34 @@ export default class Login extends Component {
                                  name="password"
                                  value={this.props.loggerInfo.password}
                                  onChange={this.updateCredential}
-                           />      
+                           /> 
+                            
                        </div>
+                       <span>{this.displayValidMsgPswd()}</span>   
                        <div className="submit">
-                           <input type="submit"
+                           {/* <input type="submit"
                                   value="Submit"
                                   name="submit"
                                   onClick={this.submitLogin}
-                            />
+                                  disabled={this.props.isValidForm}
+                            /> */}
+                            <button type="submit" name="submit" 
+                                   className="submit"
+                                  onClick={this.submitLogin}
+                                  disabled={!this.props.isValidForm} >Submit
+                            </button>
                        </div>
                    </div>
                </form>
+              
+                   
                <div className="sign-up-content">
-                   <p>Not registered yet?</p>
+               <Link to="/reset">Forgot Password?Reset</Link>
+               <div>
+               <p>Not registered yet?</p>
                    <Link to="/sign-up">Sign Up</Link>
+               </div>
+                  
                </div>
             </div>
          </div>

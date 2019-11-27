@@ -1,13 +1,63 @@
-
 .home-content{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    height: 250vh;
     width:100vw;
-    margin-top: 35%;
+    margin-top: 80%;
 }  
+.car-self{
+    width:100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.car-self img{
+    width:33%;
+    height: 50vh;
+}
+.purpose{
+    height: 12vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    
+    background-color:rgba(142, 196, 43, 0.979);
+    border: solid 4px rgb(88, 40, 8);
+}
+/* .profile img{
+    height: 5vh;
+    width:3vw;
+   
+}
+.profile {
+    position:absolute;
+    bottom: 200px;
+    right: 970px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 15vw;
+} */
+.navigations{
+    background-color:rgba(238, 180, 73, 0.19);
+    width: 100vw;
+    height:240vh;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.navigation-sections{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 h2 {
     text-align: center;
 }
@@ -20,40 +70,38 @@ h4 {
     font-family: 'Lobster', cursive;
 }
 .meal-nav {
-   height: 55vh;
-   width: 70vw;
+   height: 50vh;
+   width: 80vw;
    display: flex;
    flex-direction: column;
    justify-content: space-around;
    align-items: center;
-  
+   border: solid 4px rgba(133, 49, 7, 0.466);
+   background-color:white;
+   /* box-shadow: 10px 10px 10px 10px grey; */
+   margin-top:3%;
 }
 .meal-nav img {
-    height: 50vh;
-    width: 50vw;
-    box-shadow: 10px 10px 5px grey;
+    height: 30vh;
+    width: 30vw;
+    /* box-shadow: 10px 10px 5px grey; */
+    border: solid 4px rgb(88, 40, 8);
 }
 .meal-nav-description {
-    height: 30vh;
-    width: 40vw;
+    height: 10vh;
+ 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: solid 2px white;
-    position: relative;
-    top: 300px;
-    left: 1%;
-    border-radius: 10px;
-    /* background-color: rgba(152, 199, 76, 0.979); */
-    background-color: white;
+ 
     padding:10px;
     
 }
 
 .dropdown-content {
     position: fixed;
-    background-color: rgba(152, 199, 76, 0.979);
+    background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -71,7 +119,7 @@ h4 {
     position: fixed;
     top: 10px;
     z-index: 5;
-    right: 50px;
+    right: 140px;
     background-color:white;
     border-radius:50%;
   }
@@ -82,6 +130,12 @@ h4 {
     top: -2px;
     left:-8px;
   }
+  .account-icon span {
+    position: relative;
+    top: -55px;
+    left:-105px;
+    color:white;
+  }
   @media only screen and (max-width : 1100px) {
     .home-content{
         margin-top: 55%;
@@ -89,7 +143,7 @@ h4 {
 }
   @media only screen and (max-width : 900px) {
     .home-content{
-        margin-top: 60%;
+        margin-top: 100%;
     }
     .meal-nav {
         height: 50vh;
@@ -102,15 +156,24 @@ h4 {
   }
   @media only screen and (max-width : 600px) {
     .home-content{
-        margin-top: 80%;
+        margin-top: 216%;
     }
+    .car-self img{
+        height:35vh;
+    }
+    .purpose{
+        top:211px;
+    }
+    /* .navigations{
+        height:200vh;
+    } */
     .meal-nav {
-        height: 50vh;
+        height: 40vh;
         width: 90vw;
     }
     .meal-nav img {
-        height: 45vh;
-        width: 90vw;
+        height: 20vh;
+        width: 40vw;
     }
     .meal-nav-description {
         top: 250px;
@@ -120,6 +183,6 @@ h4 {
   }
   @media only screen and (max-width : 400px) {
     .home-content{
-        margin-top: 110%;
+        margin-top: 323%;
     }
   }

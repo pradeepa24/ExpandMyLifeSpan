@@ -1,20 +1,31 @@
 
 .health-check-section{
-    height: 100vh;
+    height: 400vh;
     width:100vw;
-    margin-top: 5%; 
+    /* margin-top: 5%;  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(238, 180, 73, 0.19);
 }
 .health-check-section h3{
    text-align:center;
 }
 .health-check-content{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height:180vh; */
+    width:80vw;
+    border: solid 4px rgba(133, 49, 7, 0.466);
+    background-color:white;
+    margin-top: 50%;
+}
+.health-check-wrapper{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* height:100vh; */
-    width:100vw;
-    
 }
 .bmi-form,.bmi-result{
     display: flex;
@@ -26,6 +37,7 @@
     box-shadow: 10px 10px 10px 10px #aaaaaa;
     height:60vh;
     border-radius:12px;
+   
 }
 .bmi-result{
   padding: 5px;

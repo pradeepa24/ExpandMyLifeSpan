@@ -9,11 +9,15 @@ import WorkoutPlan from './components/workout-plan-component/workout-plan';
 import HealthCheck from './components/health-check-component/health-check';
 import RecipeDetails from './components/recipe-details-component/recipe-details';
 import CustomizeMealPlan from './components/customize-meal-plan-component/customize-meal-plan';
+import PasswordReset from './components/password-reset-component/password-reset';
 import Axios from 'axios';
 import leafIcon from './images/leaf-icon.png';
+import HealthTip from './components/health-tip-component/health-tip';
 const KEY = 'AIzaSyAEjrWBTS0fzNvmx9JTdBBNYEVs460G0SU';
 const rapidKey = "4f90ef96b0msh246f6e054afbdd1p14c2ffjsn4e4ab27d80f1";
-const spoonacularKey = "4f90ef96b0msh246f6e054afbdd1p14c2ffjsn4e4ab27d80f1";
+const spoonacularKey = "11d5a0e250msh19b75e8285d84ebp183a4fjsnfad048d8d187";
+const spoonDirectKey = "2ea07250d6d543da875c6de34ad2c608";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -21,17 +25,28 @@ class App extends React.Component {
       ready:false,
       loginCredentials:[],
       loggerInfo:{
+        "firstName":"",
+        "lastName":"",
+        "email":"",
         "userName":"",
         "password":"",
+        "question":"",
+        "answer":"",
         "startWeight": "",
         "currentWeight": "",
         "goalWeight": "",
         "date":"",
-        "caloriePerDay":"",
+        "caloriePerDay":2000,
         "mealPlan":{},
-        "workoutPlan":{}
+        "workoutPlan":[],
+        "healthTip":{},
+        "healthVideos":[],
+        avatar:""
     },
     userName:"",
+    avatar:"",
+    password:"",
+    confirmPassword:"",
     mealPlan:{},
     similarRecipes:[],
     searchText:"",
@@ -48,22 +63,83 @@ class App extends React.Component {
           "waist":"",
           "hip":""
     },
+    errorMessages:[{'userName':[{'required':'User name cannot be empty'},
+                                //  {'incorrect':'User Name incorrect'}
+                                //  {'available':'User Name already taken'}
+                                ]
+                    },
+                   {'password':[{'required':'Password cannot be empty'},
+                                {'incorrect':'Password incorrect'}
+                              ]
+                    }],
+    isValidForm:false,
+    passwordErrMsg:"",
+    userNmErrMsg:"",
     userOptionWatchWorkout:"20min Workout",
     bmiResult:{},
     calorieInTakePerDay:2000,
     bmiLoaderFlag:false,
     recipeDescription:{},
     nutritionData:{},
-    
+    healthTip:{},
+    healthVideoList:[],
+    selectedHealthVideo:null,
+    searchQueryForHealth:['indian health tips','american health tips','tasty smoothies','healthy food choices']
     }
   }
+
   componentDidMount(){
    this.getCredentials();
+   
+  }
+  checkPswd = (pswd) =>{
+    let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1)
+   if(pswd === ''){
+      console.log(fieldNm);
+      let msg = fieldNm.password.filter((m,i)=>  i===0)
+      console.log(msg)
+      this.setState({
+        passwordErrMsg:msg[0].required
+      },()=>{
+        console.log(this.state.passwordErrMsg)
+      })
+      } else{
+        this.setState({
+          isValidForm:true
+        })
+      }
+  }
+  checkUserNm = (un) =>{
+    let fieldNmUn = this.state.errorMessages.find((field,ind)=> ind === 0)
+    if(un === ''){
+       console.log(fieldNmUn);
+       let msg = fieldNmUn.userName.filter((m,i)=>  i===0)
+       console.log(msg)
+       this.setState({
+        userNmErrMsg:msg[0].required
+       },()=>{
+         console.log(this.state.userNmErrMsg)
+       })
+       } else{
+        this.setState({
+          userNmErrMsg:""
+         })
+       }
+  }
+  setPassword = (pass) =>{
+   this.setState({
+     password:pass
+   })
+  }
+  setConfirmPassword = (pass) => {
+    this.setState({
+      confirmPassword:pass
+    })
   }
   getDescription = (id) => {
-    Axios.get(`https://webknox-recipes.p.rapidapi.com/recipes/${id}/information`,{headers:{
-      "x-rapidapi-host": "webknox-recipes.p.rapidapi.com",
-      "x-rapidapi-key": rapidKey}
+    Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,{headers:{
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    "x-rapidapi-key": spoonacularKey}
     })
          .then((res)=>{
            console.log(res);
@@ -89,11 +165,13 @@ class App extends React.Component {
   })
  .catch((err) => console.log(err))
  }
- getMeals = () => {
-  Axios.get(`https://webknox-recipes.p.rapidapi.com/recipes/mealplans/generate?targetCalories=${this.state.calorieInTakePerDay}&timeFrame=day`,{headers:{
-    "x-rapidapi-host": "webknox-recipes.p.rapidapi.com",
-    "x-rapidapi-key": rapidKey}
-  })
+ getMeals = (cal) => {
+  Axios.get(`https://api.spoonacular.com/recipes/mealplans/generate?apiKey=${spoonDirectKey}&targetCalories=${cal}&timeFrame=day`
+  // {headers:{
+  //   "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  //   "x-rapidapi-key": spoonacularKey}
+  // }
+  )
   .then((meals)=>{
     console.log(meals.data);
     this.setState({
@@ -189,9 +267,9 @@ getSimilarRecipes = () => {
   } 
 }
 callSimilarRecipes = (id) =>{
-  Axios.get(`https://webknox-recipes.p.rapidapi.com/recipes/${id}/similar`,{headers:{
-    "x-rapidapi-host": "webknox-recipes.p.rapidapi.com",
-    "x-rapidapi-key": rapidKey}
+  Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/similar`,{headers:{
+    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    "x-rapidapi-key": spoonacularKey}
   })
   .then((res) => {
     console.log(res)
@@ -227,47 +305,133 @@ handleVideoSelect = (video) => {
 }
 
   setLogin = (login) => {
+
     this.setState({
       loggerInfo: login,
-      userName:login.userName
+      userName:login.userName,
+      password:login.password
     })
   }
+ 
   authenticateUser = () => {
-    console.log('entering')
+   
     let logger = this.state.loginCredentials.filter(user => user.userName === this.state.loggerInfo.userName);
+    let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
     if(logger[0].date !== new Date().toDateString()){
-      this.setState({
-        calorieInTakePerDay:logger[0].caloriePerDay,
-      },() =>{
-        this.getMeals();
-      })
-      this.handleSubmit("workout");
-      this.updateCredential(logger);
+        if(logger[0].caloriePerDay !== ""){
+             this.setState({
+                calorieInTakePerDay:logger[0].caloriePerDay,
+               },() =>{
+                  this.getMeals(this.state.calorieInTakePerDay);
+              })
+          } else{
+             this.getMeals(this.state.calorieInTakePerDay);
+           }
+           this.handleSubmit("workout");
+           this.getHealthTip();
+           this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
+     
+           if(this.state.avatar === ""){
+              this.setState({
+                    avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
+             })
+            }
+            if(this.state.loggerInfo.password === logger[0].password) {
+                this.setState({
+                       authenticatedFlag:true,
+                       passwordErrMsg:"",
+                        userNmErrMsg:"",
+                       loggerInfo:logger
+                   },()=>{
+                 console.log(this.state.authenticatedFlag)
+                 
+                 this.updateCredential(logger);
+                })
+             } else{
+              let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
+                      this.setState({
+                        passwordErrMsg:msgInCorrect[0].incorrect,
+                        userNmErrMsg:"",
+                         },()=>{
+                        console.log(this.state.passwordErrMsg)
+                        })
+             }
     } else {
-      if(logger[0].mealPlan.meals.length === 0 || !logger[0].mealPlan.meals){
-        this.setState({
-          calorieInTakePerDay:logger[0].caloriePerDay,
-        },() =>{
-          this.getMeals();
-        })
-        this.handleSubmit("workout");
-        this.updateCredential(logger);
-      } else{
-        this.setState({
-          calorieInTakePerDay:logger[0].caloriePerDay,
-          mealPlan:logger[0].mealPlan,
-          workoutVideos:logger[0].workoutPlan
-        })
+         if(!logger[0].mealPlan.meals || logger[0].mealPlan.meals.length === 0 ){
+             if(logger[0].caloriePerDay !== ""){
+                 this.setState({
+                    calorieInTakePerDay:logger[0].caloriePerDay,
+                    },() =>{
+                    this.getMeals(this.state.calorieInTakePerDay);
+                   })
+               } else{
+                   this.getMeals(this.state.calorieInTakePerDay);
+                }
         
-      }
-    }
-    if(this.state.loggerInfo.password === logger[0].password) {
-      this.setState({
-         authenticatedFlag:true,
-         loggerInfo:logger
-       })
+               this.handleSubmit("workout");
+                this.getHealthTip();
+                this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
+        
+               if(this.state.avatar === ""){
+                    this.setState({
+                         avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
+                      })
+                  }
+                  if(this.state.loggerInfo.password === logger[0].password) {
+                    this.setState({
+                           authenticatedFlag:true,
+                           passwordErrMsg:"",
+                            userNmErrMsg:"",
+                           loggerInfo:logger
+                       },()=>{
+                     console.log(this.state.authenticatedFlag)
+                     
+                     this.updateCredential(logger);
+                    })
+                 } else{
+                  let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
+                          this.setState({
+                            passwordErrMsg:msgInCorrect[0].incorrect,
+                            userNmErrMsg:"",
+                             },()=>{
+                            console.log(this.state.passwordErrMsg)
+                            })
+                 }
+      } else{
+        console.log('entering else')
+        if(this.state.loggerInfo.password === logger[0].password) {
+          this.setState({
+             authenticatedFlag:true,
+             passwordErrMsg:"",
+                userNmErrMsg:"",
+          })
+          this.setState({
+                calorieInTakePerDay:logger[0].caloriePerDay,
+                 mealPlan:logger[0].mealPlan,
+                 workoutVideos:logger[0].workoutPlan,
+                 healthTip:logger[0].healthTip,
+                 avatar:logger[0].avatar,
+                healthVideoList:logger[0].healthVideos,
+                loggerInfo:logger
+             },()=>{
+                if(this.state.avatar === ""){
+                   this.setState({
+                         avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
+                     })
+                  }
+           })
        
+      } else{
+      let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
+              this.setState({
+                passwordErrMsg:msgInCorrect[0].incorrect,
+                userNmErrMsg:"",
+                 },()=>{
+                console.log(this.state.passwordErrMsg)
+                })
+     }
     }
+    } 
   }
   reloadPlans = () => {
     this.setState({
@@ -282,8 +446,13 @@ handleVideoSelect = (video) => {
         logger[0].caloriePerDay = this.state.calorieInTakePerDay;
         logger[0].mealPlan=this.state.mealPlan;
         console.log(logger[0].mealPlan)
-        logger[0].workoutPlan=this.state.workoutVideos;
-        
+        if(this.state.workoutVideos.length!==0){
+          logger[0].workoutPlan=this.state.workoutVideos;
+        }
+        logger[0].healthTip = this.state.healthTip;
+        logger[0].healthVideos = this.state.healthVideoList;
+        console.log(this.state.password);
+        logger[0].password = this.state.password;
         let futureLoggersMeal = [...this.state.loginCredentials];
         let index;
         futureLoggersMeal.forEach((user,ind) => {
@@ -374,9 +543,47 @@ handleVideoSelect = (video) => {
     },() =>{
       let loggerForAdding = this.state.loginCredentials.filter(user => user.userName === this.state.userName);
       this.updateCredential(loggerForAdding);
-    })
-    
+    }) 
   }
+  getHealthTip = () =>{
+    Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random`,{headers:{
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": spoonacularKey}
+  })
+  .then((res) => {
+    console.log(res)
+    
+    this.setState({
+      healthTip:res.data
+    },()=>{
+      console.log(this.state.healthTip)
+      
+    })
+  })
+  .catch((err) => console.log(err))
+  }
+  handleSubmitForHealth = (userQuery) => {
+    Axios.get('https://www.googleapis.com/youtube/v3/search',{params: {
+      part: "snippet",
+      maxResults: 3,
+      key: KEY,
+      q:userQuery
+  }
+  })
+       .then((res)=>{
+          console.log(res);
+          this.setState({
+        healthVideoList: res.data.items
+           })
+       })
+       .catch((err) => {
+         console.log(err);
+       })
+    
+}
+handleHealthVideoSelect = (video) => {
+  this.setState({selectedHealthVideo: video})
+}
   render() {
     return (
       <div className="content">
@@ -390,18 +597,25 @@ handleVideoSelect = (video) => {
                                                                           setLogin = {this.setLogin}
                                                                           authenticateUser = {this.authenticateUser}
                                                                           authenticatedFlag = {this.state.authenticatedFlag}
+                                                                          checkPswd = {this.checkPswd}
+                                                                          checkUserNm = {this.checkUserNm}
+                                                                          isValidForm = {this.state.isValidForm}
+                                                                          passwordErrMsg = {this.state.passwordErrMsg}
+                                                                          userNmErrMsg = {this.state.userNmErrMsg}                   
             /> } />
             <Route exact path="/sign-up" render = { (props) => <SignUp {...props} loggerInfo = {this.state.loggerInfo}
                                                                                   setLogin = {this.setLogin}
                                                                                   createAccount = {this.createAccount}
                                                                                   authenticateUser = {this.authenticateUser}
                                                                                   authenticatedFlag = {this.state.authenticatedFlag}
-            /> } />
+                                                                                  calorieInTakePerDay = {this.state.calorieInTakePerDay}
+  /> } />
             <Route exact path="/home" render = { (props) => <Home {...props} styleSettings = {this.state.styleSettings}
                                                                              setStyleSettings = {this.setStyleSettings}
                                                                               logOutSession = {this.logOutSession}      
                                                                               authenticatedFlag = {this.state.authenticatedFlag}
-                                                                              loggerInfo = {this.state.loggerInfo}       
+                                                                              userName = {this.state.userName}  
+                                                                              avatar = {this.state.avatar}     
             /> }  />
             <Route exact path="/meal-plan" render = { (props) => <MealPlan {...props} searchText = {this.state.searchText}
                                                                                       setSearch = {this.setSearch}
@@ -413,16 +627,28 @@ handleVideoSelect = (video) => {
                                                                                       searchList = {this.state.searchList}
                                                                                       removeMealFromPlan = {this.removeMealFromPlan}
                                                                                       addMealFromPlan = {this.addMealFromPlan}
-                                                                                      reloadPlans = {this.state.reloadPlans}
-                                                                                      loggerInfo = {this.state.loggerInfo}
+                                                                                      reloadPlans = {this.reloadPlans}
+                                                                                      userName = {this.state.userName}  
+                                                                                      avatar = {this.state.avatar} 
+                                                                                      styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                             logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}
+                                                                                     
             /> } />
             <Route exact path="/workout-plan" render = { (props) => <WorkoutPlan {...props} workoutVideos = {this.state.workoutVideos}
                                                                                             selectedWorkoutVideo = {this.state.selectedWorkoutVideo}
                                                                                             handleVideoSelect = {this.handleVideoSelect}
-                                                                                            reloadPlans = {this.state.reloadPlans}
+                                                                                            reloadPlans = {this.reloadPlans}
                                                                                             loggerInfo = {this.state.loggerInfo}
                                                                                             userOptionWatchWorkout = {this.state.userOptionWatchWorkout}
                                                                                             setUserOptionWatchWorkout = {this.setUserOptionWatchWorkout}
+                                                                                            userName = {this.state.userName}  
+                                                                              avatar = {this.state.avatar} 
+                                                                              styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                             logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}
             /> } />
             <Route exact path="/health-check" render = { (props) => <HealthCheck {...props} bmiObj = {this.state.bmiObj}
                                                                                             setBmiObject = {this.setBmiObject}
@@ -430,21 +656,63 @@ handleVideoSelect = (video) => {
                                                                                             bmiResult = {this.state.bmiResult}
                                                                                             bmiLoaderFlag = {this.state.bmiLoaderFlag}
                                                                                             calorieInTakePerDay = {this.state.calorieInTakePerDay}
-                                                                                            reloadPlans = {this.state.reloadPlans}
-                                                                                            loggerInfo = {this.state.loggerInfo}
+                                                                                            reloadPlans = {this.reloadPlans}
+                                                                                            userName = {this.state.userName}  
+                                                                              avatar = {this.state.avatar} 
+                                                                              styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                             logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}
+                                                                                           
             /> } />
              <Route exact path="/meal-plan/:id" render = { (props) => <RecipeDetails {...props} mealPlan = {this.state.mealPlan}
                                                                                                 getDescription = {this.getDescription}
                                                                                                 recipeDescription = {this.state.recipeDescription}
                                                                                                 reloadPlans = {this.reloadPlans}
                                                                                                 nutritionData = {this.state.nutritionData}
-                                                                                                loggerInfo = {this.state.loggerInfo}
+                                                                                                userName = {this.state.userName}  
+                                                                              avatar = {this.state.avatar} 
+                                                                              styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                             logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}
+                                                                                             
             /> } />
               <Route exact path="/customize-meal-plan" render = { (props) => <CustomizeMealPlan {...props} getSimilarRecipes = {this.getSimilarRecipes}
                                                                                                            similarRecipes = {this.state.similarRecipes}
                                                                                                            addMealFromPlan = {this.addMealFromPlan}
-                                                                                                           reloadPlans = {this.state.reloadPlans}
-                                                                                                           loggerInfo = {this.state.loggerInfo}
+                                                                                                           reloadPlans = {this.reloadPlans}
+                                                                                                           userName = {this.state.userName}  
+                                                                              avatar = {this.state.avatar} 
+                                                                              styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                             logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}
+                                                                                                         
+            /> } />
+            <Route exact path="/health-tip" render = { (props) => <HealthTip {...props} healthTip = {this.state.healthTip}
+                                                                                        healthVideoList = {this.state.healthVideoList}
+                                                                                        selectedHealthVideo = {this.state.selectedHealthVideo}
+                                                                                        handleHealthVideoSelect = {this.handleHealthVideoSelect}
+                                                                                        userName = {this.state.userName}  
+                                                                              avatar = {this.state.avatar} 
+                                                                              styleSettings = {this.state.styleSettings}
+                                                                             setStyleSettings = {this.setStyleSettings}
+                                                                             logOutSession = {this.logOutSession}      
+                                                                              authenticatedFlag = {this.state.authenticatedFlag}
+                                                                              reloadPlans = {this.reloadPlans}
+                                                                                                         
+            /> } />
+             <Route exact path="/reset" render = { (props) => <PasswordReset {...props} loggerInfo = {this.state.loggerInfo}
+                                                                                  setLogin = {this.setLogin}
+                                                                                  loginCredentials = {this.state.loginCredentials}
+                                                                                
+                                                                                  authenticatedFlag = {this.state.authenticatedFlag}
+                                                                                  password = {this.state.password}
+                                                                                  confirmPassword = {this.state.confirmPassword}
+                                                                                  setPassword = {this.setPassword}
+                                                                                  setConfirmPassword = {this.setConfirmPassword}
+                                                                                  updateCredential = {this.updateCredential}
             /> } />
           </Switch>
         </div>
