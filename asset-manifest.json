@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/ExpandMyLifeSpan/static/css/main.23bd23fb.chunk.css",
-    "main.js": "/ExpandMyLifeSpan/static/js/main.5d96f756.chunk.js",
-    "main.js.map": "/ExpandMyLifeSpan/static/js/main.5d96f756.chunk.js.map",
+    "main.css": "/ExpandMyLifeSpan/static/css/main.2a2e1fd7.chunk.css",
+    "main.js": "/ExpandMyLifeSpan/static/js/main.6d2bc9ca.chunk.js",
+    "main.js.map": "/ExpandMyLifeSpan/static/js/main.6d2bc9ca.chunk.js.map",
     "runtime-main.js": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js",
     "runtime-main.js.map": "/ExpandMyLifeSpan/static/js/runtime-main.b0457fe5.js.map",
     "static/css/2.b0bb7f2c.chunk.css": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.64c1d70f.chunk.js": "/ExpandMyLifeSpan/static/js/2.64c1d70f.chunk.js",
-    "static/js/2.64c1d70f.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.64c1d70f.chunk.js.map",
+    "static/js/2.e5797a2b.chunk.js": "/ExpandMyLifeSpan/static/js/2.e5797a2b.chunk.js",
+    "static/js/2.e5797a2b.chunk.js.map": "/ExpandMyLifeSpan/static/js/2.e5797a2b.chunk.js.map",
     "index.html": "/ExpandMyLifeSpan/index.html",
-    "precache-manifest.70625476d7c1e75eb2e11557bd30b70d.js": "/ExpandMyLifeSpan/precache-manifest.70625476d7c1e75eb2e11557bd30b70d.js",
+    "precache-manifest.fff0db6737b6acdfc2dacfa628ae570c.js": "/ExpandMyLifeSpan/precache-manifest.fff0db6737b6acdfc2dacfa628ae570c.js",
     "service-worker.js": "/ExpandMyLifeSpan/service-worker.js",
     "static/css/2.b0bb7f2c.chunk.css.map": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css.map",
-    "static/css/main.23bd23fb.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.23bd23fb.chunk.css.map",
+    "static/css/main.2a2e1fd7.chunk.css.map": "/ExpandMyLifeSpan/static/css/main.2a2e1fd7.chunk.css.map",
     "static/media/account-icon-check.png": "/ExpandMyLifeSpan/static/media/account-icon-check.ef20e411.png",
     "static/media/add-icon.webp": "/ExpandMyLifeSpan/static/media/add-icon.1607dc1e.webp",
     "static/media/back-button-icon.png": "/ExpandMyLifeSpan/static/media/back-button-icon.26249120.png",
+    "static/media/bmi-car-img.jpg": "/ExpandMyLifeSpan/static/media/bmi-car-img.bda37fa8.jpg",
     "static/media/bullet-point-icon.png": "/ExpandMyLifeSpan/static/media/bullet-point-icon.8f88f19a.png",
     "static/media/login.css": "/ExpandMyLifeSpan/static/media/chopping-board-nav.aa7cf8e4.jpg",
+    "static/media/exercise-car-img.jpeg": "/ExpandMyLifeSpan/static/media/exercise-car-img.13407c38.jpeg",
     "static/media/health-check-image.jpg": "/ExpandMyLifeSpan/static/media/health-check-image.9c2c9811.jpg",
+    "static/media/health_tips-background.jpg": "/ExpandMyLifeSpan/static/media/health_tips-background.08b44d6e.jpg",
     "static/media/heart-icon.png": "/ExpandMyLifeSpan/static/media/heart-icon.183af7b7.png",
     "static/media/home-icon.jpg": "/ExpandMyLifeSpan/static/media/home-icon.dac126b4.jpg",
     "static/media/horizontal-line.png": "/ExpandMyLifeSpan/static/media/horizontal-line.57ab2b7f.png",
@@ -27,13 +30,14 @@
     "static/media/meal-plan-image.jpg": "/ExpandMyLifeSpan/static/media/meal-plan-image.ebcccb59.jpg",
     "static/media/red_star.png": "/ExpandMyLifeSpan/static/media/red_star.5c0e2528.png",
     "static/media/remove-icon.png": "/ExpandMyLifeSpan/static/media/remove-icon.5017b908.png",
+    "static/media/veg-car-img.jpg": "/ExpandMyLifeSpan/static/media/veg-car-img.d08e8f17.jpg",
     "static/media/workout-plan-image.jpg": "/ExpandMyLifeSpan/static/media/workout-plan-image.857a392a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.b0457fe5.js",
     "static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.64c1d70f.chunk.js",
-    "static/css/main.23bd23fb.chunk.css",
-    "static/js/main.5d96f756.chunk.js"
+    "static/js/2.e5797a2b.chunk.js",
+    "static/css/main.2a2e1fd7.chunk.css",
+    "static/js/main.6d2bc9ca.chunk.js"
   ]
 }

@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9614cae737a5aaae19aebcbdc6028982",
+    "revision": "409c9cbe2dcbe2c8bd2698c3e05087fb",
     "url": "/ExpandMyLifeSpan/index.html"
   },
   {
-    "revision": "a1746ea489e6b8bcdd62",
+    "revision": "b498c0cdc57ac0156b46",
     "url": "/ExpandMyLifeSpan/static/css/2.b0bb7f2c.chunk.css"
   },
   {
-    "revision": "2ea6d2e98b10e81d3322",
-    "url": "/ExpandMyLifeSpan/static/css/main.23bd23fb.chunk.css"
+    "revision": "9daba75c09978a59bf85",
+    "url": "/ExpandMyLifeSpan/static/css/main.2a2e1fd7.chunk.css"
   },
   {
-    "revision": "a1746ea489e6b8bcdd62",
-    "url": "/ExpandMyLifeSpan/static/js/2.64c1d70f.chunk.js"
+    "revision": "b498c0cdc57ac0156b46",
+    "url": "/ExpandMyLifeSpan/static/js/2.e5797a2b.chunk.js"
   },
   {
-    "revision": "2ea6d2e98b10e81d3322",
-    "url": "/ExpandMyLifeSpan/static/js/main.5d96f756.chunk.js"
+    "revision": "9daba75c09978a59bf85",
+    "url": "/ExpandMyLifeSpan/static/js/main.6d2bc9ca.chunk.js"
   },
   {
     "revision": "763c2efcaa1233927501",
@@ -36,6 +36,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ExpandMyLifeSpan/static/media/back-button-icon.26249120.png"
   },
   {
+    "revision": "bda37fa83351df7151f99a79f8d7d222",
+    "url": "/ExpandMyLifeSpan/static/media/bmi-car-img.bda37fa8.jpg"
+  },
+  {
     "revision": "8f88f19aee2cf1987b0aade71fe50e13",
     "url": "/ExpandMyLifeSpan/static/media/bullet-point-icon.8f88f19a.png"
   },
@@ -44,8 +48,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ExpandMyLifeSpan/static/media/chopping-board-nav.aa7cf8e4.jpg"
   },
   {
+    "revision": "13407c38f81e1f3775f03c1b049b4342",
+    "url": "/ExpandMyLifeSpan/static/media/exercise-car-img.13407c38.jpeg"
+  },
+  {
     "revision": "9c2c981192d0454f4089c9a1164dcbb2",
     "url": "/ExpandMyLifeSpan/static/media/health-check-image.9c2c9811.jpg"
+  },
+  {
+    "revision": "08b44d6ea1e0a120658dbab8405a95f6",
+    "url": "/ExpandMyLifeSpan/static/media/health_tips-background.08b44d6e.jpg"
   },
   {
     "revision": "183af7b72a8e23d25afc3fe24eb63d16",
@@ -78,6 +90,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5017b9086289b29314a113e6ba7ade1c",
     "url": "/ExpandMyLifeSpan/static/media/remove-icon.5017b908.png"
+  },
+  {
+    "revision": "d08e8f17cb5bd02239925d43c8c0bea9",
+    "url": "/ExpandMyLifeSpan/static/media/veg-car-img.d08e8f17.jpg"
   },
   {
     "revision": "857a392ae2c4a9316ab202e9e01c4835",
