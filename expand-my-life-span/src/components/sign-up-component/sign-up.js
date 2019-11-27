@@ -8,6 +8,7 @@ export default class SignUp extends Component {
         let createdCredential = {...this.props.loggerInfo}
         console.log(createdCredential)
         createdCredential[e.target.name] = e.target.value;
+        createdCredential['date']=new Date().toDateString();
         this.props.setLogin(createdCredential);
     }
     updateAvatar = (link) =>{
@@ -32,7 +33,7 @@ export default class SignUp extends Component {
         if(this.props.authenticatedFlag) {
             this.props.history.push("/home");
           }
-    }, 1000)
+    }, 1500)
    }
     render() {
         return (

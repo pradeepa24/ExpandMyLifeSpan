@@ -314,9 +314,11 @@ handleVideoSelect = (video) => {
   }
  
   authenticateUser = () => {
-   
-    let logger = this.state.loginCredentials.filter(user => user.userName === this.state.loggerInfo.userName);
     let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
+    let logger = this.state.loginCredentials.filter(user => user.userName == this.state.userName);
+    console.log(this.state.loginCredentials)
+    console.log(this.state.userName)
+
     if(logger[0].date !== new Date().toDateString()){
         if(logger[0].caloriePerDay !== ""){
              this.setState({
