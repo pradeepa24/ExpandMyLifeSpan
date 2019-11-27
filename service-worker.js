@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ExpandMyLifeSpan/precache-manifest.0c3bd6466a643fd96a9d36a80fa831c7.js"
+  "/ExpandMyLifeSpan/precache-manifest.43aeb1728302ddfa4ec260d098f7d12a.js"
 );
 
 self.addEventListener('message', (event) => {
