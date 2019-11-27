@@ -315,14 +315,14 @@ handleVideoSelect = (video) => {
  
   authenticateUser = () => {
     let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
-    let logger = this.state.loginCredentials.filter(user => user.userName == this.state.userName);
+    let logger = this.state.loginCredentials.find(user => user.userName == this.state.userName);
     console.log(this.state.loginCredentials)
     console.log(this.state.userName)
-
-    if(logger[0].date !== new Date().toDateString()){
-        if(logger[0].caloriePerDay !== ""){
+    console.log(logger)
+    if(logger.date !== new Date().toDateString()){
+        if(logger.caloriePerDay !== ""){
              this.setState({
-                calorieInTakePerDay:logger[0].caloriePerDay,
+                calorieInTakePerDay:logger.caloriePerDay,
                },() =>{
                   this.getMeals(this.state.calorieInTakePerDay);
               })
@@ -338,7 +338,7 @@ handleVideoSelect = (video) => {
                     avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
              })
             }
-            if(this.state.loggerInfo.password === logger[0].password) {
+            if(this.state.loggerInfo.password === logger.password) {
                 this.setState({
                        authenticatedFlag:true,
                        passwordErrMsg:"",
@@ -359,10 +359,10 @@ handleVideoSelect = (video) => {
                         })
              }
     } else {
-         if(!logger[0].mealPlan.meals || logger[0].mealPlan.meals.length === 0 ){
-             if(logger[0].caloriePerDay !== ""){
+         if(!logger.mealPlan.meals || logger.mealPlan.meals.length === 0 ){
+             if(logger.caloriePerDay !== ""){
                  this.setState({
-                    calorieInTakePerDay:logger[0].caloriePerDay,
+                    calorieInTakePerDay:logger.caloriePerDay,
                     },() =>{
                     this.getMeals(this.state.calorieInTakePerDay);
                    })
@@ -379,7 +379,7 @@ handleVideoSelect = (video) => {
                          avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
                       })
                   }
-                  if(this.state.loggerInfo.password === logger[0].password) {
+                  if(this.state.loggerInfo.password === logger.password) {
                     this.setState({
                            authenticatedFlag:true,
                            passwordErrMsg:"",
@@ -401,19 +401,19 @@ handleVideoSelect = (video) => {
                  }
       } else{
         console.log('entering else')
-        if(this.state.loggerInfo.password === logger[0].password) {
+        if(this.state.loggerInfo.password === logger.password) {
           this.setState({
              authenticatedFlag:true,
              passwordErrMsg:"",
                 userNmErrMsg:"",
           })
           this.setState({
-                calorieInTakePerDay:logger[0].caloriePerDay,
-                 mealPlan:logger[0].mealPlan,
-                 workoutVideos:logger[0].workoutPlan,
-                 healthTip:logger[0].healthTip,
-                 avatar:logger[0].avatar,
-                healthVideoList:logger[0].healthVideos,
+                calorieInTakePerDay:logger.caloriePerDay,
+                 mealPlan:logger.mealPlan,
+                 workoutVideos:logger.workoutPlan,
+                 healthTip:logger.healthTip,
+                 avatar:logger.avatar,
+                healthVideoList:logger.healthVideos,
                 loggerInfo:logger
              },()=>{
                 if(this.state.avatar === ""){
@@ -444,17 +444,17 @@ handleVideoSelect = (video) => {
   updateCredential = (logger) => {
     setTimeout(()=>{
       console.log(logger)
-      logger[0].date=new Date().toDateString();
-        logger[0].caloriePerDay = this.state.calorieInTakePerDay;
-        logger[0].mealPlan=this.state.mealPlan;
-        console.log(logger[0].mealPlan)
+      logger.date=new Date().toDateString();
+        logger.caloriePerDay = this.state.calorieInTakePerDay;
+        logger.mealPlan=this.state.mealPlan;
+        console.log(logger.mealPlan)
         if(this.state.workoutVideos.length!==0){
-          logger[0].workoutPlan=this.state.workoutVideos;
+          logger.workoutPlan=this.state.workoutVideos;
         }
-        logger[0].healthTip = this.state.healthTip;
-        logger[0].healthVideos = this.state.healthVideoList;
+        logger.healthTip = this.state.healthTip;
+        logger.healthVideos = this.state.healthVideoList;
         console.log(this.state.password);
-        logger[0].password = this.state.password;
+        logger.password = this.state.password;
         let futureLoggersMeal = [...this.state.loginCredentials];
         let index;
         futureLoggersMeal.forEach((user,ind) => {
@@ -462,7 +462,7 @@ handleVideoSelect = (video) => {
             index = ind;
           }
         })
-        futureLoggersMeal[index]=logger[0];
+        futureLoggersMeal[index]=logger;
         
         Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd713560dce380017fe821d",{loggers:futureLoggersMeal})
         .then(res=>{
