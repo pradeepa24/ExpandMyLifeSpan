@@ -25,11 +25,12 @@ export default class SignUp extends Component {
       setTimeout(()=>{
           console.log(this.props.loggerInfo)
         this.props.createAccount();
+        this.props.authenticateUser();
+          console.log(this.props.authenticatedFlag);
+        
     },500)
     
     setTimeout(() => {
-        this.props.authenticateUser();
-          console.log(this.props.authenticatedFlag);
         if(this.props.authenticatedFlag) {
             this.props.history.push("/home");
           }
