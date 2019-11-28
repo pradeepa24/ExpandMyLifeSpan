@@ -19,13 +19,15 @@
     width:80vw;
     border: solid 4px rgba(133, 49, 7, 0.466);
     background-color:white;
-    margin-top: 50%;
+    margin-top: 80%;
+    height:190vh;
 }
 .health-check-wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -70%;
 }
 .bmi-form,.bmi-result{
     display: flex;

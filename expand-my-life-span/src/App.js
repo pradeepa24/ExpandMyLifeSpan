@@ -305,11 +305,13 @@ handleVideoSelect = (video) => {
 }
 
   setLogin = (login) => {
-
+console.log(login)
     this.setState({
       loggerInfo: login,
       userName:login.userName,
       password:login.password
+    },()=>{
+      console.log(this.state.loggerInfo)
     })
   }
  
@@ -422,7 +424,6 @@ handleVideoSelect = (video) => {
                      })
                   }
            })
-       
       } else{
       let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
               this.setState({
@@ -454,7 +455,7 @@ handleVideoSelect = (video) => {
         logger.healthTip = this.state.healthTip;
         logger.healthVideos = this.state.healthVideoList;
         console.log(this.state.password);
-        logger.password = this.state.password;
+       logger.password = this.state.password;
         let futureLoggersMeal = [...this.state.loginCredentials];
         let index;
         futureLoggersMeal.forEach((user,ind) => {
