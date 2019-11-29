@@ -143,7 +143,7 @@ width:30vw;
         width: 90vw;
         position:relative;
         top:97px;
-        right: 35px;
+        right: 27px;
     }
     .working-video {
         width: 50vw;
@@ -196,7 +196,7 @@ width:30vw;
     } */
     .workout-plan{
         width:90vw;
-        margin-top:237%;
+        margin-top:13%;
         height:200vh;
     }
     .workout-video-section{
@@ -254,7 +254,7 @@ width:30vw;
         margin-top:-200%;
     }
     .video-play iframe{
-        width:88vw;
+        width:89vw;
     }
     .video-desc{
        

@@ -185,7 +185,8 @@ class App extends React.Component {
  }
   setBmiObject = (obj) => {
      this.setState({
-       bmiObj:obj
+       bmiObj:obj,
+       bmiResult:{}
      })
   }
   getBmi = () => {
@@ -223,8 +224,8 @@ class App extends React.Component {
     },
        bmiLoaderFlag:false
       },()=>{
-        this.getMeals();
-        let logger = this.state.loginCredentials.filter(user => user.userName === this.state.userName);
+        this.getMeals(this.state.calorieInTakePerDay);
+        let logger = this.state.loginCredentials.find(user => user.userName === this.state.userName);
         console.log(logger)
         this.updateCredential(logger);
       })    
@@ -317,10 +318,18 @@ console.log(login)
  
   authenticateUser = () => {
     let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
-    let logger = this.state.loginCredentials.find(user => user.userName == this.state.userName);
+    let logger = this.state.loginCredentials.find(user => {
+      console.log(user)
+      if(user.userName == this.state.loggerInfo.userName){
+        console.log(user.date)
+        return user;
+      }
+    
+    })
     console.log(this.state.loginCredentials)
+    console.log(this.state.loggerInfo.userName)
     console.log(this.state.userName)
-    console.log(logger)
+    console.log(logger.date)
     if(logger.date !== new Date().toDateString()){
         if(logger.caloriePerDay !== ""){
              this.setState({
@@ -447,6 +456,7 @@ console.log(login)
       console.log(logger)
       logger.date=new Date().toDateString();
         logger.caloriePerDay = this.state.calorieInTakePerDay;
+        console.log(logger.caloriePerDay)
         logger.mealPlan=this.state.mealPlan;
         console.log(logger.mealPlan)
         if(this.state.workoutVideos.length!==0){
@@ -464,7 +474,7 @@ console.log(login)
           }
         })
         futureLoggersMeal[index]=logger;
-        
+        console.log(futureLoggersMeal)
         Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd713560dce380017fe821d",{loggers:futureLoggersMeal})
         .then(res=>{
           

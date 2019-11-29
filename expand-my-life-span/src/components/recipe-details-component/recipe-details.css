@@ -12,7 +12,7 @@
     align-items: center;
    /* height:auto; */
     width:80vw; 
-   margin-top:60%;
+   margin-top:54%;
    border: solid 4px rgba(133, 49, 7, 0.466);
    background-color:white;
 }
@@ -51,7 +51,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width:30vw;
+    width:40vw;
     padding: 10px;
 }
 .share{
@@ -63,29 +63,47 @@
     width: 10vw; */
 }
 .meal-image img{
+    height: 29vh;
+    width: 27vw;
+   /* padding:10px; */
     height: 25vh;
     width: 20vw;
-   padding:10px;
-    height: 25vh;
-    width: 20vw;
-    box-shadow: 10px 10px 10px 10px #aaaaaa;
+    border-radius:10px;
+    /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
 }
 .meal-section-1{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center; 
-    /* padding-left: 100px;
-    padding-right: 100px;
-    width: 100vw; 
-    height: 50vh; */
-  
+    background-image: linear-gradient(#ff9d2f, #ff6126);
+  /* background: rgba(137, 233, 11, 0.788); */
+  width: 79.5vw;
+  /* height:56vh; */
+}
+/* .divider {
+    position: absolute;
+    bottom: 0;
+    left: 135px;
+    right: 0;
+    top:603px;
+    width: 80vw;
+    height: 100px;
+    /* drop the height to have a constant angle for all screen widths */
+  /* }  */
+.meal-section-2{
+    width: 80vw; 
+    -webkit-clip-path:polygon(0 100%,0 0,100% 60px,100% 100%);
+    clip-path: polygon(0 100%,0 0,100% 60px,100% 100%);
+    margin-top:-60px;
+    padding-top:90px;
 }
 .meal-section-2,.meal-section-3,.meal-section-4{
     display:flex;
     justify-content: center;
     align-items: center; 
     width: 80vw; 
+  
 }
 .meal-details-ingredients,.meal-details-description,.meal-details-nutrition{
     display:flex;
@@ -196,15 +214,11 @@
     align-items:center;
 }
 .heading-prep{
-    background-color:rgba(180, 176, 176, 0.5);
-    /* width:80vw; */
-    /* width:100%;
-    height:8vh; */
+    
     display: flex;
-    /* justify-content: center; */
+    color:rgba(182, 13, 13, 0.877);
     align-items: center; 
-    /* padding-left: 50px;
-    padding-right: 50px; */
+    
 }
 .heading-prep h5{
     margin-left: 50px;
@@ -213,19 +227,19 @@
     height:4vh;
     width:2vw;
     position: absolute;
-   left: 1200px;
+   left: 500px;
   
 }
 .heading-prep span{
    position: absolute;
-   left: 1235px;
+   left: 530px;
    /* bottom:10px; */
    color:rgba(0,0,0,0.5);
 }
 .heading-prep div{
     position: absolute;
     /* top:15px; */
-    left: 1300px;
+    left: 592px;
    
  }
  @media only screen and (max-width : 900px) {
@@ -234,10 +248,13 @@
         overflow-x: hidden;
         height:430vh;
      }
+     .meal-sections{
+         width:90vw;
+     }
      .ingredient-list,.meal-det-desc{
         padding-right:0;
         padding:2px;
-        padding-left:35px;
+        /* padding-left:35px; */
         /* height:50%; */
         align-items: none;
         width:80vw;
@@ -247,12 +264,14 @@
   
     .meal-section-2,.meal-section-3,.meal-section-4{
         margin-top:10%;
+        width:80vw;
     }
  }
  @media only screen and (max-width : 600px) {
     .meal-details-content{
-       margin-top:207%;
-       /* overflow-x: hidden; */
+       margin-top:337%;
+       overflow-x: hidden;
+       width:90vw;
        height:250vh;
     }
     .meal-section-1{
@@ -260,9 +279,20 @@
         /* height:40vh; */
         padding-left:20px;
         padding-right:0;
-       
+        width:90vw;
         align-items: none;
         flex-wrap: nowrap;
+        /* overflow-y:scroll ; */
+    }
+    .meal-plan-sections{
+        margin-top:-530%;
+        width:90vw;
+    }
+    .meal-plan-purpose{
+        margin-top:839%;
+    }
+    .meal-description{
+        width:48vw;
     }
     .meal-image,.meal-title{
         padding:none;
@@ -273,6 +303,9 @@
         padding:0px 15px;
        
 
+    }
+    .meal-sec-purpose{
+        margin-top:-14%;
     }
     .meal-details-content h5{
         margin-left:0;
@@ -315,7 +348,7 @@
     .ingredient-list,.meal-det-desc{
         padding-right:0;
         padding:2px;
-        padding-left:46px;
+        /* padding-left:46px; */
         /* height:50%; */
         align-items: none;
         flex-wrap: nowrap;
@@ -364,6 +397,20 @@
     .health-score span img{
         width:3vw;
         height:2vh;
+    }
+    .heading-prep img{
+       width:4vw;
+       height:4vw;
+       left: 153px;
+      
+    }
+    .heading-prep span{
+      
+       left: 170px;
+       
+    }
+    .heading-prep div{
+        left: 230px;
     }
  }
  @media only screen and (max-width : 400px){

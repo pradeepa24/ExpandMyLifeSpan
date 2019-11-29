@@ -16,6 +16,7 @@ export default class HealthTip extends Component {
        this.props.setStyleSettings(styleSettings);
     }
     reload = () =>{
+        this.displayDropdown();
         this.props.reloadPlans();
         this.props.history.goBack();
        
@@ -73,9 +74,9 @@ export default class HealthTip extends Component {
                 <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
              </button>
              <div style={this.props.styleSettings} className="dropdown-content">
-             <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
-                  <img className="home-icon" src={backButton} alt="backButton" onClick={this.reload}/>
-                  <button onClick={this.logOut}>Log out</button>
+             <div><Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link></div>
+                 <div><img className="home-icon" src={backButton} alt="backButton" onClick={this.reload}/></div> 
+                 <div><button onClick={this.logOut}>Log out</button></div> 
                 </div>
                 <h2>Diet Tip</h2>
               </div>

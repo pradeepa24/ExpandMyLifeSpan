@@ -23,13 +23,13 @@ export default class PasswordReset extends Component {
                 this.props.setLogin(cred);
                 setTimeout(()=>{
                     console.log(this.props.loggerInfo)
-                    let logger = this.props.loginCredentials.filter(user => user.userName === this.props.loggerInfo.userName);
+                    let logger = this.props.loginCredentials.find(user => user.userName === this.props.loggerInfo.userName);
                     console.log(this.props.loginCredentials)
                     console.log(this.props.loggerInfo.userName)
                     console.log(this.props.loggerInfo.password)
                     console.log(logger)
-                    console.log(logger[0].password)
-                     this.props.updateCredential(logger[0]);
+                    console.log(logger.password)
+                     this.props.updateCredential(logger);
                 },500)
                 
             //  let log = {}

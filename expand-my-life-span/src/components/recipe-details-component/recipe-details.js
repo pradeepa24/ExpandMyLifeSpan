@@ -24,6 +24,7 @@ export default class RecipeDetails extends Component {
         this.props.getDescription(this.props.match.params.id);
     }
     reloadMealPlan = () =>{
+        this.displayDropdown();
         this.props.history.goBack();
         this.props.reloadPlans();
     }
@@ -73,12 +74,11 @@ export default class RecipeDetails extends Component {
                        <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
                     </button>
                     <div style={this.props.styleSettings} className="dropdown-content">
-                  {/* <a href="#">Link 1</a>
-                  <a href="#">Link 2</a> */}
-                  <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
-                  <img className="home-icon" src={backButton} alt="backButton" onClick={this.reloadMealPlan}/>
-                  <button onClick={this.logOut}>Log out</button>
-                </div>
+                 
+                       <div><Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link></div>
+                       <div><img className="home-icon" src={backButton} alt="backButton" onClick={this.reloadMealPlan}/></div>
+                       <div><button onClick={this.logOut}>Log out</button></div>
+                    </div>
                     <div className="header-meal-detail">
                        <h2>Meal Details</h2>
                      </div>
@@ -122,6 +122,7 @@ export default class RecipeDetails extends Component {
                               </div>
                        
                          </div>
+                         {/* <img src="http://erikdkennedy.com/r-r-r-random/divider-triangle.png" class="divider" /> */}
                       </div>
                
                       <div className="meal-section-2">
@@ -187,6 +188,7 @@ export default class RecipeDetails extends Component {
                    </div>
                    </div>
                 </div>
+                
             ) 
         } else{
             return (

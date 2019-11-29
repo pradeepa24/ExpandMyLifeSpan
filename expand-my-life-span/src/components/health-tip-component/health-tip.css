@@ -72,10 +72,14 @@
 @media only screen and (max-width : 600px) {
     .health-tip-content{
         width:90vw;
-        margin-top:81%;
+        margin-top:118%;
     }
     .health-video-section{
         width:90vw;
+        flex-direction:column;
+    }
+    .health-video-content{
+        margin-top:212%;
     }
     .health-video img{
    height: 14vh;

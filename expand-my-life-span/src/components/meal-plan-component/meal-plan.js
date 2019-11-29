@@ -91,6 +91,7 @@ export default class MealPlan extends Component {
     },250)
 }
 reloadMealPlan = () =>{
+  this.displayDropdown();
   this.props.history.goBack();
   this.props.reloadPlans();
 }
@@ -103,9 +104,9 @@ reloadMealPlan = () =>{
                 <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
              </button>
              <div style={this.props.styleSettings} className="dropdown-content">
-                  <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
-                  <img className="home-icon" src={backButton} alt="backButton" onClick={this.reloadMealPlan}/>
-                  <button onClick={this.logOut}>Log out</button>
+                  <div><Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link></div>
+                  <div><img className="home-icon" src={backButton} alt="backButton" onClick={this.reloadMealPlan}/></div>
+                  <div><button onClick={this.logOut}>Log out</button></div>
                 </div>
               <div className="meal-plan-purpose">
                 <div className="meal-plan-sections">

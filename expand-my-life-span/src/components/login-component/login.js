@@ -27,7 +27,7 @@ export default class Login extends Component {
             if(this.props.authenticatedFlag) {
                 this.props.history.push("/home");
               }
-        }, 750)
+        }, 250)
     }
  displayValidMsgPswd = () =>{
    return (

@@ -1,6 +1,6 @@
 .customize-meal-content{
     /* margin-top:10%; */
-    height:600vh;
+    height:760vh;
    width: 100vw;
    background-color:rgba(238, 180, 73, 0.19);
    display:flex;
@@ -8,19 +8,19 @@
    align-items: center;
 }
 .similar-rec{
-   display:flex;
+   /* display:flex;
    flex-direction: row;
    flex-wrap:wrap;
    /* height:380vh;  */
    font-family: Helvetica;
-   /* padding:20px;
-   padding-left: 100px;
-   padding-right: 100px;
-   padding-top:20px;
-   padding-bottom:20px; */
-   /* height:500vh; */
-   width:80vw;
- 
+   width:80vw; 
+   display: flex;
+   flex-wrap:wrap;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   padding:10px;
+   
 }
 .header-custom-meal-detail h2{
   font-weight:bold;
@@ -31,6 +31,7 @@
   justify-content: center;
   align-items: center;
   width:80vw;
+  margin-top: -4%;
 }
 .customize-wrapper{
   display:flex;
@@ -39,13 +40,25 @@
    align-items: center;
    width: 80vw;
    border: solid 4px rgba(133, 49, 7, 0.466);
-   margin-top:130%;
-   height:330vh;
+   margin-top:188%;
+   height:390vh;
    background-color:white;
 }
 .similar-meal-content{
-  height: 40vh;
+  /* height: 40vh;
+  width: 20vw; */
+  height: 35vh;
   width: 20vw;
+  display: flex;
+  flex-direction: column;
+  /* border: solid 2px rgb(151, 145, 145); */
+  justify-content: center;
+  align-items: center;
+  border-radius:10px;
+  padding:10px;
+  margin-top:2%;
+  box-shadow: 2px 2px 2px 2px #aaaaaa;
+  background-color:rgba(149, 221, 16, 0.89);
 }
 /* .similar-meal-content img{
     height: 20vh;
@@ -54,30 +67,49 @@
   box-shadow: 10px 10px 10px 10px #aaaaaa;
 } */
 .similar-meal-description{
-    height:10vh;
+    /* height:10vh;
     line-height:1;
-    padding:20px;
+    padding:20px; */
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    /* position: relative;
+    left: 20px; */
+   line-height:1;
+   margin-top:5%;
 }
+
+
 @media only screen and (max-width : 600px) {
   .customize-wrapper{
     width:90vw;
     height:1205vh;
-margin-top:2400%;
+margin-top:2214%;
   }
   .similar-rec{
-    width:58vw;
+    width:90vw;
   }
   .similar-meal-content{
-    width:90vw;
+    width:80vw;
+    margin-top:5%;
   }
 .meal-img{
   height:25vh;
-  width:50vw;
+  width:80vw;
   padding:5px;
+}
+.similar-meal-description{
+  width:65vw;
 }
 .remove img{
   height:5vh;
   width:7vw;
+}
+.similar-rec-wrapper{
+  margin-top:-376%;
+}
+.header-custom-meal-detail{
+  margin-top:-182%;
 }
 /* .meal-dis-list{
   flex-direction: column ;

@@ -17,6 +17,7 @@ export default class HealthCheck extends Component {
         this.props.setBmiObject(obj)
     }
     reload = () =>{
+      this.displayDropdown();
       this.props.reloadPlans();
       this.props.history.goBack();
      
@@ -114,12 +115,12 @@ export default class HealthCheck extends Component {
                       {this.displayWhr()}
                       {this.displayWthr()}
                     </div>
-                    <div>
-                        <h3>Ideal Weight</h3>
+                    <div className="res-fields-1">
+                        <h3>Ideal Weight :</h3>
                         <h3>{this.props.bmiResult.ideal_weight}</h3>
                     </div>
-                    <div className="res-fields">
-                        <h3>Calorie In take/ day</h3>
+                    <div className="res-fields-1">
+                        <h3>Calorie In take/ day :</h3>
                         <h3>{this.props.calorieInTakePerDay} calories</h3>
                     </div>
                 </div>
@@ -162,9 +163,9 @@ export default class HealthCheck extends Component {
                 <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
              </button>
              <div style={this.props.styleSettings} className="dropdown-content">
-             <Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link>
-                  <img className="home-icon" src={backButton} alt="backButton" onClick={this.reload}/>
-                  <button onClick={this.logOut}>Log out</button>
+                <div><Link to="/home" ><img className="home-icon" src={homeIcon} alt="homeIcon" onClick={this.props.reloadPlans}/></Link></div> 
+                  <div><img className="home-icon" src={backButton} alt="backButton" onClick={this.reload}/></div>
+                  <div><button onClick={this.logOut}>Log out</button></div>
                 </div>
                <h3>Health Check</h3>
                   <div className="bmi-form">

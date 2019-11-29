@@ -37,7 +37,7 @@ export default class Home extends Component {
                 <img src={this.props.avatar} alt="femaleAvatar" /><span>{`Hey ${this.props.userName}!`}</span>
              </button>
              <div style={this.props.styleSettings} className="dropdown-content">
-                  <button onClick={this.logOut}>Log out</button>
+                  <div><button onClick={this.logOut}>Log out</button></div>
                 </div>
                 <div className="car-self">
                 <img src ={exImg} alt="exersize" />
