@@ -3,7 +3,7 @@ import './customize-meal-plan.css';
 import backButton from '../../images/back-button-icon.png';
 import homeIcon from '../../images/home-icon.jpg';
 import {Link } from 'react-router-dom';
-import addIcon from '../../images/add-icon.webp';
+import addIcon from '../../images/add-icon.svg';
 export default class CustomizeMealPlan extends Component {
     constructor(props){
         super(props);

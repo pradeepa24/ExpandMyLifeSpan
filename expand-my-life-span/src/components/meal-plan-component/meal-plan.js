@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import homeIcon from '../../images/home-icon.jpg';
 import loadingIcon from '../../images/loading-icon.gif';
 import removeIcon from '../../images/remove-icon.png';
-import addIcon from '../../images/add-icon.webp';
+import addIcon from '../../images/add-icon.svg';
 import backButton from '../../images/back-button-icon.png';
 export default class MealPlan extends Component {
     updateSearch = (e) => {

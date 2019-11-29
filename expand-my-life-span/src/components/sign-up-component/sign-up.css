@@ -1,6 +1,3 @@
-/* .avatars{
-   
-} */
 .avatars img{
     height:8vh;
     width:5vw;
@@ -22,5 +19,82 @@
 .avatar-fields div label input{
     width: 8vw;
     position:absolute;
-    bottom:150px;
+    bottom:60px;
+
+}
+.sign-up-contents form .field-groups .fields input{
+    height: 5vh;
+}
+.sign-up-contents{
+    width:63vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    border: solid 4px rgb(88, 40, 8);
+    margin-top:10%;
+    padding:10px;
+}
+.sign-up-contents form{ 
+   
+width:60vw;
+height:80vh;
+}
+.sign-up-contents form .field-groups{
+    height: 70vh;
+    width: 60vw;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.sign-up-contents form .field-groups .fields{
+    height:9vh;
+}
+@media only screen and (max-width : 600px) {
+    .sign-up-contents{
+        width:90vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: white;
+        border-radius: 20px;
+        border: solid 4px rgb(88, 40, 8);
+        margin-top:10%;
+    }
+    .sign-up-contents form{
+    width:90vw;
+    height:80vh;
+    }
+    .sign-up-contents form .field-groups{
+        height: 74vh;
+        width: 80vw;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .sign-up-contents form .field-groups .fields{
+        width:80vw;
+    }
+    .sign-up-contents form .avatar-fields{
+        width: 70vw;
+    }
+    .sign-up-contents form .avatar-fields div{
+    width:60vw;
+    }
+    .sign-up-contents form .avatar-fields label input{
+        width:3vw;
+    }
+    .sign-up-contents form .avatars img{
+        height:8vh;
+        width:10vw;
+    }
 }

@@ -32,9 +32,9 @@ export default class PasswordReset extends Component {
                      this.props.updateCredential(logger);
                 },500)
                 
-            //  let log = {}
+             let log = {}
               
-            //     this.props.setLogin(log)
+                this.props.setLogin(log)
                         this.props.history.push("/");
                     
             }

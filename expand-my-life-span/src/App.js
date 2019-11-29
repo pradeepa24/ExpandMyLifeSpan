@@ -530,6 +530,9 @@ console.log(login)
     futureLoggers.push(this.state.loggerInfo);
      Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd713560dce380017fe821d",{loggers:futureLoggers})
     .then(res=>{
+      
+      console.log(res);
+      this.getCredentials();
       this.setState({
         authenticatedFlag:true
       })

@@ -25,21 +25,23 @@ export default class SignUp extends Component {
       setTimeout(()=>{
           console.log(this.props.loggerInfo)
         this.props.createAccount();
+    },500)
+    setTimeout(()=>{
         this.props.authenticateUser();
           console.log(this.props.authenticatedFlag);
-        
-    },500)
+        },1000)   
+  
     
     setTimeout(() => {
         if(this.props.authenticatedFlag) {
             this.props.history.push("/home");
           }
-    }, 2000)
+    }, 1000)
    }
     render() {
         return (
             <div className="login">
-             <div className="login-content">
+             <div className="sign-up-contents">
              <form>
                  <div className="field-groups">
                  <div className="fields">
@@ -48,6 +50,7 @@ export default class SignUp extends Component {
                               name="firstName"
                               value={this.props.loggerInfo.firstName}
                               onChange={this.updateLogger}
+                              placeholder="Enter First name"
                         />
                          </div>
                         <div className="fields">
@@ -56,6 +59,7 @@ export default class SignUp extends Component {
                               name="lastName"
                               value={this.props.loggerInfo.lastName}
                               onChange={this.updateLogger}
+                              placeholder="Enter Last name"
                         />
                          </div>
                         <div className="fields">
@@ -64,6 +68,7 @@ export default class SignUp extends Component {
                               name="email"
                               value={this.props.loggerInfo.email}
                               onChange={this.updateLogger}
+                              placeholder="Email"
                         />
                          </div>
                      <div className="fields">
@@ -72,6 +77,7 @@ export default class SignUp extends Component {
                               name="userName"
                               value={this.props.loggerInfo.userName}
                               onChange={this.updateLogger}
+                              placeholder="Enter User name"
                         />
                      </div>
                      <div className="fields">
@@ -80,6 +86,7 @@ export default class SignUp extends Component {
                                name="password"
                                value={this.props.loggerInfo.password}
                                onChange={this.updateLogger}
+                               placeholder="Enter Password"
                          />      
                      </div>
                      <div className="fields">
@@ -88,6 +95,7 @@ export default class SignUp extends Component {
                                name="question"
                                value={this.props.loggerInfo.question}
                                onChange={this.updateLogger}
+                               placeholder="Quest eg. What is your birth place?"
                          />      
                      </div>
                      <div className="fields">
@@ -96,6 +104,7 @@ export default class SignUp extends Component {
                                name="answer"
                                value={this.props.loggerInfo.answer}
                                onChange={this.updateLogger}
+                               placeholder="Enter answer for the secret question"
                          />      
                      </div>
                    
