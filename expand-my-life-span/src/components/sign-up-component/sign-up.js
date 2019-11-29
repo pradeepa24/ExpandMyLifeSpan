@@ -29,7 +29,7 @@ export default class SignUp extends Component {
     setTimeout(()=>{
         this.props.authenticateUser();
           console.log(this.props.authenticatedFlag);
-        },1000)   
+        },2000)   
   
     
     setTimeout(() => {
