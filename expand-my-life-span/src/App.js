@@ -317,134 +317,137 @@ console.log(login)
   }
  
   authenticateUser = () => {
-    let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
-    let logger = this.state.loginCredentials.find(user => {
-      console.log(user)
-      if(user.userName == this.state.loggerInfo.userName){
-        console.log(user.date)
-        return user;
-      }
-    
-    })
-    console.log(this.state.loginCredentials)
-    console.log(this.state.loggerInfo.userName)
-    console.log(this.state.userName)
-    console.log(logger.date)
-    if(logger.date !== new Date().toDateString()){
+    setTimeout(()=>{
+
+      let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
+      let logger = this.state.loginCredentials.find(user => {
+        console.log(user)
+        if(user.userName == this.state.loggerInfo.userName){
+          console.log(user.date)
+          return user;
+        }
+        
+      })
+      console.log(this.state.loginCredentials)
+      console.log(this.state.loggerInfo.userName)
+      console.log(this.state.userName)
+      console.log(logger.date)
+      if(logger.date !== new Date().toDateString()){
         if(logger.caloriePerDay !== ""){
-             this.setState({
-                calorieInTakePerDay:logger.caloriePerDay,
-               },() =>{
-                  this.getMeals(this.state.calorieInTakePerDay);
-              })
-          } else{
-             this.getMeals(this.state.calorieInTakePerDay);
-           }
-           this.handleSubmit("workout");
-           this.getHealthTip();
-           this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
-     
-           if(this.state.avatar === ""){
-              this.setState({
-                    avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
-             })
-            }
-            if(this.state.loggerInfo.password === logger.password) {
-                this.setState({
-                       authenticatedFlag:true,
-                       passwordErrMsg:"",
-                        userNmErrMsg:"",
-                       loggerInfo:logger
-                   },()=>{
-                 console.log(this.state.authenticatedFlag)
-                 
-                 this.updateCredential(logger);
-                })
-             } else{
-              let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
-                      this.setState({
-                        passwordErrMsg:msgInCorrect[0].incorrect,
-                        userNmErrMsg:"",
-                         },()=>{
-                        console.log(this.state.passwordErrMsg)
-                        })
-             }
-    } else {
-         if(!logger.mealPlan.meals || logger.mealPlan.meals.length === 0 ){
-             if(logger.caloriePerDay !== ""){
-                 this.setState({
-                    calorieInTakePerDay:logger.caloriePerDay,
-                    },() =>{
-                    this.getMeals(this.state.calorieInTakePerDay);
-                   })
-               } else{
-                   this.getMeals(this.state.calorieInTakePerDay);
-                }
+          this.setState({
+            calorieInTakePerDay:logger.caloriePerDay,
+          },() =>{
+            this.getMeals(this.state.calorieInTakePerDay);
+          })
+        } else{
+          this.getMeals(this.state.calorieInTakePerDay);
+        }
+        this.handleSubmit("workout");
+        this.getHealthTip();
+        this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
         
-               this.handleSubmit("workout");
-                this.getHealthTip();
-                this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
-        
-               if(this.state.avatar === ""){
-                    this.setState({
-                         avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
-                      })
-                  }
-                  if(this.state.loggerInfo.password === logger.password) {
-                    this.setState({
-                           authenticatedFlag:true,
-                           passwordErrMsg:"",
-                            userNmErrMsg:"",
-                           loggerInfo:logger
-                       },()=>{
-                     console.log(this.state.authenticatedFlag)
-                     
-                     this.updateCredential(logger);
-                    })
-                 } else{
-                  let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
-                          this.setState({
-                            passwordErrMsg:msgInCorrect[0].incorrect,
-                            userNmErrMsg:"",
-                             },()=>{
-                            console.log(this.state.passwordErrMsg)
-                            })
-                 }
-      } else{
-        console.log('entering else')
+        if(this.state.avatar === ""){
+          this.setState({
+            avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
+          })
+        }
         if(this.state.loggerInfo.password === logger.password) {
           this.setState({
-             authenticatedFlag:true,
-             passwordErrMsg:"",
-                userNmErrMsg:"",
+            authenticatedFlag:true,
+            passwordErrMsg:"",
+            userNmErrMsg:"",
+            loggerInfo:logger
+          },()=>{
+            console.log(this.state.authenticatedFlag)
+            
+            this.updateCredential(logger);
           })
+        } else{
+          let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
           this.setState({
-                calorieInTakePerDay:logger.caloriePerDay,
-                 mealPlan:logger.mealPlan,
-                 workoutVideos:logger.workoutPlan,
-                 healthTip:logger.healthTip,
-                 avatar:logger.avatar,
-                healthVideoList:logger.healthVideos,
-                loggerInfo:logger
-             },()=>{
-                if(this.state.avatar === ""){
-                   this.setState({
-                         avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
-                     })
-                  }
-           })
-      } else{
-      let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
-              this.setState({
-                passwordErrMsg:msgInCorrect[0].incorrect,
-                userNmErrMsg:"",
-                 },()=>{
-                console.log(this.state.passwordErrMsg)
+            passwordErrMsg:msgInCorrect[0].incorrect,
+            userNmErrMsg:"",
+          },()=>{
+            console.log(this.state.passwordErrMsg)
+          })
+        }
+      } else {
+        if(!logger.mealPlan.meals || logger.mealPlan.meals.length === 0 ){
+          if(logger.caloriePerDay !== ""){
+            this.setState({
+              calorieInTakePerDay:logger.caloriePerDay,
+            },() =>{
+              this.getMeals(this.state.calorieInTakePerDay);
+            })
+          } else{
+            this.getMeals(this.state.calorieInTakePerDay);
+          }
+          
+          this.handleSubmit("workout");
+          this.getHealthTip();
+          this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
+          
+          if(this.state.avatar === ""){
+            this.setState({
+              avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
+            })
+          }
+          if(this.state.loggerInfo.password === logger.password) {
+            this.setState({
+              authenticatedFlag:true,
+              passwordErrMsg:"",
+              userNmErrMsg:"",
+              loggerInfo:logger
+            },()=>{
+              console.log(this.state.authenticatedFlag)
+              
+              this.updateCredential(logger);
+            })
+          } else{
+            let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
+            this.setState({
+              passwordErrMsg:msgInCorrect[0].incorrect,
+              userNmErrMsg:"",
+            },()=>{
+              console.log(this.state.passwordErrMsg)
+            })
+          }
+        } else{
+          console.log('entering else')
+          if(this.state.loggerInfo.password === logger.password) {
+            this.setState({
+              authenticatedFlag:true,
+              passwordErrMsg:"",
+              userNmErrMsg:"",
+            })
+            this.setState({
+              calorieInTakePerDay:logger.caloriePerDay,
+              mealPlan:logger.mealPlan,
+              workoutVideos:logger.workoutPlan,
+              healthTip:logger.healthTip,
+              avatar:logger.avatar,
+              healthVideoList:logger.healthVideos,
+              loggerInfo:logger
+            },()=>{
+              if(this.state.avatar === ""){
+                this.setState({
+                  avatar:"https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Panda-512.png"
                 })
-     }
+              }
+            })
+          } else{
+            let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
+            this.setState({
+              passwordErrMsg:msgInCorrect[0].incorrect,
+              userNmErrMsg:"",
+            },()=>{
+              console.log(this.state.passwordErrMsg)
+            })
+          }
+        }
+      } 
+    },500);
     }
-    } 
-  }
   reloadPlans = () => {
     this.setState({
       similarRecipes:[]
@@ -527,7 +530,9 @@ console.log(login)
   }
   createAccount = () => {
     let futureLoggers = [...this.state.loginCredentials];
+    console.log(this.state.loggerInfo)
     futureLoggers.push(this.state.loggerInfo);
+    
      Axios.put("https://ironrest.herokuapp.com/pradeepa/5dd713560dce380017fe821d",{loggers:futureLoggers})
     .then(res=>{
       

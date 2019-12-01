@@ -80,7 +80,10 @@ export default class HealthTip extends Component {
                 </div>
                 <h2>Diet Tip</h2>
               </div>
-                <h3>Fact to know: </h3><h4>{this.props.healthTip.text}</h4>
+              <div className="facts">
+              <h3>Fact to know: </h3><h4>{this.props.healthTip.text}</h4>
+              </div>
+                
                 <div className="health-video-content">
                         <div className="health-video-section">
                             {this.displayHealthVideoList()}

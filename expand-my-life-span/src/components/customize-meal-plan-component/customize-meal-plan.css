@@ -84,7 +84,7 @@
   .customize-wrapper{
     width:90vw;
     height:1205vh;
-margin-top:2214%;
+margin-top:2103%;
   }
   .similar-rec{
     width:90vw;
@@ -106,10 +106,10 @@ margin-top:2214%;
   width:7vw;
 }
 .similar-rec-wrapper{
-  margin-top:-376%;
+  margin-top:-205%;
 }
 .header-custom-meal-detail{
-  margin-top:-182%;
+  margin-top:-98%;
 }
 /* .meal-dis-list{
   flex-direction: column ;

@@ -269,7 +269,7 @@
  }
  @media only screen and (max-width : 600px) {
     .meal-details-content{
-       margin-top:337%;
+       margin-top:257%;
        overflow-x: hidden;
        width:90vw;
        height:250vh;
