@@ -21,12 +21,12 @@
   color: #09d3ac;
 }
 .content {
- 
-  height:100vh;
+  background-color:#E2E2E2;
+ height:auto;
   width:100vw;
 }
 h1 {
-  font-size: 40px;
+  font-size: 35px;
   color: white;
   font-weight: bold;
 }
@@ -38,8 +38,8 @@ header {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: 10vh;
-  background-color:rgb(87, 43, 7);
+  height: 6vh;
+  background-color:#000080;
   z-index:4;
   padding: 40px;
   font-family: 'Lobster', cursive;
@@ -47,23 +47,26 @@ header {
   padding-right: 100px;
 }
 header img{
-  height: 8vh;
-  width: 5vw;
+  height: 5vh;
+  width: 3vw;
   position:fixed;
   left:150px;
 }
 header h1{
   position:fixed;
-  left:225px;
+  left:190px;
+  top:17px;
 }
 .main-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100vh;
+  height:auto;
   width:100vw;
   margin-top:3%;
+padding:0px 0px 20px;
 }
+
 @media only screen and (max-width : 600px) {
   header{
     justify-content: center;
@@ -75,6 +78,10 @@ header h1{
   }
   header h1{
     left:47px;
+  }
+  .main-content{
+    padding:0 0 20px 0;
+    height:auto;
   }
 }
 @media only screen and (max-width : 400px) {

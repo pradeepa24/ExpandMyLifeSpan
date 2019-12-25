@@ -1,11 +1,11 @@
 .workout-plan-content{
-    height:150vh;
+    height:auto;
     width:100vw;
     margin-top: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgba(238, 180, 73, 0.19);
+    /* background-color:rgba(238, 180, 73, 0.19); */
 }
 .home-icon{
     height: 7vh;
@@ -21,12 +21,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    height: auto;
     width:80vw;
     /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
-    border: solid 4px rgba(133, 49, 7, 0.466);
+    border: solid 1px rgba(0,0,0,0.3);
    background-color:white;
-   margin-top: 10%;
+   /* margin-top: 10%; */
+   border-radius:13px;
 }
 .loading{
     height: 10vh;
@@ -38,11 +39,11 @@
     justify-content: space-between;
     align-items: center;
     width:88vw;
-    height: 85vh;
+    /* height: 85vh; */
     
 }
 .workout-video-section{
-    width: 30vw;
+    width: 25vw;
     padding:2px;
 }
 .workout-video-description{
@@ -62,6 +63,9 @@
     width: 40vw;
     height: 87vh;
     padding: 5px 30px;
+}
+.working-video img{
+    width:15vw;
 }
 .video-play {
     height:65vh;
@@ -83,7 +87,7 @@
 .loading-content {
     font-size: 25px;
     /* font-family: 'Baloo', cursive; */
-    font-family: 'Lobster', cursive;
+    /* font-family: 'Lobster', cursive; */
 }
 .working-video img{
     width:20vw;
@@ -135,15 +139,15 @@ width:30vw;
     }
     .video-play {
         height:45vh;
-        width: 80vw;
+        width: 60vw;
        
     }
     .video-play iframe{
         height:38vh;
-        width: 90vw;
+        width: 60vw;
         position:relative;
         top:97px;
-        right: 27px;
+        right: 68px;
     }
     .working-video {
         width: 50vw;
@@ -152,6 +156,9 @@ width:30vw;
     .working-video img{
         width: 50vw;
         
+    }
+    .workout-video-section .workout-video img{
+        width:15vw;
     }
     /* .workout-video{
         height:10vh;
@@ -164,8 +171,8 @@ width:30vw;
     } */
     .video-desc{
         height:20vh;
-        width: 90vw; 
-        margin-top:6%;
+        width: 60vw; 
+        margin-top:16%;
         position:relative;
         right: 30px;
         padding:2px;
@@ -178,6 +185,7 @@ width:30vw;
     }
     .user-options{
         width:80vw;
+        padding:15px;
     }
   
 
@@ -186,18 +194,18 @@ width:30vw;
 @media only screen and (max-width : 600px) {
   
     .workout-plan-content{
-        margin-top:15%;
+        /* margin-top:15%; */
         overflow:hidden;
-        height: 300vh;
-        margin-top:228%;
+        /* height: 300vh;
+        margin-top:228%; */
     }
     /* .workout-video-content{
         flex-direction: column;
     } */
     .workout-plan{
         width:90vw;
-        margin-top:13%;
-        height:200vh;
+        /* margin-top:13%;
+        height:200vh; */
     }
     .workout-video-section{
         /* display: flex;
@@ -208,19 +216,19 @@ width:30vw;
         width:60vw; */
         margin-top:1%;
         flex-direction:column;
-        height:115vh;
+        /* height:115vh; */
     }
     .working-video {
         width: 90vw;
         
     }
     .working-video img{
-        width: 60vw;
+        width: 50vw;
         
     }
-    .workout-video-content{
+    /* .workout-video-content{
         margin-top:224%;
-    }
+    } */
     /* .working-video {
         width: 98vw;
         height:74vh;
@@ -250,15 +258,16 @@ width:30vw;
         height:15vh;
         width:30vw;
     } */
-    .workout-video-disp {
+    /* .workout-video-disp {
         margin-top:-200%;
-    }
+    } */
     .video-play iframe{
-        width:89vw;
+        width:75vw;
+        right:40px;
     }
     .video-desc{
        
-        margin-top:10%;
+        margin-top:21%;
        
     }
     h4{
@@ -285,7 +294,7 @@ width:30vw;
         margin-top:-5%;
     }
     .video-desc{
-        margin-top:15%;
+        margin-top:21%;
         width:85vw;
         padding:5px;
     }

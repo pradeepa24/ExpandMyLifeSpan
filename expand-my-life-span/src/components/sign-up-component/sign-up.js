@@ -36,7 +36,7 @@ export default class SignUp extends Component {
         if(this.props.authenticatedFlag) {
             this.props.history.push("/home");
           }
-    }, 1000)
+    }, 2000)
    }
     render() {
         return (

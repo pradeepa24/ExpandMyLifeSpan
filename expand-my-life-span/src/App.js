@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Switch,Route} from 'react-router-dom';
+import {Switch,Route,Link} from 'react-router-dom';
 import Login from './components/login-component/login';
 import SignUp from './components/sign-up-component/sign-up';
 import Home from './components/home-component/home';
@@ -8,7 +8,6 @@ import MealPlan from './components/meal-plan-component/meal-plan';
 import WorkoutPlan from './components/workout-plan-component/workout-plan';
 import HealthCheck from './components/health-check-component/health-check';
 import RecipeDetails from './components/recipe-details-component/recipe-details';
-import CustomizeMealPlan from './components/customize-meal-plan-component/customize-meal-plan';
 import PasswordReset from './components/password-reset-component/password-reset';
 import Axios from 'axios';
 import leafIcon from './images/leaf-icon.png';
@@ -48,7 +47,7 @@ class App extends React.Component {
     password:"",
     confirmPassword:"",
     mealPlan:{},
-    similarRecipes:[],
+  
     searchText:"",
     searchList:[],
     authenticatedFlag: false,
@@ -84,14 +83,53 @@ class App extends React.Component {
     healthTip:{},
     healthVideoList:[],
     selectedHealthVideo:null,
-    searchQueryForHealth:['indian health tips','american health tips','tasty smoothies','healthy food choices']
-    }
+    searchQueryForHealth:['indian health tips','american health tips','tasty smoothies','healthy food choices'],
+    mealPage:'mealPlan',
+    //pagination variables
+    //pagination for search
+    pageCountForSearch:1,
+    offsetForSearch: 0,
+    elementsForSearch: [],
+    perPageForSearch: 2,
+    currentPageForSearch: 0,
+                  }
   }
 
   componentDidMount(){
    this.getCredentials();
-   
+  //  this.getSimilarRecipes();
   }
+  //pagination
+// handlePageClick = (dataForDiff) => {
+//   console.log(dataForDiff)
+//   const selectedPageForDiff = dataForDiff.selected;
+//   const offsetForDiff = selectedPageForDiff * this.state.perPage;
+//   this.setState({ currentPage: selectedPageForDiff, offset: offsetForDiff }, () => {
+//     this.setElementsForCurrentPage();
+//   });
+// }
+// setElementsForCurrentPage() {
+//   let elements = this.state.similarRecipes
+//                 .slice(this.state.offset, this.state.offset + this.state.perPage)
+//   this.setState({ elements: elements, pageCount:this.state.similarRecipes.length/this.state.perPage },()=>{
+//     console.log(this.state.elements)
+//   });
+// }
+handlePageClickForSearch = (data) => {
+  console.log(data)
+  const selectedPage = data.selected;
+  const offset = selectedPage * this.state.perPageForSearch;
+  this.setState({ currentPageForSearch: selectedPage, offsetForSearch: offset }, () => {
+    this.setElementsForCurrentPageForSearch();
+  });
+}
+setElementsForCurrentPageForSearch() {
+  let elements = this.state.searchList
+                .slice(this.state.offsetForSearch, this.state.offsetForSearch+ this.state.perPageForSearch)
+  this.setState({ elementsForSearch: elements, pageCountForSearch:this.state.searchList.length/this.state.perPageForSearch },()=>{
+    console.log(this.state.elementsForSearch)
+  });
+}
   checkPswd = (pswd) =>{
     let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1)
    if(pswd === ''){
@@ -137,10 +175,12 @@ class App extends React.Component {
     })
   }
   getDescription = (id) => {
-    Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,{headers:{
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "x-rapidapi-key": spoonacularKey}
-    })
+    Axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${spoonDirectKey}`
+    // ,{headers:{
+    //   "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    // "x-rapidapi-key": spoonacularKey}
+    // }
+    )
          .then((res)=>{
            console.log(res);
            this.getNutrition(id);
@@ -153,10 +193,12 @@ class App extends React.Component {
          })
   }
  getNutrition = (id) => {
-   Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/nutritionWidget.json`,{headers:{
-    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "x-rapidapi-key": spoonacularKey}
- })
+   Axios.get(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${spoonDirectKey}`
+//    ,{headers:{
+//     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+//     "x-rapidapi-key": spoonacularKey}
+//  }
+ )
  .then((res) => {
    console.log(res)
    this.setState({
@@ -258,32 +300,35 @@ class App extends React.Component {
        })
     
 }
-getSimilarRecipes = () => {
-  if(this.state.mealPlan.meals){
-    this.state.mealPlan.meals.forEach((meal,ind)=>{
-      console.log(ind)
-      this.callSimilarRecipes(meal.id);
+// getSimilarRecipes = () => {
+//   if(this.state.mealPlan.meals){
+//     this.state.mealPlan.meals.forEach((meal,ind)=>{
+//       console.log(ind)
+//       this.callSimilarRecipes(meal.id);
       
-    })
-  } 
-}
-callSimilarRecipes = (id) =>{
-  Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/similar`,{headers:{
-    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    "x-rapidapi-key": spoonacularKey}
-  })
-  .then((res) => {
-    console.log(res)
-    let similarRecipes = [...this.state.similarRecipes];
-    res.data.forEach((rec,index) => {
-       similarRecipes.push(rec);
-    })
-    this.setState({
-      similarRecipes:similarRecipes
-    })
-  })
-  .catch((err)=>console.log(err))
-}
+//     })
+//   } 
+// }
+// callSimilarRecipes = (id) =>{
+//   Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/similar`,{headers:{
+//     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+//     "x-rapidapi-key": spoonacularKey}
+//   })
+//   .then((res) => {
+//     console.log(res)
+//     let similarRecipes = [...this.state.similarRecipes];
+//     res.data.forEach((rec,index) => {
+//        similarRecipes.push(rec);
+//     })
+//     this.setState({
+//       similarRecipes:similarRecipes
+//     },()=>{
+//       console.log(this.state.similarRecipes)
+//       this.setElementsForCurrentPage();
+//     })
+//   })
+//   .catch((err)=>console.log(err))
+// }
 
 getCredentials = () => {
   Axios.get("https://ironrest.herokuapp.com/pradeepa")
@@ -322,7 +367,7 @@ console.log(login)
       let fieldNm = this.state.errorMessages.find((field,ind)=> ind === 1);
       let logger = this.state.loginCredentials.find(user => {
         console.log(user)
-        if(user.userName == this.state.loggerInfo.userName){
+        if(user.userName === this.state.loggerInfo.userName){
           console.log(user.date)
           return user;
         }
@@ -361,6 +406,7 @@ console.log(login)
             console.log(this.state.authenticatedFlag)
             
             this.updateCredential(logger);
+            // this.getSimilarRecipes();
           })
         } else{
           let msgInCorrect = fieldNm.password.filter((m,i)=>  i===1)
@@ -516,14 +562,18 @@ console.log(login)
   }
   callMeals = ()=> {
     let str = this.state.searchText;
-    Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${str}`,{headers:{
-        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": spoonacularKey}
-    })
+    Axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${spoonDirectKey}&query=${str}`
+    // ,{headers:{
+    //     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    //     "x-rapidapi-key": spoonacularKey}
+    // }
+    )
       .then(res => {
         console.log(res)
         this.setState({
           searchList:res.data.results
+      },()=>{
+        this.setElementsForCurrentPageForSearch();
       })
     })
       .catch(err => console.log(err))
@@ -544,13 +594,18 @@ console.log(login)
     })
     .catch(err=>console.log(err))
   }
+  displaySelection = (selection) => {
+    this.setState({
+      mealPage:selection
+    })
+  }
   removeMealFromPlan = (ind) =>{
     let mealList = {...this.state.mealPlan};
     mealList.meals.splice(ind,1);
     this.setState({
       mealPlan:mealList
     },() => {
-      let loggerForRemoval = this.state.loginCredentials.filter(user => user.userName === this.state.userName);
+      let loggerForRemoval = this.state.loginCredentials.find(user => user.userName === this.state.userName);
       this.updateCredential(loggerForRemoval);
     })
     
@@ -562,8 +617,9 @@ console.log(login)
       mealPlan:mealList,
      
     },() =>{
-      let loggerForAdding = this.state.loginCredentials.filter(user => user.userName === this.state.userName);
+      let loggerForAdding = this.state.loginCredentials.find(user => user.userName === this.state.userName);
       this.updateCredential(loggerForAdding);
+      this.displaySelection('mealPlan');
     }) 
   }
   getHealthTip = () =>{
@@ -610,7 +666,7 @@ handleHealthVideoSelect = (video) => {
       <div className="content">
         <header>
            <img src={leafIcon} alt="leafIcon" />
-          <h1>Aarokya</h1>
+           <Link to="/home" onClick={this.state.reloadPlans}><h1>Aarokya</h1></Link>
         </header>
         <div className="main-content">
           <Switch>
@@ -655,7 +711,21 @@ handleHealthVideoSelect = (video) => {
                                                                              setStyleSettings = {this.setStyleSettings}
                                                                              logOutSession = {this.logOutSession}      
                                                                               authenticatedFlag = {this.state.authenticatedFlag}
-                                                                                     
+                                                                              mealPage = {this.state.mealPage}
+                                                                              displaySelection = {this.displaySelection}
+                                                                              // getSimilarRecipes = {this.getSimilarRecipes}
+                                                                              similarRecipes = {this.state.similarRecipes}
+                                                                              elements ={this.state.elements}
+                                                                              setElementsForCurrentPage = {this.setElementsForCurrentPage}
+                                                                              elementsForSearch ={this.state.elementsForSearch}
+                                                                              setElementsForCurrentPageForSearch = {this.setElementsForCurrentPageForSearch}
+                                                                              handlePageClick = {this.props.handlePageClick}
+                                                                              currentPage = {this.props.currentPage}
+                                                                              pageCount = {this.props.pageCount}
+                                                                              handlePageClickForSearch = {this.handlePageClickForSearch}
+                                                                              currentPageForSearch = {this.state.currentPageForSearch}
+                                                                              pageCountForSearch = {this.state.pageCountForSearch}
+                                                                                                                                                                               
             /> } />
             <Route exact path="/workout-plan" render = { (props) => <WorkoutPlan {...props} workoutVideos = {this.state.workoutVideos}
                                                                                             selectedWorkoutVideo = {this.state.selectedWorkoutVideo}
@@ -699,18 +769,7 @@ handleHealthVideoSelect = (video) => {
                                                                               authenticatedFlag = {this.state.authenticatedFlag}
                                                                                              
             /> } />
-              <Route exact path="/customize-meal-plan" render = { (props) => <CustomizeMealPlan {...props} getSimilarRecipes = {this.getSimilarRecipes}
-                                                                                                           similarRecipes = {this.state.similarRecipes}
-                                                                                                           addMealFromPlan = {this.addMealFromPlan}
-                                                                                                           reloadPlans = {this.reloadPlans}
-                                                                                                           userName = {this.state.userName}  
-                                                                              avatar = {this.state.avatar} 
-                                                                              styleSettings = {this.state.styleSettings}
-                                                                             setStyleSettings = {this.setStyleSettings}
-                                                                             logOutSession = {this.logOutSession}      
-                                                                              authenticatedFlag = {this.state.authenticatedFlag}
-                                                                                                         
-            /> } />
+              
             <Route exact path="/health-tip" render = { (props) => <HealthTip {...props} healthTip = {this.state.healthTip}
                                                                                         healthVideoList = {this.state.healthVideoList}
                                                                                         selectedHealthVideo = {this.state.selectedHealthVideo}

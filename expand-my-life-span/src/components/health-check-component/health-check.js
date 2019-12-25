@@ -116,12 +116,12 @@ export default class HealthCheck extends Component {
                       {this.displayWthr()}
                     </div>
                     <div className="res-fields-1">
-                        <h3>Ideal Weight :</h3>
-                        <h3>{this.props.bmiResult.ideal_weight}</h3>
+                        <h5>Ideal Weight :</h5>
+                        <h5>{this.props.bmiResult.ideal_weight}</h5>
                     </div>
                     <div className="res-fields-1">
-                        <h3>Calorie In take/ day :</h3>
-                        <h3>{this.props.calorieInTakePerDay} calories</h3>
+                        <h5>Calorie In take/ day :</h5>
+                        <h5>{this.props.calorieInTakePerDay} calories</h5>
                     </div>
                 </div>
             )

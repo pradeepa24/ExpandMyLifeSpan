@@ -6,6 +6,8 @@ import loadingIcon from '../../images/loading-icon.gif';
 import removeIcon from '../../images/remove-icon.png';
 import addIcon from '../../images/add-icon.svg';
 import backButton from '../../images/back-button-icon.png';
+import ReactPaginate from 'react-paginate';
+
 export default class MealPlan extends Component {
     updateSearch = (e) => {
        this.props.setSearch(e.target.value);
@@ -44,10 +46,9 @@ export default class MealPlan extends Component {
     }
     displaySearchResult = () =>{
        
-        if(this.props.searchList.length > 0){
-          return this.props.searchList.map((meal,ind) => {
+        if(this.props.elementsForSearch.length > 0){
+          return this.props.elementsForSearch.map((meal,ind) => {
             return (
-             
                   <div key={ind} className="meal-content" >
                   <Link to={`/meal-plan/${meal.id}`} key={ind} ><img className="meal-img" src={`https://spoonacular.com/recipeImages/${meal.image}`} alt={meal.title}/></Link>
                   <div  className="meals-dis-list">
@@ -58,18 +59,18 @@ export default class MealPlan extends Component {
                     </div>
                     <button className="remove" onClick={()=>this.addMeal(this.props.searchList,ind)} ><img src={addIcon} alt="addIcon" /></button>
                    </div>
-                   
                 </div>
                 
                 )
         })
-        } else{
-          return (
-            <div className="loader-section">
-               <h3>Loading</h3><img className="loading" src={loadingIcon} alt="loadingIcon"/>
-            </div>
-          )
-        }
+        } 
+        // else{
+        //   return (
+        //     <div className="loader-section">
+        //        <h3>Loading</h3><img className="loading" src={loadingIcon} alt="loadingIcon"/>
+        //     </div>
+        //   )
+        // }
        
     }
     displayDropdown = () => {
@@ -95,6 +96,71 @@ reloadMealPlan = () =>{
   this.props.history.goBack();
   this.props.reloadPlans();
 }
+
+displayPage = () => {
+  if(this.props.mealPage === 'mealPlan'){
+    return (
+      <div className="search">
+      <div className="meals-heading">
+                <h2>Meal Plan for the day</h2>
+        </div>
+      {/* <div className="meal-plan-section-2"> */}
+         
+           <div className="meals">
+             {this.displayMeals()}
+          {/* </div> */}
+         </div>
+         </div>
+    )
+   
+  }
+  else if(this.props.mealPage === 'searchMeal'){
+    return (
+      <div className="search-wrap">
+<div className="search">
+<div className="meals-heading">
+                <h2>Search Recipe</h2>
+        </div>
+      <input type="text"
+      name="searchText"
+      value={this.props.searchText}
+      onChange={this.updateSearch}
+      placeholder="Search recipes"
+     />
+  {this.props.elementsForSearch.length > 0 ? 
+    <div className="search-cont" >
+  <ReactPaginate containerClassName="pagination-container"
+                       pageClassName="page-list"
+                       activeClassName="active-page"
+                       previousLinkClassName="page-list"
+                       nextLinkClassName="page-list"
+                       breakLabel={'...'}
+                       pageCount={this.props.pageCountForSearch}
+                       breakClassName="page-ellipsis"
+                       breakLinkClassName="page-ellipsis-a"
+                       pageRangeDisplayed={1}
+                       marginPagesDisplayed={1}
+                       onPageChange={this.props.handlePageClickForSearch}
+                       forcePage={this.props.currentPageForSearch}
+                       previousLabel={"Prev"}
+                       nextLabel={"Next"}
+        />
+        <div className="search-result-page">
+  {this.displaySearchResult()}
+        </div>
+  </div>
+  :
+  <div>
+  </div>
+  }
+  
+  </div>
+      </div>
+      
+    )
+ 
+  }
+}
     render() {
        
         return (
@@ -110,33 +176,13 @@ reloadMealPlan = () =>{
                 </div>
               <div className="meal-plan-purpose">
                 <div className="meal-plan-sections">
-                <div className="meals-heading">
-                          <h2>Meal Plan for the day</h2>
-                  </div>
-                <div className="meal-plan-section-2">
-                   
-                     <div className="meals">
-                       {this.displayMeals()}
-                    </div>
-                   </div>
-                  <div className="search-meal-content">
-                      <Link to="/customize-meal-plan"><h3>Need a different Meal Plan? View Me</h3></Link>
-                      <span>Or</span><h3> Search your meal</h3><div className="search-meal">
-                         <input type="text"
-                                name="searchText"
-                                value={this.props.searchText}
-                                onChange={this.updateSearch}
-                                placeholder="Search recipes"
-                          />
-                      </div>
-                      <div className="search-results">
-
-                      {this.displaySearchResult()}
-                      </div>
-                   </div>
-
-                   
-                   
+                <nav>
+                  <button className="nav-opt" onClick={()=>{this.props.displaySelection('mealPlan')}}><p>MEAL PLAN</p></button>
+                  <button className="nav-opt" onClick={()=>{this.props.displaySelection('searchMeal')}}><p>SEARCH MEAL</p></button>
+                </nav>
+                <div className="page">
+               {this.displayPage()}
+                </div>
                 </div>
               </div>
             </div>

@@ -55,39 +55,43 @@ export default class Home extends Component {
                 <div className="navigation-sections">
                 <Link to="/meal-plan">
                   <div className="meal-nav">
+                  <img src={mealBackground} alt="meals" />
                    <div className="meal-nav-description">
                       <h4>Meal Plan</h4>
                        <p>Customized recipes according to your calorie intake per day along with ingredients, directions and nutrition facts.
                      So you can enjoy all there is to love about cooking, eating and staying healthy.</p>
                    </div>
-                   <img src={mealBackground} alt="meals" />
+                   
                   </div>
                 </Link>
                 <Link to="/workout-plan">
                   <div className="meal-nav">
+                  <img src={workoutBackground} alt="meals" />
                    <div className="meal-nav-description">
                       <h4>Workout Plan</h4>
                       <p>Workout videos picked from youtube and options offered to select the type of workout you can go for. Be Active, stay healthy.</p>
                    </div>
-                   <img src={workoutBackground} alt="meals" />
+                   
                   </div>
                 </Link>
                 <Link to="/health-check">
                   <div className="meal-nav">
+                  <img src={healthCheckBackground} alt="meals" />
                    <div className="meal-nav-description">
                       <h4>Health Check</h4>
                       <p>Get your BMI checked, know your ideal weight and calorie in take per day, get your meal plan customized according to it.</p>
                    </div>
-                   <img src={healthCheckBackground} alt="meals" />
+                   
                   </div>
                 </Link>
                 <Link to="/health-tip">
                   <div className="meal-nav">
+                  <img src={healthTips} alt="meals" />
                    <div className="meal-nav-description">
                       <h4>Health Tips</h4>
                       <p>Get a health tip, a video to live a healthy living.</p>
                    </div>
-                   <img src={healthTips} alt="meals" />
+                   
                   </div>
                 </Link>
                 </div>
