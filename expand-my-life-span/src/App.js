@@ -48,7 +48,7 @@ class App extends React.Component {
     confirmPassword:"",
     mealPlan:{},
   
-    searchText:"",
+    searchText:"Pasta",
     searchList:[],
     authenticatedFlag: false,
     workoutVideos: [],
@@ -97,6 +97,7 @@ class App extends React.Component {
 
   componentDidMount(){
    this.getCredentials();
+   this.callMeals();
   //  this.getSimilarRecipes();
   }
   //pagination
@@ -383,12 +384,14 @@ console.log(login)
             calorieInTakePerDay:logger.caloriePerDay,
           },() =>{
             this.getMeals(this.state.calorieInTakePerDay);
+            // this.callMeals();
           })
         } else{
           this.getMeals(this.state.calorieInTakePerDay);
+          // this.callMeals();
         }
         this.handleSubmit("workout");
-        this.getHealthTip();
+        //this.getHealthTip();
         this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
         
         if(this.state.avatar === ""){
@@ -424,13 +427,15 @@ console.log(login)
               calorieInTakePerDay:logger.caloriePerDay,
             },() =>{
               this.getMeals(this.state.calorieInTakePerDay);
+              // this.callMeals();
             })
           } else{
             this.getMeals(this.state.calorieInTakePerDay);
+            // this.callMeals();
           }
           
           this.handleSubmit("workout");
-          this.getHealthTip();
+          //this.getHealthTip();
           this.handleSubmitForHealth(this.state.searchQueryForHealth[Math.floor(Math.random()*this.state.searchQueryForHealth.length)]);
           
           if(this.state.avatar === ""){
@@ -549,7 +554,8 @@ console.log(login)
     })
     if(str.length < 1){
       this.setState({
-        searchList:[]
+        searchList:[],
+        elementsForSearch:[]
     })
     }
   }
@@ -622,23 +628,23 @@ console.log(login)
       this.displaySelection('mealPlan');
     }) 
   }
-  getHealthTip = () =>{
-    Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random`,{headers:{
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": spoonacularKey}
-  })
-  .then((res) => {
-    console.log(res)
+  // getHealthTip = () =>{
+  //   Axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random`,{headers:{
+  //     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  //     "x-rapidapi-key": spoonacularKey}
+  // })
+  // .then((res) => {
+  //   console.log(res)
     
-    this.setState({
-      healthTip:res.data
-    },()=>{
-      console.log(this.state.healthTip)
+  //   this.setState({
+  //     healthTip:res.data
+  //   },()=>{
+  //     console.log(this.state.healthTip)
       
-    })
-  })
-  .catch((err) => console.log(err))
-  }
+  //   })
+  // })
+  // .catch((err) => console.log(err))
+  // }
   handleSubmitForHealth = (userQuery) => {
     Axios.get('https://www.googleapis.com/youtube/v3/search',{params: {
       part: "snippet",
@@ -770,7 +776,8 @@ handleHealthVideoSelect = (video) => {
                                                                                              
             /> } />
               
-            <Route exact path="/health-tip" render = { (props) => <HealthTip {...props} healthTip = {this.state.healthTip}
+            <Route exact path="/health-tip" render = { (props) => <HealthTip {...props} 
+            // healthTip = {this.state.healthTip}
                                                                                         healthVideoList = {this.state.healthVideoList}
                                                                                         selectedHealthVideo = {this.state.selectedHealthVideo}
                                                                                         handleHealthVideoSelect = {this.handleHealthVideoSelect}

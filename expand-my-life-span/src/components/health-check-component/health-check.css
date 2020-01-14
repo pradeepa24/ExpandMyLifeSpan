@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     /* background-color:rgba(238, 180, 73, 0.19); */
+    padding-top:100px;
 }
 .health-check-section h3{
    text-align:center;
@@ -17,9 +18,9 @@
     align-items: center;
     /* height:180vh; */
     width:80vw;
-    border: solid 1px rgba(0,0,0,0.3);
+    /* border: solid 1px rgba(0,0,0,0.3);
     background-color:white;
-    border-radius:13px;
+    border-radius:13px; */
     /* margin-top: 80%; */
     height:auto;
 }
@@ -37,10 +38,10 @@
 }
 .bmi-form{
     width:30vw;
-    box-shadow: 10px 10px 10px 10px #aaaaaa;
+    box-shadow: 10px 10px 5px #aaaaaa;
     height:60vh;
     border-radius:12px;
-   
+   background-color:white;
 }
 .bmi-result{
   padding: 5px;
@@ -68,15 +69,23 @@
    flex-direction: column;
    justify-content: flex-start;
    align-items: flex-start;
-   height: 50vh;
+   height: 40vh;
    width: 25vw;
-   box-shadow: 10px 10px 10px 10px #aaaaaa;
-   
+   /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
+   border:solid 1px black;
+   background-color: white;
 }
 .res-content{
     padding:20px;
 }
-
+.fill{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:bold;
+    padding:5px;
+    height:20vh;
+}
 /* .bmi-result-parts label,.bmi-result-parts p {
     font-family: 'Lobster', cursive;
 } */
@@ -147,6 +156,15 @@ select {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+.res-fields-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:80vw;
+    color:rgba(182, 13, 13, 0.877);
+    padding:10px;
 }
 @media only screen and (max-width : 600px) {
     .health-check-section{
@@ -224,7 +242,7 @@ select {
     }
     .res-fields-1{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
         width:90vw;

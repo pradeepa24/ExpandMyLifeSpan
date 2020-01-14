@@ -57,9 +57,13 @@ export default class HealthTip extends Component {
                    </div>
                </div>
             )
-        } else {
+        } 
+        else {
             return (
-                <span className="loading-content">Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
+                // <span className="loading-content">Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
+                <div className="fill-health">
+
+                </div>
             )
         }
         
@@ -80,9 +84,9 @@ export default class HealthTip extends Component {
                 </div>
                 <h2>Diet Tip</h2>
               </div>
-              <div className="facts">
+              {/* <div className="facts">
               <h3>Fact to know: </h3><h4>{this.props.healthTip.text}</h4>
-              </div>
+              </div> */}
                 
                 <div className="health-video-content">
                         <div className="health-video-section">

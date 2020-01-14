@@ -4,8 +4,8 @@
     justify-content: space-around;
     align-items: center;
     /* height: 400vh; */
-    margin-top:5%;
-    height:auto;
+    /* margin-top:5%; */
+    height:100vh;
     width: 100vw;
 
     /* margin-top:45%; */
@@ -22,9 +22,9 @@
     /* background-color:white; */
     /* height: 225vh; */
     width:80vw;
-    border:solid 1px rgba(0,0,0,0.3);
-    border-radius:13px;
-    background-color: white;
+    /* border:solid 1px rgba(0,0,0,0.3); */
+    /* border-radius:13px; */
+    /* background-color: white; */
 }
 .meals-heading h2{
     font-weight:bold;
@@ -60,14 +60,15 @@
     align-items: center;
     /* box-shadow: 10px 10px 10px 10px #aaaaaa; */
     padding: 10px;
+    height:65vh;
 }
 .meals-heading {
-    height: 10vh;
+    height: 5vh;
    
 }
 .meal-content {
      height: auto; 
-    width: 25vw;
+    width: 18vw;
     display: flex;
     flex-direction: column;
     /* border: solid 2px rgb(151, 145, 145); */
@@ -77,11 +78,11 @@
     padding:2px;
     margin-top:2%;
     box-shadow: 2px 2px 2px 2px #aaaaaa;
-    /* background-color:rgba(149, 221, 16, 0.89); */
+    background-color:white;
 }
 .meal-img {
     height: 17vh;
-    width: 24.5vw;
+    width: 18vw;
     /* padding:5px; */
     border-top-left-radius:10px;
     border-top-right-radius:10px;
@@ -89,7 +90,7 @@
 .meal-description {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 13vw;
     /* position: relative;
     left: 20px; */
    line-height:1;
@@ -115,7 +116,8 @@ h5 {
     /* height:100vh; */
 }
 .meal-plan-sections nav{
-    padding:10px;
+    padding:20px;
+    height:10vh;
 }
 .page{
     display: flex;
@@ -161,7 +163,7 @@ h5 {
     flex-direction: row;
     justify-content: space-around;
     align-items:center;
-    width:80vw;
+    width:30vw;
 }
 .search-wrap{
     display:flex;
@@ -257,10 +259,14 @@ h5 {
     width: 100%;
   }
   .nav-opt{
-  background-color:#000080;
-  color:white;
+  background-color:transparent;
+  color:#05055a;
   border:transparent;
-  border-radius:7px;
+  /* border-radius:7px; */
+  font-weight:bold;
+  }
+  .nav-opt:hover,.nav-opt:active{
+      text-decoration: underline;
   }
 @media only screen and (max-width : 1200px) {
  
@@ -272,15 +278,20 @@ h5 {
 @media only screen and (max-width : 600px) {
     .meals{
         flex-direction: column;
+        height:auto;
+       
+    }
+    .meal-plan-sections nav{
+        width:50vw;
     }
      .meal-plan-content{
         margin-top:20%;
       }
       .meal-content{
-          width:70vw;
+          width:60vw;
       }
       .meal-img{
-        width:70vw;
+        width:60vw;
       }
       .page{
           height:auto;

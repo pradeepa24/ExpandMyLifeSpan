@@ -57,7 +57,7 @@ export default class MealPlan extends Component {
                        <p>Preparation Time: {meal.readyInMinutes}</p>
                        <p>Servings: {meal.servings}</p>
                     </div>
-                    <button className="remove" onClick={()=>this.addMeal(this.props.searchList,ind)} ><img src={addIcon} alt="addIcon" /></button>
+                    <button className="remove" onClick={()=>this.addMeal(this.props.elementsForSearch,ind)} ><img src={addIcon} alt="addIcon" /></button>
                    </div>
                 </div>
                 
@@ -102,7 +102,7 @@ displayPage = () => {
     return (
       <div className="search">
       <div className="meals-heading">
-                <h2>Meal Plan for the day</h2>
+                <h3>MEAL PLAN FOR THE DAY</h3>
         </div>
       {/* <div className="meal-plan-section-2"> */}
          

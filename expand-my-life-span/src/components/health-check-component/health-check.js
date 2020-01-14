@@ -116,12 +116,9 @@ export default class HealthCheck extends Component {
                       {this.displayWthr()}
                     </div>
                     <div className="res-fields-1">
-                        <h5>Ideal Weight :</h5>
-                        <h5>{this.props.bmiResult.ideal_weight}</h5>
-                    </div>
-                    <div className="res-fields-1">
-                        <h5>Calorie In take/ day :</h5>
-                        <h5>{this.props.calorieInTakePerDay} calories</h5>
+                        <h5>Ideal Weight : {this.props.bmiResult.ideal_weight}</h5>
+         
+                        <h5>Calorie In take/ day : {this.props.calorieInTakePerDay} calories</h5>
                     </div>
                 </div>
             )
@@ -135,8 +132,8 @@ export default class HealthCheck extends Component {
                 )
               } else {
                   return (
-                      <div>
-                          <h3>Please fill the BMI form and hit Calculate to get your result</h3>
+                      <div className="fill">
+                          <p>PLEASE FILL BMI FORM TO GET BMI RESULT</p>
                       </div>
                   )
               }
@@ -167,7 +164,7 @@ export default class HealthCheck extends Component {
                   <div><img className="home-icon" src={backButton} alt="backButton" onClick={this.reload}/></div>
                   <div><button onClick={this.logOut}>Log out</button></div>
                 </div>
-               <h3>Health Check</h3>
+               {/* <h3>Health Check</h3> */}
                   <div className="bmi-form">
                        <h3>BMI Form</h3>
                     <form>

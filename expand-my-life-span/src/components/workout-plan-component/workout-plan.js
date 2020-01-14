@@ -39,11 +39,12 @@ export default class WorkoutPlan extends Component {
                    </div>
                </div>
             )
-        } else {
-            return (
-                <span className="loading-content">Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
-            )
-        }
+        } 
+        // else {
+        //     return (
+        //         <span className="loading-content">Loading<img className="loading" src={loadingIcon} alt="loadingIcon"/></span>
+        //     )
+        // }
         
     }
     checkVal = (e) =>{
